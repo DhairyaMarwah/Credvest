@@ -1,26 +1,179 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ── Fonts ── */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-geist-mono);
+
+  /* ── Credvest Brand Colors ── */
+
+  /* Primary Orange */
+  --color-brand: #FA412A;
+  --color-brand-50: #FFF1F0;
+  --color-brand-100: #FFE0DC;
+  --color-brand-200: #FFC2B8;
+  --color-brand-500: #FA412A;
+  --color-brand-600: #E03520;
+  --color-brand-700: #C22A18;
+
+  /* Secondary Pastels (Sunrise palette) */
+  --color-pastel-green: #E6FFD9;
+  --color-pastel-blue: #CFEBFF;
+  --color-pastel-pink: #FFE6F4;
+  --color-pastel-yellow: #FFFBB8;
+
+  /* Warm Cream Background */
+  --color-cream: #FFFEF6;
+
+  /* Neutrals — Dark */
+  --color-neutral-black: #0A0A0A;
+  --color-neutral-900: #1A1A1A;
+  --color-neutral-800: #2E2E2E;
+  --color-neutral-700: #454545;
+  --color-neutral-600: #5C5C5C;
+  --color-neutral-500: #7A7A7A;
+
+  /* Neutrals — Light */
+  --color-neutral-400: #A0A0A0;
+  --color-neutral-300: #C4C4C4;
+  --color-neutral-200: #E0E0E0;
+  --color-neutral-100: #F0F0F0;
+  --color-neutral-50: #F8F8F8;
+
+  /* ── Shadcn/UI mappings ── */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* ── Shadcn/UI semantic tokens mapped to Credvest brand ── */
+  --background: #FFFFFF;
+  --foreground: #0A0A0A;
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0A;
+  --primary: #FA412A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0F0F0;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F8F8F8;
+  --muted-foreground: #5C5C5C;
+  --accent: #FFF1F0;
+  --accent-foreground: #1A1A1A;
+  --destructive: #E53E3E;
+  --border: #E0E0E0;
+  --input: #E0E0E0;
+  --ring: #FA412A;
+  --chart-1: #FA412A;
+  --chart-2: #E6FFD9;
+  --chart-3: #CFEBFF;
+  --chart-4: #FFE6F4;
+  --chart-5: #FFFBB8;
+  --radius: 0px;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0A0A0A;
+  --sidebar-primary: #FA412A;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFF1F0;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #E0E0E0;
+  --sidebar-ring: #FA412A;
+}
+
+.dark {
+  --background: #0A0A0A;
+  --foreground: #F8F8F8;
+  --card: #1A1A1A;
+  --card-foreground: #F8F8F8;
+  --popover: #1A1A1A;
+  --popover-foreground: #F8F8F8;
+  --primary: #FFC2B8;
+  --primary-foreground: #0A0A0A;
+  --secondary: #2E2E2E;
+  --secondary-foreground: #F8F8F8;
+  --muted: #2E2E2E;
+  --muted-foreground: #A0A0A0;
+  --accent: #2E2E2E;
+  --accent-foreground: #F8F8F8;
+  --destructive: #E53E3E;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #FFC2B8;
+  --chart-1: #FA412A;
+  --chart-2: #E6FFD9;
+  --chart-3: #CFEBFF;
+  --chart-4: #FFE6F4;
+  --chart-5: #FFFBB8;
+  --sidebar: #1A1A1A;
+  --sidebar-foreground: #F8F8F8;
+  --sidebar-primary: #FFC2B8;
+  --sidebar-primary-foreground: #0A0A0A;
+  --sidebar-accent: #2E2E2E;
+  --sidebar-accent-foreground: #F8F8F8;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #FFC2B8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
 }
