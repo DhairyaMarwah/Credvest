@@ -25,7 +25,7 @@ const playfairDisplay = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = "https://credvest.com";
+const siteUrl = "https://credvest-ten.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
