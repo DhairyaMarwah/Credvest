@@ -60,7 +60,7 @@ export const metadata: Metadata = {
       "One team. One system. Full accountability. From positioning to sell-out.",
     images: [
       {
-        url: "/og.png",
+        url: "/og.webp",
         width: 1200,
         height: 630,
         alt: "Credvest — Real Estate Sales Operations",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "Credvest \u2014 Real Estate\u2019s Most Trusted Operations Partner",
     description:
       "One team. One system. Full accountability. From positioning to sell-out.",
-    images: ["/og.png"],
+    images: ["/og.webp"],
   },
   robots: {
     index: true,

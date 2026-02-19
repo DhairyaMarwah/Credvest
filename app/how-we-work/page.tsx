@@ -31,16 +31,54 @@ const PROCESS_TABS = [
   {
     label: "Positioning & Authority",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        className="text-brand"
+      >
         <circle cx="24" cy="20" r="6" fill="currentColor" />
         <circle cx="14" cy="30" r="3" fill="currentColor" opacity="0.6" />
         <circle cx="34" cy="30" r="3" fill="currentColor" opacity="0.6" />
         <circle cx="8" cy="22" r="2" fill="currentColor" opacity="0.3" />
         <circle cx="40" cy="22" r="2" fill="currentColor" opacity="0.3" />
-        <line x1="24" y1="20" x2="14" y2="30" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-        <line x1="24" y1="20" x2="34" y2="30" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-        <line x1="24" y1="20" x2="8" y2="22" stroke="currentColor" strokeWidth="1" opacity="0.3" />
-        <line x1="24" y1="20" x2="40" y2="22" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+        <line
+          x1="24"
+          y1="20"
+          x2="14"
+          y2="30"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.4"
+        />
+        <line
+          x1="24"
+          y1="20"
+          x2="34"
+          y2="30"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.4"
+        />
+        <line
+          x1="24"
+          y1="20"
+          x2="8"
+          y2="22"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.3"
+        />
+        <line
+          x1="24"
+          y1="20"
+          x2="40"
+          y2="22"
+          stroke="currentColor"
+          strokeWidth="1"
+          opacity="0.3"
+        />
       </svg>
     ),
     headline: "Strategy before execution",
@@ -60,8 +98,22 @@ const PROCESS_TABS = [
   {
     label: "Marketing",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
-        <rect x="8" y="14" width="32" height="20" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        className="text-brand"
+      >
+        <rect
+          x="8"
+          y="14"
+          width="32"
+          height="20"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
         <path d="M8 18l16 10 16-10" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
@@ -82,9 +134,26 @@ const PROCESS_TABS = [
   {
     label: "Sales",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
-        <path d="M12 36V20l12-8 12 8v16" stroke="currentColor" strokeWidth="1.5" />
-        <rect x="20" y="28" width="8" height="8" stroke="currentColor" strokeWidth="1.5" />
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        className="text-brand"
+      >
+        <path
+          d="M12 36V20l12-8 12 8v16"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <rect
+          x="20"
+          y="28"
+          width="8"
+          height="8"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
       </svg>
     ),
     headline: "Dedicated teams, structured systems",
@@ -104,9 +173,27 @@ const PROCESS_TABS = [
   {
     label: "Execution",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
-        <circle cx="24" cy="24" r="14" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M18 24l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        className="text-brand"
+      >
+        <circle
+          cx="24"
+          cy="24"
+          r="14"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M18 24l4 4 8-8"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     ),
     headline: "Full visibility, operational rigour",
@@ -201,11 +288,7 @@ function HeroSection() {
           <div>
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-medium text-neutral-black leading-[1.08] tracking-[-0.04em]">
               One system.{" "}
-              <span
-                className="font-semibold text-stroke-brand"
-              >
-                Four
-              </span>{" "}
+              <span className="font-semibold text-stroke-brand">Four</span>{" "}
               stages.
               <br />
               Full accountability.
@@ -291,9 +374,7 @@ function ProcessSection() {
               <div
                 key={point.title}
                 className={`p-8 md:p-12 flex-1 ${
-                  i < tab.points.length - 1
-                    ? "border-b border-neutral-200"
-                    : ""
+                  i < tab.points.length - 1 ? "border-b border-neutral-200" : ""
                 }`}
               >
                 <span className="font-serif text-lg text-brand font-semibold mb-2 block">
@@ -426,8 +507,10 @@ function CredvestEdgeSection() {
               width: `${colWidthPct}%`,
               transition: "left 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
               background: `repeating-linear-gradient(-45deg, color-mix(in srgb, var(--color-brand) 4%, transparent), color-mix(in srgb, var(--color-brand) 4%, transparent) 4px, transparent 4px, transparent 12px)`,
-              borderLeft: "1px solid color-mix(in srgb, var(--color-brand) 10%, transparent)",
-              borderRight: "1px solid color-mix(in srgb, var(--color-brand) 10%, transparent)",
+              borderLeft:
+                "1px solid color-mix(in srgb, var(--color-brand) 10%, transparent)",
+              borderRight:
+                "1px solid color-mix(in srgb, var(--color-brand) 10%, transparent)",
             }}
           />
 
@@ -442,7 +525,9 @@ function CredvestEdgeSection() {
               >
                 <span
                   className="block text-[11px] font-bold tracking-widest uppercase mb-1 transition-colors duration-300"
-                  style={{ color: activeStage === i ? "var(--color-brand)" : "#999" }}
+                  style={{
+                    color: activeStage === i ? "var(--color-brand)" : "#999",
+                  }}
                 >
                   {stage.number}
                 </span>
@@ -458,7 +543,10 @@ function CredvestEdgeSection() {
                 <span
                   className="block text-[11px] mt-1 transition-colors duration-300"
                   style={{
-                    color: activeStage === i ? "color-mix(in srgb, var(--color-brand) 60%, transparent)" : "#999",
+                    color:
+                      activeStage === i
+                        ? "color-mix(in srgb, var(--color-brand) 60%, transparent)"
+                        : "#999",
                   }}
                 >
                   {stage.subtitle}
@@ -661,9 +749,7 @@ function CredvestEdgeSection() {
                     key={`tooltip-${i}`}
                     style={{
                       opacity: isActive ? 1 : 0,
-                      transform: isActive
-                        ? "translateY(0)"
-                        : "translateY(4px)",
+                      transform: isActive ? "translateY(0)" : "translateY(4px)",
                       transition: "opacity 0.3s, transform 0.3s",
                     }}
                   >
@@ -773,9 +859,7 @@ function CredvestEdgeSection() {
           <p className="font-serif text-xl md:text-2xl text-neutral-800 max-w-lg mx-auto leading-snug tracking-[-0.02em]">
             &ldquo;With Credvest, performance does not dip mid-cycle.
             <br />
-            <span className="text-brand font-semibold">
-              It compounds.
-            </span>
+            <span className="text-brand font-semibold">It compounds.</span>
             &rdquo;
           </p>
         </div>
@@ -798,12 +882,7 @@ function CtaSection() {
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12 py-24 md:py-36 text-center">
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
           Let&apos;s talk about your{" "}
-          <span
-            className="font-semibold text-stroke-brand"
-          >
-            next
-          </span>{" "}
-          <br />
+          <span className="font-semibold text-stroke-brand">next</span> <br />
           project.
         </h2>
         <Link

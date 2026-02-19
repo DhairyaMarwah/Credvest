@@ -122,15 +122,9 @@ function HeroSection() {
           <div>
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-medium text-neutral-black leading-[1.08] tracking-[-0.04em]">
               Real estate&apos;s{" "}
-              <span
-                className="font-semibold text-stroke-brand"
-              >
-                most
-              </span>
+              <span className="font-semibold text-stroke-brand">most</span>
               <br />
-              <span
-                className="font-semibold text-stroke-brand"
-              >
+              <span className="font-semibold text-stroke-brand">
                 trusted
               </span>{" "}
               operations partner
@@ -244,9 +238,9 @@ function GrowthSystemSection() {
               Why developers choose Credvest.
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-8">
-              Built by people who have spent years inside real estate operations.
-              Every project runs through the same framework. Four stages, one
-              team, full ownership.
+              Built by people who have spent years inside real estate
+              operations. Every project runs through the same framework. Four
+              stages, one team, full ownership.
             </p>
             <a href="#" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
@@ -486,7 +480,8 @@ function WhyChooseSection() {
             height: highlightStyle.height,
             left: 0,
             right: "-100vw",
-            backgroundColor: "color-mix(in srgb, var(--color-brand) 6%, transparent)",
+            backgroundColor:
+              "color-mix(in srgb, var(--color-brand) 6%, transparent)",
           }}
         />
 
@@ -583,7 +578,10 @@ function TextCard({
       style={{ backgroundColor: bg, minHeight: 320 }}
     >
       <div>
-        <div className="px-2 pt-2 pb-3 border-b" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
+        <div
+          className="px-2 pt-2 pb-3 border-b"
+          style={{ borderColor: "rgba(0,0,0,0.08)" }}
+        >
           <h3 className="font-serif text-2xl md:text-3xl font-semibold text-neutral-black tracking-[-0.02em] leading-[1.1]">
             {title}
           </h3>
@@ -696,7 +694,9 @@ function InsideCredvestSection() {
             </div>
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"}
+                desc={
+                  "\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"
+                }
                 person="Bhavya"
                 role="GM, Sales"
               />
@@ -707,7 +707,9 @@ function InsideCredvestSection() {
           <div className="flex flex-col md:flex-row gap-5">
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201CWhat sets this apart is how marketing, sales, and operations actually function as one system.\u201D"}
+                desc={
+                  "\u201CWhat sets this apart is how marketing, sales, and operations actually function as one system.\u201D"
+                }
                 person="Neeti A"
                 role="AGM, Marketing"
               />
@@ -758,7 +760,9 @@ function InsideCredvestSection() {
             </div>
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201CPipeline visibility isn\u2019t a reporting feature. It\u2019s how better decisions get made.\u201D"}
+                desc={
+                  "\u201CPipeline visibility isn\u2019t a reporting feature. It\u2019s how better decisions get made.\u201D"
+                }
                 person="Roopesh"
                 role="Direct Sales"
               />
@@ -788,8 +792,7 @@ const CITY_DATA: Record<
       "Residential and mixed-use developments across key micro-markets.",
       "Across structured sales and exclusive mandates.",
     ],
-    tagline:
-      "What structured operations look like in practice.",
+    tagline: "What structured operations look like in practice.",
   },
   Hyderabad: {
     stats: [
@@ -801,8 +804,7 @@ const CITY_DATA: Record<
       "Active and expanding across West and East Hyderabad corridors.",
       "City-specific data available on request.",
     ],
-    tagline:
-      "Deep micro-market expertise driving scale.",
+    tagline: "Deep micro-market expertise driving scale.",
   },
 };
 
@@ -988,8 +990,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "What cities are you in?",
-    answer:
-      "Bangalore and Hyderabad. Deep micro-market expertise in both.",
+    answer: "Bangalore and Hyderabad. Deep micro-market expertise in both.",
   },
   {
     question: "How do you track performance?",
@@ -1093,12 +1094,7 @@ function CtaSection() {
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12 py-24 md:py-36 text-center">
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
           Let&apos;s talk about your{" "}
-          <span
-            className="font-semibold text-stroke-brand"
-          >
-            next
-          </span>{" "}
-          <br />
+          <span className="font-semibold text-stroke-brand">next</span> <br />
           project.
         </h2>
         <Link
