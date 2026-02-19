@@ -428,15 +428,14 @@ function CtaSection() {
       />
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12 py-24 md:py-36 text-center">
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
-          Ready to{" "}
+          Let&apos;s talk about your{" "}
           <span
             className="font-semibold text-stroke-brand"
           >
-            transform
+            next
           </span>{" "}
-          your
           <br />
-          operation strategy?
+          project.
         </h2>
         <Link
           href="/contact"

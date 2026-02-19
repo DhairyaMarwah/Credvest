@@ -43,12 +43,12 @@ const PROCESS_TABS = [
         <line x1="24" y1="20" x2="40" y2="22" stroke="currentColor" strokeWidth="1" opacity="0.3" />
       </svg>
     ),
-    headline: "Clear market narrative before launch",
+    headline: "Strategy before execution",
     description:
-      "Before demand generation begins, we define how the project should be understood, priced, and positioned within its competitive context. Every sales outcome is shaped by early clarity.",
+      "Before anything goes to market, we define what the project stands for. Who it\u2019s for, how it\u2019s different, where it sits against everything else. Strategy before execution.",
     points: [
       {
-        title: "Market Command",
+        title: "Market Positioning",
         text: "We benchmark micro-markets, pricing bands, absorption patterns, and buyer demand before defining launch strategy.",
       },
       {
@@ -65,9 +65,9 @@ const PROCESS_TABS = [
         <path d="M8 18l16 10 16-10" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
-    headline: "Demand generation built on data, not guesswork",
+    headline: "Consistent narrative, one team",
     description:
-      "We build demand engines that attract qualified buyers — not just traffic. Every campaign is tied to project velocity targets and conversion benchmarks.",
+      "Brand, narrative, demand generation. Managed by the same team that set the positioning. The story stays consistent because nobody has to translate it secondhand.",
     points: [
       {
         title: "Performance Marketing",
@@ -87,9 +87,9 @@ const PROCESS_TABS = [
         <rect x="20" y="28" width="8" height="8" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
-    headline: "On-ground execution with operational discipline",
+    headline: "Dedicated teams, structured systems",
     description:
-      "Our sales teams operate as an extension of the developer — trained on the project narrative, equipped with systems, and held accountable to weekly velocity targets.",
+      "Dedicated teams, trained on your product, deployed to your project. Sales is a system here. Structured, tracked, reviewed. Not dependent on who happens to be on shift.",
     points: [
       {
         title: "Pipeline Management",
@@ -109,9 +109,9 @@ const PROCESS_TABS = [
         <path d="M18 24l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    headline: "Closure and post-sale with margin protection",
+    headline: "Full visibility, operational rigour",
     description:
-      "We don't just generate leads — we close them. Structured negotiation discipline, approval hierarchies, and deal-level tracking ensure margin protection at every stage.",
+      "Real-time tracking. Weekly reviews. Full visibility into what\u2019s moving and what\u2019s stalled. Operational rigour that makes a sales mandate predictable.",
     points: [
       {
         title: "Deal Structuring",
@@ -200,23 +200,23 @@ function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-end pt-32 md:pt-44 pb-20 md:pb-28">
           <div>
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-medium text-neutral-black leading-[1.08] tracking-[-0.04em]">
-              How Credvest Runs
-              <br />
-              Projects From{" "}
+              One system.{" "}
               <span
                 className="font-semibold text-stroke-brand"
               >
-                Strategy
+                Four
               </span>{" "}
-              to Sell-Out
+              stages.
+              <br />
+              Full accountability.
             </h1>
           </div>
 
           <div className="flex flex-col gap-6 pb-2">
             <p className="text-[13px] text-neutral-500 leading-relaxed max-w-[280px]">
-              We operate across the full lifecycle — integrating strategy,
-              positioning, marketing, and execution into one accountable
-              structure.
+              Most developers coordinate multiple vendors. We replace that with
+              a single team running one integrated system from positioning to
+              sell-out.
             </p>
             <a href="#" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
@@ -797,18 +797,17 @@ function CtaSection() {
       />
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12 py-24 md:py-36 text-center">
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
-          Ready to{" "}
+          Let&apos;s talk about your{" "}
           <span
             className="font-semibold text-stroke-brand"
           >
-            transform
+            next
           </span>{" "}
-          your
           <br />
-          operation strategy?
+          project.
         </h2>
         <Link
-          href="#"
+          href="/contact"
           className="inline-flex items-center gap-3 bg-brand text-white font-sans text-[14px] font-semibold px-8 py-4 hover:bg-brand-600 transition-colors"
         >
           <ArrowRight />

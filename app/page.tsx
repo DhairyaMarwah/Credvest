@@ -8,29 +8,30 @@ import { Footer } from "@/components/footer";
 
 const STAGES = [
   { number: "01", title: "Positioning" },
-  { number: "01", title: "Marketing" },
-  { number: "01", title: "Sales" },
-  { number: "01", title: "Execution" },
+  { number: "02", title: "Marketing" },
+  { number: "03", title: "Sales" },
+  { number: "04", title: "Execution" },
 ];
 
 const GROWTH_CARDS = [
   {
-    title: "White-label execution",
-    description: "Our teams represent the developer's brand, not ours.",
+    title: "Your Brand, Our Team",
+    description:
+      "Our people carry the developer\u2019s identity, not ours. Every interaction a buyer has feels like the developer\u2019s organisation. We stay out of the picture. By design.",
     bg: "var(--color-pastel-blue)",
     image: "/bg1.png",
   },
   {
-    title: "Structured sales systems",
+    title: "Process Over Personality",
     description:
-      "Processes, reporting, and performance tracking built for scale.",
+      "Every stage of the sales cycle has a defined framework. Performance is tracked, reviewed, improved. Results come from the system, not from hoping the right person is in the room.",
     bg: "var(--color-pastel-yellow)",
     image: "/bg1.png",
   },
   {
-    title: "Experienced project teams",
+    title: "Dedicated Teams",
     description:
-      "Project managers, sales heads, and channel managers aligned to each mandate.",
+      "Each mandate gets its own people. Aligned to the project, embedded in the product, accountable to the numbers. Not rotated. Not shared.",
     bg: "var(--color-pastel-green)",
     image: "/bg1.png",
   },
@@ -138,8 +139,8 @@ function HeroSection() {
 
           <div className="flex flex-col gap-6 pb-2">
             <p className="text-[13px] text-neutral-500 leading-relaxed max-w-[280px]">
-              We operate as an extended arm of developers to plan, execute, and
-              optimize project sales at scale.
+              We build and run the systems that move projects from launch to
+              sell-out — with discipline, structure, and direct accountability.
             </p>
             <a href="#" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
@@ -174,7 +175,7 @@ function HeroSection() {
             {/* Headline */}
             <div className="pb-5">
               <h2 className="font-sans text-[clamp(1.5rem,3.5vw,2.8rem)] font-medium text-white leading-[1.15] tracking-[-0.05em]">
-                One structured system. Four controlled stages.
+                One system. Four stages.
               </h2>
             </div>
 
@@ -211,9 +212,10 @@ function DescriptionSection() {
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12">
         <p className="font-sans text-[15px] md:text-base text-neutral-600 leading-relaxed max-w-xl">
-          Credvest operates as a long-term sales partner for developers,
-          managing entire project mandates from launch to sell-out across
-          residential and commercial developments.
+          Taking a project from readiness to sell-out requires sustained
+          coordination across positioning, marketing, sales, and operations.
+          Credvest consolidates that into a single mandate. One team. One
+          system. Full accountability.
         </p>
         <a href="#" className="flex items-center gap-3 group w-fit mt-8">
           <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
@@ -236,16 +238,15 @@ function GrowthSystemSection() {
           {/* Left — sticky */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
-              Customer Agent
+              How We Work
             </span>
             <h2 className="font-serif text-3xl md:text-[2.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-5">
-              The Full-Stack Growth System
+              Why developers choose Credvest.
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-8">
-              Credvest builds and runs the complete systems that move real
-              estate projects from launch to sell-out — combining positioning,
-              marketing, sales execution, channel management, and reporting into
-              one integrated engine.
+              Built by people who have spent years inside real estate operations.
+              Every project runs through the same framework. Four stages, one
+              team, full ownership.
             </p>
             <a href="#" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
@@ -301,12 +302,11 @@ function GrowthSystemSection() {
 }
 
 const STATS = [
-  { value: "5+", label: "Serviced" },
-  { value: "10 yr.", label: "Developer partnerships" },
-  { value: "10", suffix: "Mn SqFt", label: "Real Estate Managed" },
-  { value: "5000+", label: "Customers Trust Us" },
-  { value: "8,000", suffix: "Cr", label: "Transaction Managed" },
-  { value: "35+", label: "States Served" },
+  { value: "10", suffix: "Yr.", label: "Developer Partnerships" },
+  { value: "5,000+", label: "Customers Trust Us" },
+  { value: "\u20B98,000", suffix: "Cr", label: "Transactions Managed" },
+  { value: "10", suffix: "Mn Sq Ft", label: "Real Estate Managed" },
+  { value: "5+", label: "Cities Serviced" },
 ];
 
 function MarqueeRow() {
@@ -358,19 +358,19 @@ const VELOCITY_PROBLEMS = [
     number: "01",
     title: "Pre-Launch Misalignment",
     description:
-      "Multiple agencies. Diluted positioning. Delayed market entry.",
+      "Too many vendors. Too many narratives. By the time the project reaches the market, the first impression is already compromised.",
   },
   {
     number: "02",
-    title: "Channel Dilution",
+    title: "Fragmented Ownership",
     description:
-      "Over-reliance on brokers reduces margins and distorts brand narrative.",
+      "When branding, marketing, and sales sit with different teams carrying different incentives, the buyer experience fractures. Nobody owns the full picture.",
   },
   {
     number: "03",
     title: "Experience Gaps",
     description:
-      "Marketing promises don't match on-ground sales experience — eroding buyer trust.",
+      "What the collateral promises and what the buyer encounters on the ground don\u2019t match. That gap is where trust is lost. Deals follow.",
   },
 ];
 
@@ -384,6 +384,11 @@ function VelocitySection() {
             <h2 className="font-serif text-4xl md:text-5xl font-medium text-neutral-black leading-[1.1] tracking-[-0.04em]">
               Why projects lose velocity.
             </h2>
+            <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mt-5 max-w-sm">
+              Most projects don&apos;t underperform because of the product. They
+              underperform because the system behind the sale was never properly
+              built.
+            </p>
           </div>
 
           {/* Right — scrolling numbered cards */}
@@ -419,29 +424,29 @@ function VelocitySection() {
 
 const WHY_CHOOSE_ITEMS = [
   {
-    title: "Full-Stack Accountability",
+    title: "Single-Point Accountability",
     description:
-      "As a single operating partner across positioning, marketing, sales, and execution, Credvest eliminates vendor coordination and narrative misalignment. One aligned team means faster decisions, fewer compromises, and complete ownership from launch to sell-out.",
+      "Most developers coordinate four or five vendors to take a project to market. Each runs its own process. Each reports on its own terms. We replace that with one team. Positioning, marketing, sales, execution. One reporting line, one set of standards.",
   },
   {
-    title: "Sales is treated as an operational system, not brokerage",
+    title: "Sales treated as an operational discipline",
     description:
-      "We build structured pipelines with defined stages, conversion metrics, and channel discipline — not ad-hoc broker networks.",
+      "Sales here is built as an operational system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
   },
   {
-    title: "Real-time performance tracking and reporting",
+    title: "Dedicated teams on every project",
     description:
-      "Every mandate runs on live dashboards with weekly reviews, pipeline visibility, and data-backed course corrections.",
+      "Each mandate gets its own people. Aligned to the project, embedded in the product, accountable to the numbers. Not rotated. Not shared.",
   },
   {
-    title: "Long-term mandate partnerships",
+    title: "Real-time performance tracking",
     description:
-      "We don't chase transactions. We commit to full project lifecycles — aligning incentives with the developer's success.",
+      "Live pipeline data, weekly reviews, structured reporting. Developers see what\u2019s happening in real time, not in a monthly summary.",
   },
   {
-    title: "City Depth",
+    title: "Partnerships built on outcomes",
     description:
-      "Deep micro-market expertise in Bangalore and Hyderabad with ground teams, channel networks, and buyer databases built over a decade.",
+      "We don\u2019t chase transactions. We commit to full project lifecycles \u2014 aligning incentives with the developer\u2019s success.",
   },
 ];
 
@@ -489,14 +494,15 @@ function WhyChooseSection() {
           {/* Left */}
           <div>
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
-              Customer Agent
+              The Credvest Model
             </span>
             <h2 className="font-serif text-3xl md:text-[2.6rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-5">
-              Why result-focused Developers Choose Credvest.
+              Single-Point Accountability
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-10 max-w-md">
-              Give your team the tools to move faster, stay on brand, and scale
-              content across every channel and market.
+              Most developers coordinate four or five vendors to take a project
+              to market. We replace that with one team. When something needs to
+              change, it changes the same week.
             </p>
 
             {/* Accordion */}
@@ -644,11 +650,13 @@ function InsideCredvestSection() {
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
             Inside Credvest
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-6">
-            Built by people who run
-            <br />
-            real estate sales at scale.
+          <h2 className="font-serif text-3xl md:text-5xl font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-4">
+            Inside Credvest
           </h2>
+          <p className="font-sans text-[14px] text-neutral-500 leading-relaxed max-w-md mx-auto mb-6">
+            Disciplined, ambitious, and growing. If that&apos;s the kind of
+            place you work well in, we should talk.
+          </p>
           <a
             href="/careers"
             className="inline-flex items-center gap-3 group w-fit mx-auto"
@@ -671,7 +679,7 @@ function InsideCredvestSection() {
                 <TextCard
                   bg="var(--color-pastel-green)"
                   title="Sales is consulting"
-                  desc="Guiding buyers through decisions, not pushing inventory."
+                  desc="Guiding decisions, not moving inventory. Trust converts better than pressure."
                   person="Sales Department"
                   role=""
                 />
@@ -680,7 +688,7 @@ function InsideCredvestSection() {
                 <TextCard
                   bg="var(--color-pastel-blue)"
                   title="Pipeline visibility"
-                  desc="Data-driven sales tracking that improves outcomes."
+                  desc="Pipeline visibility isn't a reporting feature. It's how better decisions get made."
                   person="Bhavya"
                   role="GM"
                 />
@@ -688,9 +696,9 @@ function InsideCredvestSection() {
             </div>
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201CEvery interaction is a chance to build trust and move the deal forward with clarity.\u201D"}
-                person="Roopesh"
-                role="Direct Sales"
+                desc={"\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"}
+                person="Bhavya"
+                role="GM, Sales"
               />
             </div>
           </div>
@@ -699,7 +707,7 @@ function InsideCredvestSection() {
           <div className="flex flex-col md:flex-row gap-5">
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201CWhat sets Credvest apart is how marketing, sales, and investments work together as one system.\u201D"}
+                desc={"\u201CWhat sets this apart is how marketing, sales, and operations actually function as one system.\u201D"}
                 person="Neeti A"
                 role="AGM, Marketing"
               />
@@ -708,19 +716,19 @@ function InsideCredvestSection() {
               <div className="flex-1">
                 <TextCard
                   bg="var(--color-pastel-pink)"
-                  title="Client support"
-                  desc="From planning to problem-solving, every step is handled."
-                  person="Dharti"
+                  title="1 year growth"
+                  desc="Trainee to senior role in under a year. Live project experience from day one."
+                  person="Aishwarya"
                   role="Sales"
                 />
               </div>
               <div className="flex-1">
                 <TextCard
                   bg="var(--color-pastel-yellow)"
-                  title="1 year growth"
-                  desc="From trainee to senior role through structured learning."
-                  person="Aishwarya"
-                  role="Sales"
+                  title="Market learning"
+                  desc="The training here builds market understanding, not just process fluency."
+                  person="Nikhil"
+                  role="AGM"
                 />
               </div>
             </div>
@@ -733,7 +741,7 @@ function InsideCredvestSection() {
                 <TextCard
                   bg="var(--color-pastel-green)"
                   title="People first"
-                  desc="Performance, ideas, and effort are genuinely rewarded."
+                  desc="Good work gets noticed. People are given real responsibility early, not after a waiting period."
                   person="Roopesh"
                   role="HR"
                 />
@@ -741,18 +749,18 @@ function InsideCredvestSection() {
               <div className="flex-1">
                 <TextCard
                   bg="#F5F5F5"
-                  title="Market learning"
-                  desc="Training that builds deep real estate understanding."
-                  person="Nikhil"
-                  role="AGM"
+                  title="Client support"
+                  desc="Buying property is a considered decision. Our teams are trained to consult, not to close."
+                  person="Dharti"
+                  role="Sales"
                 />
               </div>
             </div>
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201CProviding visibility into the sales pipeline supports better decisions and better client outcomes.\u201D"}
-                person="RANDOM COMPANY"
-                role=""
+                desc={"\u201CPipeline visibility isn\u2019t a reporting feature. It\u2019s how better decisions get made.\u201D"}
+                person="Roopesh"
+                role="Direct Sales"
               />
             </div>
           </div>
@@ -773,28 +781,28 @@ const CITY_DATA: Record<
   Bangalore: {
     stats: [
       { value: "100+", label: "Projects Served" },
-      { value: "3.2x", label: "Average Sales Velocity Improvement" },
-      { value: "₹4,200+ Cr", label: "Transaction Value Managed" },
+      { value: "3.2x", label: "Sales Velocity Improvement" },
+      { value: "\u20B94,200+ Cr", label: "in Transactions" },
     ],
     descriptions: [
-      "Residential & mixed-use developments across key micro-markets.",
+      "Residential and mixed-use developments across key micro-markets.",
       "Across structured sales and exclusive mandates.",
     ],
     tagline:
-      "Structured systems drive predictable conversion and margin protection.",
+      "What structured operations look like in practice.",
   },
   Hyderabad: {
     stats: [
       { value: "60+", label: "Projects Served" },
-      { value: "2.8x", label: "Average Sales Velocity Improvement" },
-      { value: "₹2,800+ Cr", label: "Transaction Value Managed" },
+      { value: "2.8x", label: "Sales Velocity Improvement" },
+      { value: "\u20B92,800+ Cr", label: "in Transactions" },
     ],
     descriptions: [
-      "Rapid expansion across West and East Hyderabad corridors.",
-      "Full-stack mandate coverage from positioning to closure.",
+      "Active and expanding across West and East Hyderabad corridors.",
+      "City-specific data available on request.",
     ],
     tagline:
-      "Deep channel networks and micro-market intelligence driving scale.",
+      "Deep micro-market expertise driving scale.",
   },
 };
 
@@ -811,7 +819,7 @@ function MandatesSection() {
             Measured outcomes
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-8">
-            Performance Across
+            Measured outcomes across
             <br />
             Active Mandates
           </h2>
@@ -939,22 +947,21 @@ function PhilosophySection() {
               Operating Philosophy
             </span>
             <h2 className="font-serif text-3xl md:text-[2.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em]">
-              Structured growth begins with structured execution.
+              One partner for the entire journey.
             </h2>
           </div>
 
           {/* Right */}
           <div className="flex flex-col justify-center gap-6">
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
-              Credvest works as an extended arm of developers, managing every
-              stage of the sales lifecycle — from project positioning and launch
-              planning to on-ground execution, channel management, and customer
-              closure.
+              Taking a project from readiness to sell-out requires sustained
+              coordination across positioning, marketing, sales, and operations.
+              Most developers manage this across multiple vendors, each working
+              independently.
             </p>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
-              Instead of multiple vendors handling disconnected pieces, we bring
-              structure, ownership, and continuity to how real estate projects
-              are taken to market and sold.
+              Credvest consolidates that into a single mandate. One team. One
+              system. Full accountability.
             </p>
           </div>
         </div>
@@ -965,29 +972,34 @@ function PhilosophySection() {
 
 const FAQ_ITEMS = [
   {
-    question: "What types of projects does Credvest work with?",
+    question: "How does Credvest work with developers?",
     answer:
-      "We work across residential, commercial, and mixed-use developments. Our mandate model is designed for projects that require structured sales operations — from pre-launch positioning through to final unit closure.",
+      "As an extension of the developer\u2019s own team. We manage the sales lifecycle from positioning through to closure, replacing what would otherwise be three or four separate vendors.",
   },
   {
-    question: "How does the mandate model differ from traditional brokerage?",
+    question: "Is Credvest a brokerage?",
     answer:
-      "Unlike brokerage, we don't operate on a per-deal basis. Credvest takes on complete project mandates — managing the full sales cycle with dedicated teams, structured systems, and ongoing performance accountability.",
+      "No. Sales here is built as an operational system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
   },
   {
-    question: "What markets does Credvest currently operate in?",
+    question: "Do your teams represent the developer\u2019s brand?",
     answer:
-      "We are currently active across Bangalore and Hyderabad, with deep micro-market expertise in both cities. Our expansion plans include additional Tier-1 and Tier-2 cities based on developer demand.",
+      "Yes. The buyer\u2019s experience is entirely within the developer\u2019s brand. Our involvement is behind the scenes.",
   },
   {
-    question: "Can Credvest integrate with our existing sales processes?",
+    question: "What cities are you in?",
     answer:
-      "Yes. We work as an extension of your team, not a replacement. Our systems are designed to layer on top of your existing processes while adding structure, tracking, and execution discipline.",
+      "Bangalore and Hyderabad. Deep micro-market expertise in both.",
   },
   {
-    question: "How is performance tracked and reported?",
+    question: "How do you track performance?",
     answer:
-      "We provide real-time dashboards and periodic reports covering lead flow, conversion rates, channel performance, and revenue milestones — giving developers full visibility into sales operations.",
+      "Live pipeline data, weekly reviews, structured reporting. Developers see what\u2019s happening in real time, not in a monthly summary.",
+  },
+  {
+    question: "What kinds of projects do you take on?",
+    answer:
+      "Residential and commercial, at varying scales. We configure team size and systems to match the mandate.",
   },
 ];
 
@@ -1001,16 +1013,16 @@ function FaqSection() {
           {/* Left */}
           <div>
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase bg-brand text-white px-2 py-1 mb-5 inline-block font-sans">
-              Faqs
+              FAQs
             </span>
             <h2 className="font-serif text-3xl md:text-[2.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-4">
-              Frequently asked
+              Common
               <br />
-              questions
+              Questions
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-10 max-w-sm">
-              Find answers to your questions about our real estate operations
-              and mandate model.
+              Everything you need to know about how we work, what we do, and
+              what makes this different.
             </p>
 
             {/* Contact box */}
@@ -1080,18 +1092,17 @@ function CtaSection() {
       />
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12 py-24 md:py-36 text-center">
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
-          Ready to{" "}
+          Let&apos;s talk about your{" "}
           <span
             className="font-semibold text-stroke-brand"
           >
-            transform
+            next
           </span>{" "}
-          your
           <br />
-          operation strategy?
+          project.
         </h2>
         <Link
-          href="#"
+          href="/contact"
           className="inline-flex items-center gap-3 bg-brand text-white font-sans text-[14px] font-semibold px-8 py-4 hover:bg-brand-600 transition-colors"
         >
           <ArrowRight />

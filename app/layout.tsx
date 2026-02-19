@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Credvest",
   },
   description:
-    "Credvest operates as a long-term sales partner for developers, managing entire project mandates from launch to sell-out across residential and commercial developments.",
+    "Credvest builds and runs the systems that move real estate projects from launch to sell-out \u2014 with discipline, structure, and direct accountability.",
   keywords: [
     "real estate sales",
     "project mandates",
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: "Credvest",
-    title: "Credvest — Real Estate's Most Trusted Operations Partner",
+    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Operations Partner",
     description:
-      "We operate as an extended arm of developers to plan, execute, and optimize project sales at scale.",
+      "One team. One system. Full accountability. From positioning to sell-out.",
     images: [
       {
         url: "/og.png",
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Credvest — Real Estate's Most Trusted Operations Partner",
+    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Operations Partner",
     description:
-      "We operate as an extended arm of developers to plan, execute, and optimize project sales at scale.",
+      "One team. One system. Full accountability. From positioning to sell-out.",
     images: ["/og.png"],
   },
   robots: {
