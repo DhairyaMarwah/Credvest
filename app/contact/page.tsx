@@ -1,17 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/assets/logo.svg";
-
-const NAV_LINKS = [
-  { label: "People", href: "#" },
-  { label: "Company", href: "#" },
-  { label: "How We Work", href: "/how-we-work" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
-];
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 function ChevronDown({ className }: { className?: string }) {
   return (
@@ -48,44 +40,6 @@ function ArrowRight({ className }: { className?: string }) {
         strokeLinejoin="round"
       />
     </svg>
-  );
-}
-
-function Navbar() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100 p-1">
-      <div className="w-full pl-8 lg:pl-12 pr-0 flex items-center justify-between h-14">
-        <Link href="/" className="flex items-center flex-shrink-0">
-          <Image
-            src={Logo}
-            alt="Credvest"
-            height={28}
-            className="h-7 w-auto"
-          />
-        </Link>
-
-        <div className="hidden md:flex items-center">
-          <div className="flex items-center gap-8 pr-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[13px] font-medium text-neutral-600 hover:text-neutral-black transition-colors flex items-center gap-1"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 bg-brand text-white text-[13px] font-semibold tracking-wide hover:bg-brand-600 transition-colors h-14 flex-shrink-0"
-          >
-            Get Started
-          </Link>
-        </div>
-      </div>
-    </nav>
   );
 }
 
@@ -140,46 +94,6 @@ const CONTACT_FAQS = [
   },
 ];
 
-const FOOTER_LINKS: { heading: string; links: { label: string; href: string }[] }[] = [
-  {
-    heading: "Solutions",
-    links: [
-      { label: "All Solutions", href: "#" },
-      { label: "Residential", href: "#" },
-      { label: "Commercial", href: "#" },
-      { label: "Mixed-Use", href: "#" },
-      { label: "Pre-Launch", href: "#" },
-      { label: "Portfolio Management", href: "#" },
-    ],
-  },
-  {
-    heading: "How It Works",
-    links: [
-      { label: "Project Structures", href: "/how-we-work" },
-      { label: "Platform", href: "#" },
-    ],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Log In", href: "#" },
-      { label: "Sustainability", href: "#" },
-      { label: "Press", href: "#" },
-      { label: "Blog", href: "#" },
-    ],
-  },
-  {
-    heading: "About",
-    links: [
-      { label: "Our Company", href: "#" },
-      { label: "Careers", href: "/careers" },
-      { label: "LinkedIn", href: "#" },
-      { label: "Contact", href: "/contact" },
-      { label: "Privacy Policy", href: "#" },
-    ],
-  },
-];
-
 /* ── Hero Section ── */
 
 function HeroSection() {
@@ -203,11 +117,7 @@ function HeroSection() {
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-medium text-neutral-black leading-[1.08] tracking-[-0.04em]">
               Let&apos;s build{" "}
               <span
-                className="font-semibold"
-                style={{
-                  textShadow:
-                    "2px 0 #E3F99D, -2px 0 #E3F99D, 0 2px #E3F99D, 0 -2px #E3F99D, 1px 1px #E3F99D, -1px -1px #E3F99D, 1px -1px #E3F99D, -1px 1px #E3F99D",
-                }}
+                className="font-semibold text-stroke-brand"
               >
                 something
               </span>
@@ -520,11 +430,7 @@ function CtaSection() {
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
           Ready to{" "}
           <span
-            className="font-semibold"
-            style={{
-              textShadow:
-                "2px 0 #E3F99D, -2px 0 #E3F99D, 0 2px #E3F99D, 0 -2px #E3F99D, 1px 1px #E3F99D, -1px -1px #E3F99D, 1px -1px #E3F99D, -1px 1px #E3F99D",
-            }}
+            className="font-semibold text-stroke-brand"
           >
             transform
           </span>{" "}
@@ -541,48 +447,6 @@ function CtaSection() {
         </Link>
       </div>
     </section>
-  );
-}
-
-/* ── Footer ── */
-
-function Footer() {
-  return (
-    <footer className="bg-white border-t border-neutral-200">
-      <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-12 lg:gap-24">
-          <div>
-            <Link href="/">
-              <Image src={Logo} alt="Credvest" className="h-8 w-auto" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {FOOTER_LINKS.map((col) => (
-              <div key={col.heading}>
-                <h5 className="font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-400 mb-4">
-                  {col.heading}
-                </h5>
-                <ul className="flex flex-col gap-2.5">
-                  {col.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="font-sans text-[13px] text-neutral-600 hover:text-neutral-black transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-brand h-1.5 w-full" />
-    </footer>
   );
 }
 

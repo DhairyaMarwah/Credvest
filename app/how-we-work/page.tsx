@@ -1,17 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/assets/logo.svg";
-
-const NAV_LINKS = [
-  { label: "People", href: "#" },
-  { label: "Company", href: "#" },
-  { label: "How We Work", href: "/how-we-work" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
-];
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 function ArrowRight({ className }: { className?: string }) {
   return (
@@ -33,60 +25,22 @@ function ArrowRight({ className }: { className?: string }) {
   );
 }
 
-function Navbar() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100 p-1">
-      <div className="w-full pl-8 lg:pl-12 pr-0 flex items-center justify-between h-14">
-        <Link href="/" className="flex items-center flex-shrink-0">
-          <Image
-            src={Logo}
-            alt="Credvest"
-            height={28}
-            className="h-7 w-auto"
-          />
-        </Link>
-
-        <div className="hidden md:flex items-center">
-          <div className="flex items-center gap-8 pr-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[13px] font-medium text-neutral-600 hover:text-neutral-black transition-colors flex items-center gap-1"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 bg-brand text-white text-[13px] font-semibold tracking-wide hover:bg-brand-600 transition-colors h-14 flex-shrink-0"
-          >
-            Get Started
-          </Link>
-        </div>
-      </div>
-    </nav>
-  );
-}
-
 /* ── Tabbed Stages Data ── */
 
 const PROCESS_TABS = [
   {
     label: "Positioning & Authority",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <circle cx="24" cy="20" r="6" fill="#FA412A" />
-        <circle cx="14" cy="30" r="3" fill="#FA412A" opacity="0.6" />
-        <circle cx="34" cy="30" r="3" fill="#FA412A" opacity="0.6" />
-        <circle cx="8" cy="22" r="2" fill="#FA412A" opacity="0.3" />
-        <circle cx="40" cy="22" r="2" fill="#FA412A" opacity="0.3" />
-        <line x1="24" y1="20" x2="14" y2="30" stroke="#FA412A" strokeWidth="1" opacity="0.4" />
-        <line x1="24" y1="20" x2="34" y2="30" stroke="#FA412A" strokeWidth="1" opacity="0.4" />
-        <line x1="24" y1="20" x2="8" y2="22" stroke="#FA412A" strokeWidth="1" opacity="0.3" />
-        <line x1="24" y1="20" x2="40" y2="22" stroke="#FA412A" strokeWidth="1" opacity="0.3" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
+        <circle cx="24" cy="20" r="6" fill="currentColor" />
+        <circle cx="14" cy="30" r="3" fill="currentColor" opacity="0.6" />
+        <circle cx="34" cy="30" r="3" fill="currentColor" opacity="0.6" />
+        <circle cx="8" cy="22" r="2" fill="currentColor" opacity="0.3" />
+        <circle cx="40" cy="22" r="2" fill="currentColor" opacity="0.3" />
+        <line x1="24" y1="20" x2="14" y2="30" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+        <line x1="24" y1="20" x2="34" y2="30" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+        <line x1="24" y1="20" x2="8" y2="22" stroke="currentColor" strokeWidth="1" opacity="0.3" />
+        <line x1="24" y1="20" x2="40" y2="22" stroke="currentColor" strokeWidth="1" opacity="0.3" />
       </svg>
     ),
     headline: "Clear market narrative before launch",
@@ -106,9 +60,9 @@ const PROCESS_TABS = [
   {
     label: "Marketing",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <rect x="8" y="14" width="32" height="20" rx="2" stroke="#FA412A" strokeWidth="1.5" />
-        <path d="M8 18l16 10 16-10" stroke="#FA412A" strokeWidth="1.5" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
+        <rect x="8" y="14" width="32" height="20" rx="2" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M8 18l16 10 16-10" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
     headline: "Demand generation built on data, not guesswork",
@@ -128,9 +82,9 @@ const PROCESS_TABS = [
   {
     label: "Sales",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <path d="M12 36V20l12-8 12 8v16" stroke="#FA412A" strokeWidth="1.5" />
-        <rect x="20" y="28" width="8" height="8" stroke="#FA412A" strokeWidth="1.5" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
+        <path d="M12 36V20l12-8 12 8v16" stroke="currentColor" strokeWidth="1.5" />
+        <rect x="20" y="28" width="8" height="8" stroke="currentColor" strokeWidth="1.5" />
       </svg>
     ),
     headline: "On-ground execution with operational discipline",
@@ -150,9 +104,9 @@ const PROCESS_TABS = [
   {
     label: "Execution",
     icon: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <circle cx="24" cy="24" r="14" stroke="#FA412A" strokeWidth="1.5" />
-        <path d="M18 24l4 4 8-8" stroke="#FA412A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-brand">
+        <circle cx="24" cy="24" r="14" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M18 24l4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     headline: "Closure and post-sale with margin protection",
@@ -250,11 +204,7 @@ function HeroSection() {
               <br />
               Projects From{" "}
               <span
-                className="font-semibold"
-                style={{
-                  textShadow:
-                    "2px 0 #E3F99D, -2px 0 #E3F99D, 0 2px #E3F99D, 0 -2px #E3F99D, 1px 1px #E3F99D, -1px -1px #E3F99D, 1px -1px #E3F99D, -1px 1px #E3F99D",
-                }}
+                className="font-semibold text-stroke-brand"
               >
                 Strategy
               </span>{" "}
@@ -475,9 +425,9 @@ function CredvestEdgeSection() {
               left: `${activeStage * colWidthPct}%`,
               width: `${colWidthPct}%`,
               transition: "left 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-              background: `repeating-linear-gradient(-45deg, rgba(250, 65, 42, 0.04), rgba(250, 65, 42, 0.04) 4px, transparent 4px, transparent 12px)`,
-              borderLeft: "1px solid rgba(250, 65, 42, 0.1)",
-              borderRight: "1px solid rgba(250, 65, 42, 0.1)",
+              background: `repeating-linear-gradient(-45deg, color-mix(in srgb, var(--color-brand) 4%, transparent), color-mix(in srgb, var(--color-brand) 4%, transparent) 4px, transparent 4px, transparent 12px)`,
+              borderLeft: "1px solid color-mix(in srgb, var(--color-brand) 10%, transparent)",
+              borderRight: "1px solid color-mix(in srgb, var(--color-brand) 10%, transparent)",
             }}
           />
 
@@ -492,14 +442,14 @@ function CredvestEdgeSection() {
               >
                 <span
                   className="block text-[11px] font-bold tracking-widest uppercase mb-1 transition-colors duration-300"
-                  style={{ color: activeStage === i ? "#FA412A" : "#999" }}
+                  style={{ color: activeStage === i ? "var(--color-brand)" : "#999" }}
                 >
                   {stage.number}
                 </span>
                 <span
                   className="block font-serif text-lg md:text-xl font-semibold transition-colors duration-300"
                   style={{
-                    color: activeStage === i ? "#FA412A" : "#454545",
+                    color: activeStage === i ? "var(--color-brand)" : "#454545",
                     letterSpacing: "-0.02em",
                   }}
                 >
@@ -508,7 +458,7 @@ function CredvestEdgeSection() {
                 <span
                   className="block text-[11px] mt-1 transition-colors duration-300"
                   style={{
-                    color: activeStage === i ? "rgba(250,65,42,0.6)" : "#999",
+                    color: activeStage === i ? "color-mix(in srgb, var(--color-brand) 60%, transparent)" : "#999",
                   }}
                 >
                   {stage.subtitle}
@@ -555,12 +505,12 @@ function CredvestEdgeSection() {
                 >
                   <stop
                     offset="0%"
-                    stopColor="#FA412A"
+                    style={{ stopColor: "var(--color-brand)" }}
                     stopOpacity="0.08"
                   />
                   <stop
                     offset="100%"
-                    stopColor="#FA412A"
+                    style={{ stopColor: "var(--color-brand)" }}
                     stopOpacity="0.01"
                   />
                 </linearGradient>
@@ -647,7 +597,7 @@ function CredvestEdgeSection() {
               <path
                 d={buildSmoothPath(CREDVEST_Y)}
                 fill="none"
-                stroke="#FA412A"
+                stroke="var(--color-brand)"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -675,7 +625,7 @@ function CredvestEdgeSection() {
                       cx={toX(i)}
                       cy={toY(v)}
                       r={14}
-                      fill="#FA412A"
+                      fill="var(--color-brand)"
                       fillOpacity="0.08"
                       style={{ transition: "all 0.3s" }}
                     />
@@ -684,7 +634,7 @@ function CredvestEdgeSection() {
                     cx={toX(i)}
                     cy={toY(v)}
                     r={activeStage === i ? 6 : 4}
-                    fill="#FA412A"
+                    fill="var(--color-brand)"
                     stroke="white"
                     strokeWidth="2.5"
                     filter={activeStage === i ? "url(#hww-glow)" : undefined}
@@ -722,7 +672,7 @@ function CredvestEdgeSection() {
                       y1={ty + tooltipH}
                       x2={x}
                       y2={y - 8}
-                      stroke="#FA412A"
+                      stroke="var(--color-brand)"
                       strokeWidth="1"
                       strokeDasharray="2 2"
                       strokeOpacity="0.3"
@@ -734,7 +684,7 @@ function CredvestEdgeSection() {
                       height={tooltipH}
                       rx={6}
                       fill="white"
-                      stroke="rgba(250, 65, 42, 0.15)"
+                      stroke="color-mix(in srgb, var(--color-brand) 15%, transparent)"
                       strokeWidth="1"
                       filter="url(#hww-tooltip-shadow)"
                     />
@@ -744,7 +694,7 @@ function CredvestEdgeSection() {
                       width={3}
                       height={tooltipH}
                       rx={1.5}
-                      fill="#FA412A"
+                      fill="var(--color-brand)"
                     />
                     <text
                       x={tx + 14}
@@ -808,7 +758,7 @@ function CredvestEdgeSection() {
                 <p
                   className="text-[11px] leading-relaxed transition-colors duration-300"
                   style={{
-                    color: activeStage === i ? "#FA412A" : "#777",
+                    color: activeStage === i ? "var(--color-brand)" : "#777",
                   }}
                 >
                   {stage.description}
@@ -834,38 +784,6 @@ function CredvestEdgeSection() {
   );
 }
 
-const FOOTER_LINKS: { heading: string; links: string[] }[] = [
-  {
-    heading: "Solutions",
-    links: [
-      "All Solutions",
-      "Residential",
-      "Commercial",
-      "Mixed-Use",
-      "Pre-Launch",
-      "Portfolio Management",
-    ],
-  },
-  {
-    heading: "How It Works",
-    links: ["Project Structures", "Platform"],
-  },
-  {
-    heading: "Resources",
-    links: ["Log In", "Sustainability", "Press", "Blog"],
-  },
-  {
-    heading: "About",
-    links: [
-      "Our Company",
-      "Careers",
-      "LinkedIn",
-      "General Inquiries",
-      "Privacy Policy",
-    ],
-  },
-];
-
 function CtaSection() {
   return (
     <section className="bg-white relative overflow-hidden">
@@ -881,11 +799,7 @@ function CtaSection() {
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
           Ready to{" "}
           <span
-            className="font-semibold"
-            style={{
-              textShadow:
-                "2px 0 #E3F99D, -2px 0 #E3F99D, 0 2px #E3F99D, 0 -2px #E3F99D, 1px 1px #E3F99D, -1px -1px #E3F99D, 1px -1px #E3F99D, -1px 1px #E3F99D",
-            }}
+            className="font-semibold text-stroke-brand"
           >
             transform
           </span>{" "}
@@ -902,46 +816,6 @@ function CtaSection() {
         </Link>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-white border-t border-neutral-200">
-      <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-12 lg:gap-24">
-          <div>
-            <Link href="/">
-              <Image src={Logo} alt="Credvest" className="h-8 w-auto" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {FOOTER_LINKS.map((col) => (
-              <div key={col.heading}>
-                <h5 className="font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-400 mb-4">
-                  {col.heading}
-                </h5>
-                <ul className="flex flex-col gap-2.5">
-                  {col.links.map((link) => (
-                    <li key={link}>
-                      <Link
-                        href="#"
-                        className="font-sans text-[13px] text-neutral-600 hover:text-neutral-black transition-colors"
-                      >
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-brand h-1.5 w-full" />
-    </footer>
   );
 }
 

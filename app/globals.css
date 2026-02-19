@@ -4,15 +4,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
+/* Dynamic tokens — emitted as CSS custom properties so they can be
+   overridden at runtime by the theme switcher.                       */
+@theme {
   /* ── Fonts ── */
-  --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-noto-serif-sc);
 
   /* ── Credvest Brand Colors ── */
-
-  /* Primary Orange */
   --color-brand: #FA412A;
   --color-brand-50: #FFF1F0;
   --color-brand-100: #FFE0DC;
@@ -26,6 +24,9 @@
   --color-pastel-blue: #CFEBFF;
   --color-pastel-pink: #FFE6F4;
   --color-pastel-yellow: #FFFBB8;
+
+  /* Brand Stroke (text-shadow accent) */
+  --color-brand-stroke: #E3F99D;
 
   /* Warm Cream Background */
   --color-cream: #FFFEF6;
@@ -44,6 +45,13 @@
   --color-neutral-200: #E0E0E0;
   --color-neutral-100: #F0F0F0;
   --color-neutral-50: #F8F8F8;
+}
+
+/* Static tokens — self-referencing vars and shadcn mappings that
+   don't need runtime overrides; inlined to avoid circular refs.    */
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
 
   /* ── Shadcn/UI mappings ── */
   --color-background: var(--background);
@@ -111,6 +119,7 @@
   --chart-3: #CFEBFF;
   --chart-4: #FFE6F4;
   --chart-5: #FFFBB8;
+  --brand-stroke: #E3F99D;
   --radius: 0px;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #0A0A0A;
@@ -163,6 +172,18 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
+}
+
+.text-stroke-brand {
+  text-shadow:
+    2px 0 var(--brand-stroke),
+    -2px 0 var(--brand-stroke),
+    0 2px var(--brand-stroke),
+    0 -2px var(--brand-stroke),
+    1px 1px var(--brand-stroke),
+    -1px -1px var(--brand-stroke),
+    1px -1px var(--brand-stroke),
+    -1px 1px var(--brand-stroke);
 }
 
 @keyframes marquee {

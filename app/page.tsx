@@ -3,15 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/assets/logo.svg";
-
-const NAV_LINKS = [
-  { label: "People", href: "#" },
-  { label: "Company", href: "#" },
-  { label: "How We Work", href: "/how-we-work" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
-];
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const STAGES = [
   { number: "01", title: "Positioning" },
@@ -24,21 +17,21 @@ const GROWTH_CARDS = [
   {
     title: "White-label execution",
     description: "Our teams represent the developer's brand, not ours.",
-    bg: "#CFEBFF",
+    bg: "var(--color-pastel-blue)",
     image: "/bg1.png",
   },
   {
     title: "Structured sales systems",
     description:
       "Processes, reporting, and performance tracking built for scale.",
-    bg: "#FFFBB8",
+    bg: "var(--color-pastel-yellow)",
     image: "/bg1.png",
   },
   {
     title: "Experienced project teams",
     description:
       "Project managers, sales heads, and channel managers aligned to each mandate.",
-    bg: "#E6FFD9",
+    bg: "var(--color-pastel-green)",
     image: "/bg1.png",
   },
 ];
@@ -78,41 +71,6 @@ function ArrowDown({ className }: { className?: string }) {
       <line x1="12" y1="5" x2="12" y2="19" />
       <polyline points="19 12 12 19 5 12" />
     </svg>
-  );
-}
-
-function Navbar() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100 p-1">
-      <div className="w-full pl-7 lg:pl-11 pr-0 flex items-center justify-between h-14">
-        {/* Logo — respects left container padding */}
-        <Link href="/" className="flex items-center flex-shrink-0">
-          <Image src={Logo} alt="Credvest" height={28} className="h-7 w-auto" />
-        </Link>
-
-        {/* Right group: links + button flush to the right edge */}
-        <div className="hidden md:flex items-center">
-          <div className="flex items-center gap-8 pr-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-[13px] font-medium text-neutral-600 hover:text-neutral-black transition-colors flex items-center gap-1"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 bg-brand text-white text-[13px] font-semibold tracking-wide hover:bg-brand-600 transition-colors h-14 flex-shrink-0"
-          >
-            Get Started
-          </Link>
-        </div>
-      </div>
-    </nav>
   );
 }
 
@@ -164,21 +122,13 @@ function HeroSection() {
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-medium text-neutral-black leading-[1.08] tracking-[-0.04em]">
               Real estate&apos;s{" "}
               <span
-                className="font-semibold"
-                style={{
-                  textShadow:
-                    "2px 0 #E3F99D, -2px 0 #E3F99D, 0 2px #E3F99D, 0 -2px #E3F99D, 1px 1px #E3F99D, -1px -1px #E3F99D, 1px -1px #E3F99D, -1px 1px #E3F99D",
-                }}
+                className="font-semibold text-stroke-brand"
               >
                 most
               </span>
               <br />
               <span
-                className="font-semibold"
-                style={{
-                  textShadow:
-                    "2px 0 #E3F99D, -2px 0 #E3F99D, 0 2px #E3F99D, 0 -2px #E3F99D, 1px 1px #E3F99D, -1px -1px #E3F99D, 1px -1px #E3F99D, -1px 1px #E3F99D",
-                }}
+                className="font-semibold text-stroke-brand"
               >
                 trusted
               </span>{" "}
@@ -531,7 +481,7 @@ function WhyChooseSection() {
             height: highlightStyle.height,
             left: 0,
             right: "-100vw",
-            backgroundColor: "rgba(250, 65, 42, 0.06)",
+            backgroundColor: "color-mix(in srgb, var(--color-brand) 6%, transparent)",
           }}
         />
 
@@ -719,7 +669,7 @@ function InsideCredvestSection() {
             <div className="md:flex-1 flex flex-col md:flex-row gap-5">
               <div className="flex-1">
                 <TextCard
-                  bg="#E6FFD9"
+                  bg="var(--color-pastel-green)"
                   title="Sales is consulting"
                   desc="Guiding buyers through decisions, not pushing inventory."
                   person="Sales Department"
@@ -728,7 +678,7 @@ function InsideCredvestSection() {
               </div>
               <div className="flex-1">
                 <TextCard
-                  bg="#CFEBFF"
+                  bg="var(--color-pastel-blue)"
                   title="Pipeline visibility"
                   desc="Data-driven sales tracking that improves outcomes."
                   person="Bhavya"
@@ -757,7 +707,7 @@ function InsideCredvestSection() {
             <div className="md:flex-1 flex flex-col md:flex-row gap-5">
               <div className="flex-1">
                 <TextCard
-                  bg="#FFE6F4"
+                  bg="var(--color-pastel-pink)"
                   title="Client support"
                   desc="From planning to problem-solving, every step is handled."
                   person="Dharti"
@@ -766,7 +716,7 @@ function InsideCredvestSection() {
               </div>
               <div className="flex-1">
                 <TextCard
-                  bg="#FFFBB8"
+                  bg="var(--color-pastel-yellow)"
                   title="1 year growth"
                   desc="From trainee to senior role through structured learning."
                   person="Aishwarya"
@@ -781,7 +731,7 @@ function InsideCredvestSection() {
             <div className="md:flex-1 flex flex-col md:flex-row gap-5">
               <div className="flex-1">
                 <TextCard
-                  bg="#E6FFD9"
+                  bg="var(--color-pastel-green)"
                   title="People first"
                   desc="Performance, ideas, and effort are genuinely rewarded."
                   person="Roopesh"
@@ -1132,11 +1082,7 @@ function CtaSection() {
         <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
           Ready to{" "}
           <span
-            className="font-semibold"
-            style={{
-              textShadow:
-                "2px 0 #E3F99D, -2px 0 #E3F99D, 0 2px #E3F99D, 0 -2px #E3F99D, 1px 1px #E3F99D, -1px -1px #E3F99D, 1px -1px #E3F99D, -1px 1px #E3F99D",
-            }}
+            className="font-semibold text-stroke-brand"
           >
             transform
           </span>{" "}
@@ -1153,78 +1099,6 @@ function CtaSection() {
         </Link>
       </div>
     </section>
-  );
-}
-
-const FOOTER_LINKS: { heading: string; links: string[] }[] = [
-  {
-    heading: "Solutions",
-    links: [
-      "All Solutions",
-      "Residential",
-      "Commercial",
-      "Mixed-Use",
-      "Pre-Launch",
-      "Portfolio Management",
-    ],
-  },
-  {
-    heading: "How It Works",
-    links: ["Project Structures", "Platform"],
-  },
-  {
-    heading: "Resources",
-    links: ["Log In", "Sustainability", "Press", "Blog"],
-  },
-  {
-    heading: "About",
-    links: [
-      "Our Company",
-      "Careers",
-      "LinkedIn",
-      "General Inquiries",
-      "Privacy Policy",
-    ],
-  },
-];
-
-function Footer() {
-  return (
-    <footer className="bg-white border-t border-neutral-200">
-      <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-12 lg:gap-24">
-          {/* Logo */}
-          <div>
-            <Link href="/">
-              <Image src={Logo} alt="Credvest" className="h-8 w-auto" />
-            </Link>
-          </div>
-
-          {/* Link columns */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {FOOTER_LINKS.map((col) => (
-              <div key={col.heading}>
-                <h5 className="font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-400 mb-4">
-                  {col.heading}
-                </h5>
-                <ul className="flex flex-col gap-2.5">
-                  {col.links.map((link) => (
-                    <li key={link}>
-                      <Link
-                        href="#"
-                        className="font-sans text-[13px] text-neutral-600 hover:text-neutral-black transition-colors"
-                      >
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
 
