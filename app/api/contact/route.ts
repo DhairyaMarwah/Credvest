@@ -1,12 +1,10 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "hello@credvest.com";
-
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "hello@credvest.com";
     const body = await req.json();
     const { name, email, phone, company, inquiryType, message } = body;
 

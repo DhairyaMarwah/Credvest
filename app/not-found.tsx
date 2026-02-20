@@ -119,9 +119,7 @@ export default function NotFound() {
                     key={page.href}
                     href={page.href}
                     className={`group flex items-center justify-between py-5 ${
-                      i < PAGES.length - 1
-                        ? "border-b border-neutral-100"
-                        : ""
+                      i < PAGES.length - 1 ? "border-b border-neutral-100" : ""
                     } hover:pl-2 transition-all duration-200`}
                   >
                     <div>
