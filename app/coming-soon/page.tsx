@@ -40,7 +40,7 @@ export default function ComingSoonPage() {
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
             Coming Soon
           </span>
-          <h1 className="font-serif text-4xl md:text-6xl font-medium text-neutral-black leading-[1.08] tracking-[-0.04em] mb-6">
+          <h1 className="font-serif text-4xl md:text-6xl font-semibold text-neutral-black leading-[1.08] tracking-[-0.07em] mb-6">
             We&apos;re building
             <br />
             <span

@@ -7,32 +7,47 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
 const STAGES = [
-  { number: "01", title: "Positioning" },
-  { number: "02", title: "Marketing" },
-  { number: "03", title: "Sales" },
-  { number: "04", title: "Execution" },
+  { number: "01", title: "Branding", sectionId: "stage-branding" },
+  { number: "02", title: "Marketing", sectionId: "stage-marketing" },
+  { number: "03", title: "Sales", sectionId: "stage-sales" },
+  { number: "04", title: "Post Sales", sectionId: "stage-post-sales" },
 ];
 
 const GROWTH_CARDS = [
   {
+    id: "stage-branding",
     title: "Your Brand, Our Team",
+    subtitle: "Branding",
     description:
-      "Our people carry the developer\u2019s identity, not ours. Every interaction a buyer has feels like the developer\u2019s organisation. We stay out of the picture. By design.",
+      "Before anything goes to market, we define what the project stands for. Who it\u2019s for, how it\u2019s different, where it sits. Our people carry the developer\u2019s identity, not ours. Every interaction a buyer has feels like the developer\u2019s organisation.",
     bg: "var(--color-pastel-blue)",
     image: "/bg1.png",
   },
   {
-    title: "Process Over Personality",
+    id: "stage-marketing",
+    title: "Marketing",
+    subtitle: "Marketing",
     description:
-      "Every stage of the sales cycle has a defined framework. Performance is tracked, reviewed, improved. Results come from the system, not from hoping the right person is in the room.",
+      "Brand, narrative, demand generation \u2014 managed by the same team that set the positioning. Every rupee spent is tracked against qualified walk-ins, site visits, and conversions. The story stays consistent because nobody has to translate it secondhand.",
     bg: "var(--color-pastel-yellow)",
     image: "/bg1.png",
   },
   {
-    title: "Dedicated Teams",
+    id: "stage-sales",
+    title: "Sales / Velocity",
+    subtitle: "Sales",
     description:
-      "Each mandate gets its own people. Aligned to the project, embedded in the product, accountable to the numbers. Not rotated. Not shared.",
+      "Dedicated teams, trained on your product, deployed to your project. We guarantee higher velocity \u2014 the number of units sold each month. Sales is a system here. Structured, tracked, reviewed. Not dependent on channel partners.",
     bg: "var(--color-pastel-green)",
+    image: "/bg1.png",
+  },
+  {
+    id: "stage-post-sales",
+    title: "Post Sales",
+    subtitle: "Post Sales",
+    description:
+      "Structured handover, documentation, CRM management, and follow-up ensure buyer satisfaction and referral generation. The relationship doesn\u2019t end at closure \u2014 it compounds into advocacy.",
+    bg: "var(--color-pastel-pink)",
     image: "/bg1.png",
   },
 ];
@@ -80,6 +95,14 @@ function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
   const [imageWidth, setImageWidth] = useState(100);
   const [imageScale, setImageScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,8 +115,9 @@ function HeroSection() {
       const scrollRange = 500;
 
       const progress = Math.min(scrollY / scrollRange, 1);
-      const width = 100 - progress * (100 - containerPct);
-      const scale = 1 + progress * 0.15;
+      const isMob = windowWidth < 768;
+      const width = isMob ? 100 : 100 - progress * (100 - containerPct);
+      const scale = isMob ? 1 : 1 + progress * 0.15;
 
       setImageWidth(width);
       setImageScale(scale);
@@ -118,16 +142,15 @@ function HeroSection() {
 
       {/* Hero content */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-end pt-32 md:pt-44 pb-20 md:pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-end pt-20 md:pt-44 pb-12 md:pb-28">
           <div>
-            <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-medium text-neutral-black leading-[1.08] tracking-[-0.04em]">
+            <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold text-neutral-black leading-[1.08] tracking-[-0.07em]">
               Real estate&apos;s{" "}
-              <span className="font-semibold text-stroke-brand">most</span>
-              <br />
+              <span className="font-semibold text-stroke-brand">most</span>{" "}
               <span className="font-semibold text-stroke-brand">
                 trusted
               </span>{" "}
-              operations partner
+              strategy partner
             </h1>
           </div>
 
@@ -148,13 +171,16 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Full-bleed image — shrinks on scroll */}
+      {/* Full-bleed image — shrinks on scroll (desktop: width, mobile: height) */}
       <div
         ref={imageWrapperRef}
         className="relative z-10 mx-auto"
         style={{ width: `${imageWidth}%` }}
       >
-        <div className="relative w-full aspect-[16/9] overflow-hidden">
+        <div
+          className="relative w-full overflow-hidden"
+          style={isMobile ? { height: "110vh" } : { aspectRatio: "16/9" }}
+        >
           <Image
             src="/bg1.png"
             alt="Aerial view of a modern city intersection"
@@ -164,34 +190,42 @@ function HeroSection() {
             priority
           />
 
+          {/* Gradient overlay for readability */}
+          <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
           {/* Overlay content inside the image */}
-          <div className="absolute inset-x-0 bottom-0 z-20 px-6 md:px-10 pb-6 md:pb-10">
+          <div className="absolute inset-x-0 bottom-0 z-20 px-3 md:px-10 pb-3 md:pb-10">
             {/* Headline */}
-            <div className="pb-5">
-              <h2 className="font-sans text-[clamp(1.5rem,3.5vw,2.8rem)] font-medium text-white leading-[1.15] tracking-[-0.05em]">
-                One system. Four stages.
+            <div className="pb-3 md:pb-5">
+              <h2 className="font-sans text-[2.5rem] md:text-[clamp(1.5rem,3.5vw,2.8rem)] font-medium text-white leading-[0.95] md:leading-[1.15] tracking-[-0.06em] md:tracking-[-0.05em]">
+                <span className="md:hidden">One system.<br />Four stages.</span>
+                <span className="hidden md:inline">One system. Four stages.</span>
               </h2>
             </div>
 
             {/* Stage cards */}
-            <div className="border-t border-white/30 pt-5 mb-5" />
+            <div className="border-t border-white/30 pt-3 md:pt-5 mb-3 md:mb-5" />
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-[10px]">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-[5px] md:gap-[10px]">
               {STAGES.map((stage) => (
-                <div
+                <button
                   key={stage.title}
-                  className="bg-white px-5 py-5 flex flex-col justify-between min-h-[120px] group cursor-pointer hover:bg-neutral-50 transition-colors"
+                  onClick={() => {
+                    const el = document.getElementById(stage.sectionId);
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="bg-white px-3 py-3 md:px-5 md:py-5 flex flex-col justify-between min-h-[90px] md:min-h-[120px] group cursor-pointer hover:bg-neutral-50 transition-colors text-left"
                 >
                   <span className="text-[11px] text-neutral-400 font-sans tracking-wider">
                     [ {stage.number} ]
                   </span>
                   <div className="flex items-end justify-between mt-auto">
-                    <span className="font-sans text-lg md:text-xl font-medium tracking-[-0.02em] text-neutral-black group-hover:text-brand transition-colors">
+                    <span className="font-sans text-lg md:text-xl font-medium tracking-[-0.04em] text-neutral-black group-hover:text-brand transition-colors">
                       {stage.title}
                     </span>
                     <ArrowDown className="text-neutral-400 group-hover:text-neutral-black transition-colors" />
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -207,7 +241,7 @@ function DescriptionSection() {
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12">
         <p className="font-sans text-[15px] md:text-base text-neutral-600 leading-relaxed max-w-xl">
           Taking a project from readiness to sell-out requires sustained
-          coordination across positioning, marketing, sales, and operations.
+          coordination across branding, marketing, sales, and post-sales.
           Credvest consolidates that into a single mandate. One team. One
           system. Full accountability.
         </p>
@@ -232,24 +266,24 @@ function GrowthSystemSection() {
           {/* Left — sticky */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
-              How We Work
+              What We Do
             </span>
-            <h2 className="font-serif text-3xl md:text-[2.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-5">
+            <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-5">
               Why developers choose Credvest.
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-8">
-              Built by people who have spent years inside real estate
-              operations. Every project runs through the same framework. Four
-              stages, one team, full ownership.
+              Built by people who have spent a decade inside real estate.
+              Every project runs through the same framework. Four stages,
+              one team, full ownership.
             </p>
-            <a href="#" className="flex items-center gap-3 group w-fit">
+            <Link href="/how-we-work" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
                 <ArrowRight />
               </span>
               <span className="text-[13px] font-semibold text-neutral-black">
-                Learn More
+                How We Work
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Right — scrolling cards */}
@@ -257,7 +291,8 @@ function GrowthSystemSection() {
             {GROWTH_CARDS.map((card) => (
               <div
                 key={card.title}
-                className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-0 overflow-hidden"
+                id={card.id}
+                className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-0 overflow-hidden scroll-mt-24"
               >
                 {/* Card image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -274,9 +309,14 @@ function GrowthSystemSection() {
                   className="p-8 md:p-10 flex flex-col justify-between"
                   style={{ backgroundColor: card.bg }}
                 >
-                  <h3 className="font-serif text-xl md:text-2xl font-semibold text-neutral-black leading-[1.2] tracking-[-0.02em]">
-                    {card.title}
-                  </h3>
+                  <div>
+                    <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-2 block font-sans">
+                      {card.subtitle}
+                    </span>
+                    <h3 className="font-serif text-xl md:text-2xl font-semibold text-neutral-black leading-[1.2] tracking-[-0.04em]">
+                      {card.title}
+                    </h3>
+                  </div>
                   <div>
                     <p className="font-sans text-[13px] text-neutral-600 leading-relaxed mb-5">
                       {card.description}
@@ -312,7 +352,7 @@ function MarqueeRow() {
           className="flex-shrink-0 flex flex-col mx-8 md:mx-14"
         >
           <div className="flex items-baseline gap-2">
-            <span className="font-serif text-5xl md:text-6xl lg:text-7xl font-medium text-neutral-black tracking-[-0.04em]">
+            <span className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold text-neutral-black tracking-[-0.07em]">
               {stat.value}
             </span>
             {stat.suffix && (
@@ -375,7 +415,7 @@ function VelocitySection() {
         <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-12 lg:gap-28">
           {/* Left — sticky */}
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <h2 className="font-serif text-4xl md:text-5xl font-medium text-neutral-black leading-[1.1] tracking-[-0.04em]">
+            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-neutral-black leading-[1.1] tracking-[-0.07em]">
               Why projects lose velocity.
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mt-5 max-w-sm">
@@ -396,7 +436,7 @@ function VelocitySection() {
                   borderBottom: "1px solid #E0E0E0",
                 }}
               >
-                <span className="font-serif text-4xl md:text-5xl font-light text-neutral-200 leading-none tracking-[-0.02em]">
+                <span className="font-serif text-4xl md:text-5xl font-light text-neutral-200 leading-none tracking-[-0.04em]">
                   {problem.number}
                 </span>
                 <div>
@@ -420,12 +460,12 @@ const WHY_CHOOSE_ITEMS = [
   {
     title: "Single-Point Accountability",
     description:
-      "Most developers coordinate four or five vendors to take a project to market. Each runs its own process. Each reports on its own terms. We replace that with one team. Positioning, marketing, sales, execution. One reporting line, one set of standards.",
+      "Most developers coordinate four or five vendors to take a project to market. Each runs its own process. Each reports on its own terms. We replace that with one team. Branding, marketing, sales, post-sales. One reporting line, one set of standards.",
   },
   {
-    title: "Sales treated as an operational discipline",
+    title: "Sales treated as a discipline",
     description:
-      "Sales here is built as an operational system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
+      "Sales here is built as a structured system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
   },
   {
     title: "Dedicated teams on every project",
@@ -491,7 +531,7 @@ function WhyChooseSection() {
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
               The Credvest Model
             </span>
-            <h2 className="font-serif text-3xl md:text-[2.6rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-5">
+            <h2 className="font-serif text-3xl md:text-[2.6rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-5">
               Single-Point Accountability
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-10 max-w-md">
@@ -510,14 +550,14 @@ function WhyChooseSection() {
                     ref={(el) => {
                       accordionRefs.current[i] = el;
                     }}
-                    className={`cursor-pointer border-b ${isActive ? "border-brand" : "border-neutral-200"} transition-colors`}
+                    className={`cursor-pointer border-b ${isActive ? "border-brand" : "border-brand/20"} transition-colors`}
                     onClick={() => setActiveIndex(i)}
                   >
                     <div className="py-4">
                       <div>
                         <h4
-                          className={`font-serif text-base md:text-lg font-semibold tracking-[-0.02em] transition-colors ${
-                            isActive ? "text-neutral-black" : "text-neutral-500"
+                          className={`font-serif text-base md:text-xl font-semibold tracking-[-0.04em] transition-colors ${
+                            isActive ? "text-neutral-black" : "text-black/90"
                           }`}
                         >
                           {item.title}
@@ -582,7 +622,7 @@ function TextCard({
           className="px-2 pt-2 pb-3 border-b"
           style={{ borderColor: "rgba(0,0,0,0.08)" }}
         >
-          <h3 className="font-serif text-2xl md:text-3xl font-semibold text-neutral-black tracking-[-0.02em] leading-[1.1]">
+          <h3 className="font-serif text-2xl md:text-3xl font-semibold text-neutral-black tracking-[-0.04em] leading-[1.1]">
             {title}
           </h3>
         </div>
@@ -617,7 +657,7 @@ function BigCard({
   return (
     <div
       className="flex h-full p-2"
-      style={{ backgroundColor: "#F1F2EE", minHeight: 320 }}
+      style={{ backgroundColor: "#F0F0F0", minHeight: 320 }}
     >
       <div className="relative w-[40%] flex-shrink-0 overflow-hidden">
         <Image src="/bg1.png" alt={person} fill className="object-cover" />
@@ -646,10 +686,10 @@ function InsideCredvestSection() {
       <div className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 md:py-32">
         <div className="text-center mb-14">
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
-            Inside Credvest
+            Our People
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-4">
-            Inside Credvest
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-4 max-w-2xl mx-auto">
+            Built by people who run real estate sales at scale.
           </h2>
           <p className="font-sans text-[14px] text-neutral-500 leading-relaxed max-w-md mx-auto mb-6">
             Disciplined, ambitious, and growing. If that&apos;s the kind of
@@ -708,7 +748,7 @@ function InsideCredvestSection() {
             <div className="md:flex-1">
               <BigCard
                 desc={
-                  "\u201CWhat sets this apart is how marketing, sales, and operations actually function as one system.\u201D"
+                  "\u201CWhat sets this apart is how branding, marketing, and sales actually function as one system.\u201D"
                 }
                 person="Neeti A"
                 role="AGM, Marketing"
@@ -792,7 +832,7 @@ const CITY_DATA: Record<
       "Residential and mixed-use developments across key micro-markets.",
       "Across structured sales and exclusive mandates.",
     ],
-    tagline: "What structured operations look like in practice.",
+    tagline: "What structured execution looks like in practice.",
   },
   Hyderabad: {
     stats: [
@@ -820,14 +860,14 @@ function MandatesSection() {
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
             Measured outcomes
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-8">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-8">
             Measured outcomes across
             <br />
             Active Mandates
           </h2>
 
           {/* City tabs */}
-          <div className="inline-flex rounded-sm overflow-hidden   bg-[#F4F4F1] p-[3px]">
+          <div className="inline-flex rounded-sm overflow-hidden   bg-[#F0F0F0] p-[3px]">
             {Object.keys(CITY_DATA).map((city) => (
               <button
                 key={city}
@@ -849,7 +889,7 @@ function MandatesSection() {
           {/* Globe card */}
           <div
             className="p-5 flex flex-col justify-between lg:w-[420px] lg:flex-shrink-0 min-h-[460px] rounded-sm"
-            style={{ backgroundColor: "#F4F4F1" }}
+            style={{ backgroundColor: "#F0F0F0" }}
           >
             <div className="flex-1 flex items-center justify-center">
               <Image
@@ -872,7 +912,7 @@ function MandatesSection() {
               {/* 100+ card */}
               <div
                 className="p-5 flex flex-col justify-between rounded-sm md:flex-1"
-                style={{ backgroundColor: "#F4F4F1" }}
+                style={{ backgroundColor: "#F0F0F0" }}
               >
                 <div>
                   <span className="font-serif text-5xl md:text-6xl font-medium text-neutral-black tracking-[-0.03em]">
@@ -892,7 +932,7 @@ function MandatesSection() {
                 {/* 3.2x — flex row layout */}
                 <div
                   className="p-5 flex items-center justify-between gap-4 rounded-sm"
-                  style={{ backgroundColor: "#F4F4F1" }}
+                  style={{ backgroundColor: "#F0F0F0" }}
                 >
                   <span className="font-serif text-5xl md:text-6xl font-medium text-neutral-black tracking-[-0.03em]">
                     {data.stats[1].value}
@@ -905,7 +945,7 @@ function MandatesSection() {
                 {/* ₹4,200+ Cr — stacked vertically */}
                 <div
                   className="p-5 flex flex-col justify-between rounded-sm flex-1"
-                  style={{ backgroundColor: "#F4F4F1" }}
+                  style={{ backgroundColor: "#F0F0F0" }}
                 >
                   <div>
                     <span className="font-serif text-5xl md:text-6xl font-medium text-neutral-black tracking-[-0.03em]">
@@ -925,9 +965,9 @@ function MandatesSection() {
             {/* Tagline row */}
             <div
               className="p-5 rounded-sm"
-              style={{ backgroundColor: "#F4F4F1" }}
+              style={{ backgroundColor: "#F0F0F0" }}
             >
-              <p className="font-serif text-2xl md:text-2xl font-medium text-neutral-black tracking-[-0.02em]  ">
+              <p className="font-serif text-2xl md:text-2xl font-medium text-neutral-black tracking-[-0.04em]  ">
                 {data.tagline}
               </p>
             </div>
@@ -948,7 +988,7 @@ function PhilosophySection() {
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase bg-brand text-white px-2 py-1 mb-5 inline-block font-sans">
               Operating Philosophy
             </span>
-            <h2 className="font-serif text-3xl md:text-[2.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em]">
+            <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em]">
               One partner for the entire journey.
             </h2>
           </div>
@@ -957,7 +997,7 @@ function PhilosophySection() {
           <div className="flex flex-col justify-center gap-6">
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
               Taking a project from readiness to sell-out requires sustained
-              coordination across positioning, marketing, sales, and operations.
+              coordination across branding, marketing, sales, and post-sales.
               Most developers manage this across multiple vendors, each working
               independently.
             </p>
@@ -976,12 +1016,12 @@ const FAQ_ITEMS = [
   {
     question: "How does Credvest work with developers?",
     answer:
-      "As an extension of the developer\u2019s own team. We manage the sales lifecycle from positioning through to closure, replacing what would otherwise be three or four separate vendors.",
+      "As an extension of the developer\u2019s own team. We manage the sales lifecycle from branding through to post-sales, replacing what would otherwise be three or four separate vendors.",
   },
   {
     question: "Is Credvest a brokerage?",
     answer:
-      "No. Sales here is built as an operational system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
+      "No. Sales here is built as a structured system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
   },
   {
     question: "Do your teams represent the developer\u2019s brand?",
@@ -1016,7 +1056,7 @@ function FaqSection() {
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase bg-brand text-white px-2 py-1 mb-5 inline-block font-sans">
               FAQs
             </span>
-            <h2 className="font-serif text-3xl md:text-[2.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-4">
+            <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-4">
               Common
               <br />
               Questions
@@ -1092,7 +1132,7 @@ function CtaSection() {
         }}
       />
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12 py-24 md:py-36 text-center">
-        <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
+        <h2 className="font-serif text-4xl md:text-[3.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-10">
           Let&apos;s talk about your{" "}
           <span className="font-semibold text-stroke-brand">next</span> <br />
           project.

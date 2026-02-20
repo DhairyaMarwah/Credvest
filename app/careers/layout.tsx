@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Join Credvest and build a career in real estate's most structured sales environment. Explore open roles across sales, marketing, strategy, and operations.",
+    "This isn\u2019t a brokerage. It\u2019s an operating platform. Structured systems, dedicated teams, real ownership. Explore careers at Credvest.",
   openGraph: {
     title: "Careers | Credvest",
     description:
-      "Build a career in real estate's most structured sales environment. Explore open roles at Credvest.",
+      "Real estate, rebuilt from the inside. Explore careers at Credvest \u2014 an operating platform built for structured growth.",
   },
 };
 

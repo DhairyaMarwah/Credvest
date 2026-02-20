@@ -30,7 +30,7 @@ const siteUrl = "https://credvest-ten.vercel.app/";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Credvest — Real Estate's Most Trusted Operations Partner",
+    default: "Credvest — Real Estate's Most Trusted Strategy Partner",
     template: "%s | Credvest",
   },
   description:
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   keywords: [
     "real estate sales",
     "project mandates",
-    "sales operations",
+    "sales strategy",
     "real estate partner",
     "developer sales",
     "Credvest",
@@ -55,23 +55,23 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: "Credvest",
-    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Operations Partner",
+    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Strategy Partner",
     description:
-      "One team. One system. Full accountability. From positioning to sell-out.",
+      "One team. One system. Full accountability. From branding to post-sales.",
     images: [
       {
         url: "/og.webp",
         width: 1200,
         height: 630,
-        alt: "Credvest — Real Estate Sales Operations",
+        alt: "Credvest — Real Estate Strategy Partner",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Operations Partner",
+    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Strategy Partner",
     description:
-      "One team. One system. Full accountability. From positioning to sell-out.",
+      "One team. One system. Full accountability. From branding to post-sales.",
     images: ["/og.webp"],
   },
   robots: {

@@ -26,10 +26,10 @@ const PRIMARY_ALT_SHADES = [
 ];
 
 const SECONDARY_COLORS = [
-  { name: "Green", hex: "#E6FFD9", opacity: "70%", token: "E6FFD9/70" },
-  { name: "Blue", hex: "#CFEBFF", opacity: "70%", token: "CFEBFF/70" },
-  { name: "Pink", hex: "#FFE6F4", opacity: "100%", token: "FFE6F4" },
-  { name: "Yellow", hex: "#FFFBB8", opacity: "100%", token: "FFFBB8" },
+  { name: "Light", hex: "#F2F2F2", opacity: "100%", token: "F2F2F2" },
+  { name: "Mid", hex: "#EAEAEA", opacity: "100%", token: "EAEAEA" },
+  { name: "Soft", hex: "#F5F5F5", opacity: "100%", token: "F5F5F5" },
+  { name: "Muted", hex: "#EFEFEF", opacity: "100%", token: "EFEFEF" },
 ];
 
 const NEUTRALS_DARK = [
@@ -853,7 +853,7 @@ function CareersSection() {
       {/* ═══════════════════════════════════════════
           HERO
           ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: "#FFFEF6" }}>
+      <section className="relative overflow-hidden" style={{ backgroundColor: "#F8F8F8" }}>
         {/* Subtle grid overlay */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
@@ -923,7 +923,7 @@ function CareersSection() {
           {/* 4-Pillar Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-neutral-100">
             {CAREER_PILLARS.map((pillar) => (
-              <div key={pillar.number} className="bg-white p-8 md:p-10 group hover:bg-[#FFFEF6] transition-colors">
+              <div key={pillar.number} className="bg-white p-8 md:p-10 group hover:bg-[#F8F8F8] transition-colors">
                 <span className="text-[11px] font-bold tracking-widest text-[#FA412A] mb-3 block">
                   {pillar.number}
                 </span>
@@ -945,7 +945,7 @@ function CareersSection() {
       {/* ═══════════════════════════════════════════
           CAREER PATH — Bar Chart + Testimonial
           ═══════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#FFFEF6" }}>
+      <section style={{ backgroundColor: "#F8F8F8" }}>
         <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
           <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-[#FA412A] mb-5">
             Growth Journey
@@ -1020,7 +1020,7 @@ function CareersSection() {
                             width: "calc(100% - 12px)",
                             background: isLast
                               ? "linear-gradient(180deg, rgba(250,65,42,0.8) 0%, #FA412A 100%)"
-                              : "linear-gradient(180deg, #F1F2EE 0%, #E8E9E4 100%)",
+                              : "linear-gradient(180deg, #F0F0F0 0%, #E8E8E8 100%)",
                             border: isHovered && !isLast ? "1.5px solid rgba(250,65,42,0.3)" : "none",
                           }}
                         >
@@ -1084,7 +1084,7 @@ function CareersSection() {
             <div
               className="rounded-2xl p-8 md:p-10 flex flex-col justify-between"
               style={{
-                background: "linear-gradient(135deg, #FFF5F3 0%, #FFE6F4 40%, #CFEBFF 70%, #E6FFD9 100%)",
+                background: "linear-gradient(135deg, #F8F8F8 0%, #F2F2F2 40%, #EAEAEA 70%, #F5F5F5 100%)",
                 minHeight: 380,
               }}
             >
@@ -1138,9 +1138,9 @@ export default function BrandPage() {
       {/* ────────────────────────────────────────────
           SECTION 1 — FONT PAIRING — SINGLE FOLD
           Both Noto Serif SC + Inter shown together
-          bg: #FFFEF6 (warm cream), dark text
+          bg: #F8F8F8 (neutral grey), dark text
           ──────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#FFFEF6" }}>
+      <section style={{ backgroundColor: "#F8F8F8" }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-screen">
 
           {/* ── LEFT: NOTO SERIF SC ── */}
@@ -1326,7 +1326,7 @@ export default function BrandPage() {
           SECTION 2 — ALL COLORS IN ONE VIEW
           Primary + Secondary together, no radius, tight gaps
           ──────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#FFFEF6" }}>
+      <section style={{ backgroundColor: "#F8F8F8" }}>
         <div className="max-w-6xl mx-auto px-6 py-16">
           {/* Header */}
           <div className="mb-8">
@@ -1343,7 +1343,7 @@ export default function BrandPage() {
               Option A — Primary + Secondary
             </p>
             <p className="mt-2 text-sm text-neutral-400 max-w-lg">
-              Warm orange accent paired with soft pastel secondaries for a vibrant, multi-tonal palette.
+              Warm orange accent paired with neutral grey secondaries for a clean, monotone palette.
             </p>
           </div>
 
@@ -1398,7 +1398,7 @@ export default function BrandPage() {
       {/* ────────────────────────────────────────────
           SECTION 2B — ALTERNATIVE PALETTE (Orange only)
           ──────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#FFFEF6" }}>
+      <section style={{ backgroundColor: "#F8F8F8" }}>
         <div className="max-w-6xl mx-auto px-6 py-16">
           <div className="mb-8">
             <span className="inline-block text-xs font-semibold tracking-wider uppercase px-3 py-1 border border-[#FA412A]/20 text-[#FA412A] mb-4">
@@ -1445,7 +1445,7 @@ export default function BrandPage() {
       {/* ────────────────────────────────────────────
           SECTION 3 — NEUTRALS
           ──────────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#FFFEF6" }}>
+      <section style={{ backgroundColor: "#F8F8F8" }}>
         <div className="max-w-6xl mx-auto px-6 pb-16">
           {/* Dark Neutrals */}
           <div className="mb-8">

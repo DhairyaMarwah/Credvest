@@ -29,7 +29,7 @@ function ArrowRight({ className }: { className?: string }) {
 
 const PROCESS_TABS = [
   {
-    label: "Positioning & Authority",
+    label: "Branding & Strategy",
     icon: (
       <svg
         width="48"
@@ -81,9 +81,9 @@ const PROCESS_TABS = [
         />
       </svg>
     ),
-    headline: "Strategy before execution",
+    headline: "Your brand, built with intent",
     description:
-      "Before anything goes to market, we define what the project stands for. Who it\u2019s for, how it\u2019s different, where it sits against everything else. Strategy before execution.",
+      "Before anything goes to market, we define what the project stands for. Who it\u2019s for, how it\u2019s different, where it sits against everything else. We sit with developers and tell them how to build, what to build, when to build.",
     points: [
       {
         title: "Market Positioning",
@@ -171,7 +171,7 @@ const PROCESS_TABS = [
     ],
   },
   {
-    label: "Execution",
+    label: "Post Sales",
     icon: (
       <svg
         width="48"
@@ -196,17 +196,17 @@ const PROCESS_TABS = [
         />
       </svg>
     ),
-    headline: "Full visibility, operational rigour",
+    headline: "The relationship continues after closure",
     description:
-      "Real-time tracking. Weekly reviews. Full visibility into what\u2019s moving and what\u2019s stalled. Operational rigour that makes a sales mandate predictable.",
+      "Structured handover, documentation, CRM management, and buyer follow-up. The post-sales process ensures satisfaction, reduces cancellations, and drives referral generation.",
     points: [
       {
-        title: "Deal Structuring",
-        text: "Every negotiation follows a structured framework with defined discount bands, approval hierarchy, and margin floors.",
+        title: "CRM & Documentation",
+        text: "Complete buyer lifecycle management from agreement to possession, with structured touchpoints at every milestone.",
       },
       {
-        title: "Post-Sale Retention",
-        text: "Structured handover, documentation, and follow-up ensure buyer satisfaction and referral generation.",
+        title: "Retention & Referrals",
+        text: "Buyer satisfaction programmes that convert closures into repeat business and organic referrals.",
       },
     ],
   },
@@ -286,7 +286,7 @@ function HeroSection() {
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-end pt-32 md:pt-44 pb-20 md:pb-28">
           <div>
-            <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-medium text-neutral-black leading-[1.08] tracking-[-0.04em]">
+            <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold text-neutral-black leading-[1.08] tracking-[-0.07em]">
               One system.{" "}
               <span className="font-semibold text-stroke-brand">Four</span>{" "}
               stages.
@@ -298,8 +298,8 @@ function HeroSection() {
           <div className="flex flex-col gap-6 pb-2">
             <p className="text-[13px] text-neutral-500 leading-relaxed max-w-[280px]">
               Most developers coordinate multiple vendors. We replace that with
-              a single team running one integrated system from positioning to
-              sell-out.
+              a single team running one integrated system from branding to
+              post-sales.
             </p>
             <a href="#" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
@@ -347,7 +347,7 @@ function ProcessSection() {
           {/* Left — overview */}
           <div
             className="p-8 md:p-12 flex flex-col justify-between border border-t-0 border-neutral-200"
-            style={{ backgroundColor: "#FFFEF6" }}
+            style={{ backgroundColor: "#F8F8F8" }}
           >
             <div>
               <div className="mb-6">{tab.icon}</div>
@@ -488,7 +488,7 @@ function CredvestEdgeSection() {
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
             Credvest Lifecycle
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-4">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-4">
             The Credvest Edge
           </h2>
           <p className="font-sans text-[14px] text-neutral-500 leading-relaxed max-w-xl mx-auto">
@@ -856,7 +856,7 @@ function CredvestEdgeSection() {
 
         {/* Closing statement */}
         <div className="mt-16 text-center">
-          <p className="font-serif text-xl md:text-2xl text-neutral-800 max-w-lg mx-auto leading-snug tracking-[-0.02em]">
+          <p className="font-serif text-xl md:text-2xl text-neutral-800 max-w-lg mx-auto leading-snug tracking-[-0.04em]">
             &ldquo;With Credvest, performance does not dip mid-cycle.
             <br />
             <span className="text-brand font-semibold">It compounds.</span>
@@ -880,7 +880,7 @@ function CtaSection() {
         }}
       />
       <div className="relative z-10 max-w-[1600px] mx-auto px-8 lg:px-12 py-24 md:py-36 text-center">
-        <h2 className="font-serif text-4xl md:text-[3.8rem] font-medium text-neutral-black leading-[1.12] tracking-[-0.04em] mb-10">
+        <h2 className="font-serif text-4xl md:text-[3.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-10">
           Let&apos;s talk about your{" "}
           <span className="font-semibold text-stroke-brand">next</span> <br />
           project.
