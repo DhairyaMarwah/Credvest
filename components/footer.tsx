@@ -2,42 +2,39 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/logo.svg";
 
-const FOOTER_LINKS: { heading: string; links: { label: string; href: string }[] }[] = [
+const FOOTER_LINKS: { heading: string; links: { label: string; href: string; external?: boolean }[] }[] = [
   {
-    heading: "Solutions",
+    heading: "Company",
     links: [
-      { label: "All Solutions", href: "/coming-soon" },
-      { label: "Residential", href: "/coming-soon" },
-      { label: "Commercial", href: "/coming-soon" },
-      { label: "Mixed-Use", href: "/coming-soon" },
-      { label: "Pre-Launch", href: "/coming-soon" },
-      { label: "Portfolio Management", href: "/coming-soon" },
-    ],
-  },
-  {
-    heading: "How It Works",
-    links: [
-      { label: "Project Structures", href: "/how-we-work" },
-      { label: "Platform", href: "/coming-soon" },
-    ],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Log In", href: "/coming-soon" },
-      { label: "Sustainability", href: "/coming-soon" },
-      { label: "Press", href: "/coming-soon" },
-      { label: "Blog", href: "/coming-soon" },
-    ],
-  },
-  {
-    heading: "About",
-    links: [
-      { label: "Our Company", href: "/coming-soon" },
+      { label: "About Us", href: "/company" },
+      { label: "Our People", href: "/people" },
       { label: "Careers", href: "/careers" },
-      { label: "LinkedIn", href: "/coming-soon" },
       { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    heading: "Services",
+    links: [
+      { label: "How We Work", href: "/how-we-work" },
+      { label: "Branding & Strategy", href: "/how-we-work" },
+      { label: "Marketing", href: "/how-we-work" },
+      { label: "Sales", href: "/how-we-work" },
+      { label: "Post Sales", href: "/how-we-work" },
+    ],
+  },
+  {
+    heading: "Connect",
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/credvest", external: true },
+      { label: "Instagram", href: "https://www.instagram.com/credvest", external: true },
+      { label: "Twitter / X", href: "https://x.com/credvest", external: true },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
       { label: "Privacy Policy", href: "/coming-soon" },
+      { label: "Terms of Service", href: "/coming-soon" },
     ],
   },
 ];
@@ -62,18 +59,40 @@ export function Footer() {
                 <ul className="flex flex-col gap-2.5">
                   {col.links.map((link) => (
                     <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="font-sans text-[13px] text-neutral-600 hover:text-neutral-black transition-colors"
-                      >
-                        {link.label}
-                      </Link>
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-sans text-[13px] text-neutral-600 hover:text-neutral-black transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="font-sans text-[13px] text-neutral-600 hover:text-neutral-black transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1600px] mx-auto px-8 lg:px-12 pb-8">
+        <div className="border-t border-neutral-200 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <p className="font-sans text-[12px] text-neutral-400">
+            &copy; {new Date().getFullYear()} Credvest. All rights reserved.
+          </p>
+          <p className="font-sans text-[12px] text-neutral-400">
+            Bangalore &middot; Hyderabad &middot; Dubai
+          </p>
         </div>
       </div>
 

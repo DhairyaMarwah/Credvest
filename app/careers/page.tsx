@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { DitherShader } from "@/components/dither-shader";
 
 function ArrowRight({ className }: { className?: string }) {
   return (
@@ -93,6 +94,7 @@ const SUCCESS_STORIES = [
   {
     name: "Sameer Feroz Bhayani",
     currentRole: "Chief Business Officer",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
     timeline: [
       { date: "Nov 2021", role: "Joined as Senior Project Manager" },
       { date: "Apr 2022", role: "Promoted to Project Lead" },
@@ -104,6 +106,7 @@ const SUCCESS_STORIES = [
   {
     name: "Deekshitha B C",
     currentRole: "CRM Lead",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
     timeline: [
       { date: "Nov 2023", role: "Joined as Project Manager" },
       { date: "Feb 2025", role: "Promoted to Project Lead" },
@@ -113,6 +116,7 @@ const SUCCESS_STORIES = [
   {
     name: "Niranjan Murthi K R",
     currentRole: "Design Lead",
+    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&q=80",
     timeline: [
       { date: "Aug 2023", role: "Joined as Sr. Graphic Designer" },
       { date: "Apr 2024", role: "Promoted to Design Lead" },
@@ -144,28 +148,56 @@ const OPEN_ROLES = [
   {
     category: "Direct Sales",
     roles: [
-      { title: "Project Lead", location: "Bangalore", experience: "5\u20138 years" },
-      { title: "Project Manager Sales", location: "Hyderabad", experience: "2\u20137 years" },
+      {
+        title: "Project Lead",
+        location: "Bangalore",
+        experience: "5\u20138 years",
+      },
+      {
+        title: "Project Manager Sales",
+        location: "Hyderabad",
+        experience: "2\u20137 years",
+      },
     ],
   },
   {
     category: "Sales",
     roles: [
-      { title: "Cluster Manager", location: "Bangalore", experience: "5\u201310 years" },
-      { title: "Relationship Manager", location: "Bangalore", experience: "1\u20136 years" },
-      { title: "Project Manager", location: "Bangalore", experience: "0\u20136 years" },
+      {
+        title: "Cluster Manager",
+        location: "Bangalore",
+        experience: "5\u201310 years",
+      },
+      {
+        title: "Relationship Manager",
+        location: "Bangalore",
+        experience: "1\u20136 years",
+      },
+      {
+        title: "Project Manager",
+        location: "Bangalore",
+        experience: "0\u20136 years",
+      },
     ],
   },
   {
     category: "Operations",
     roles: [
-      { title: "Business Planning Manager", location: "Bangalore", experience: "2\u20133 years" },
+      {
+        title: "Business Planning Manager",
+        location: "Bangalore",
+        experience: "2\u20133 years",
+      },
     ],
   },
   {
     category: "HR",
     roles: [
-      { title: "HR Manager", location: "Bangalore", experience: "4\u20138 years" },
+      {
+        title: "HR Manager",
+        location: "Bangalore",
+        experience: "4\u20138 years",
+      },
     ],
   },
 ];
@@ -248,7 +280,10 @@ function HeroSection() {
               building the people who shape how India lives, invests, and
               experiences real estate.
             </p>
-            <a href="#open-roles" className="flex items-center gap-3 group w-fit">
+            <a
+              href="#open-roles"
+              className="flex items-center gap-3 group w-fit"
+            >
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
                 <ArrowRight />
               </span>
@@ -490,26 +525,28 @@ function CultureSection() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <div className="flex flex-col gap-5">
-              {CULTURE_POINTS.map((point) => (
-                <div key={point} className="flex items-start gap-4">
-                  <span className="w-1.5 h-1.5 bg-brand rounded-full flex-shrink-0 mt-2" />
-                  <p className="font-sans text-[15px] text-neutral-700 leading-relaxed">
+            <div className="flex flex-col gap-0">
+              {CULTURE_POINTS.map((point, i) => (
+                <div key={point} className="flex items-center gap-5 py-5 border-b border-neutral-100">
+                  <span className="font-serif text-4xl md:text-5xl font-semibold text-neutral-200 leading-none tracking-[-0.04em] select-none w-12 flex-shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="font-serif text-[17px] md:text-[19px] font-medium text-neutral-800 leading-snug tracking-[-0.02em]">
                     {point}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 pt-8 border-t border-neutral-200">
+            <div className="mt-8 bg-neutral-50 p-6">
               <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
                 We don&apos;t do office politics. We do direct feedback,
                 transparent conversations, and solving problems instead of
-                assigning blame.{" "}
-                <span className="text-neutral-700 font-medium">
-                  If you want colleagues who care more about outcomes than
-                  optics, you&apos;ll fit right in.
-                </span>
+                assigning blame.
+              </p>
+              <p className="font-serif text-[16px] font-semibold text-neutral-black mt-3 tracking-[-0.02em]">
+                If you want colleagues who care more about outcomes than
+                optics, you&apos;ll fit right in.
               </p>
             </div>
           </div>
@@ -521,14 +558,82 @@ function CultureSection() {
 
 /* ── Success Stories ── */
 
+function StoryImage({ src }: { src: string }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="relative w-full h-full overflow-hidden cursor-pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Real image underneath, shown on hover */}
+      <Image
+        src={src}
+        alt="Team member"
+        fill
+        className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+        sizes="(max-width: 768px) 100vw, 40vw"
+      />
+      {/* Dither on top, hidden on hover */}
+      <div className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}>
+        <DitherShader
+          src={src}
+          gridSize={2}
+          ditherMode="bayer"
+          colorMode="duotone"
+          invert={false}
+          animated={false}
+          primaryColor="#1a1a1a"
+          secondaryColor="#f0e0d4"
+          threshold={0.5}
+          className="absolute inset-0"
+        />
+      </div>
+    </div>
+  );
+}
+
 function SuccessStoriesSection() {
   const [activeStory, setActiveStory] = useState(0);
+  const [progress, setProgress] = useState(0);
   const story = SUCCESS_STORIES[activeStory];
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const elapsedRef = useRef(0);
+  const DURATION = 10000;
+  const TICK = 50;
+
+  const startInterval = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    elapsedRef.current = 0;
+    intervalRef.current = setInterval(() => {
+      elapsedRef.current += TICK;
+      const p = Math.min(elapsedRef.current / DURATION, 1);
+      setProgress(p);
+      if (elapsedRef.current >= DURATION) {
+        setActiveStory((prev) => (prev + 1) % SUCCESS_STORIES.length);
+        elapsedRef.current = 0;
+      }
+    }, TICK);
+  }, []);
+
+  useEffect(() => {
+    startInterval();
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  }, [startInterval]);
+
+  const goTo = (idx: number) => {
+    setActiveStory(idx);
+    setProgress(0);
+    startInterval();
+  };
+  const goPrev = () => goTo((activeStory - 1 + SUCCESS_STORIES.length) % SUCCESS_STORIES.length);
+  const goNext = () => goTo((activeStory + 1) % SUCCESS_STORIES.length);
 
   return (
     <section className="bg-white">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-32">
-        <div className="text-center mb-14">
+        <div className="mb-14">
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
             Growth Stories
           </span>
@@ -537,68 +642,92 @@ function SuccessStoriesSection() {
           </h2>
         </div>
 
-        {/* Name tabs */}
-        <div className="flex justify-center gap-2 mb-12">
-          {SUCCESS_STORIES.map((s, i) => (
-            <button
-              key={s.name}
-              onClick={() => setActiveStory(i)}
-              className={`px-5 py-2.5 text-[13px] font-medium transition-all ${
-                activeStory === i
-                  ? "bg-neutral-900 text-white"
-                  : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
-              }`}
-            >
-              {s.name.split(" ")[0]}
-            </button>
-          ))}
-        </div>
-
-        {/* Active story */}
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-10">
-            <h3 className="font-serif text-2xl md:text-3xl font-semibold text-neutral-black tracking-[-0.04em]">
-              {story.name}
-            </h3>
-            <p className="font-sans text-[13px] text-brand font-semibold mt-1">
-              {story.currentRole}
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0 border border-neutral-200 min-h-[480px]">
+          {/* Left — image with dither */}
+          <div className="relative h-[300px] lg:h-auto">
+            <StoryImage key={activeStory} src={story.image} />
+            <div className="absolute bottom-4 left-4 z-10">
+              <span className="font-serif text-sm font-semibold text-neutral-black bg-white px-2 py-1.5 inline-block">
+                {story.name.split(" ")[0]}
+              </span>
+            </div>
+            {/* Progress bar below image */}
+            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-neutral-200 z-20">
+              <div
+                className="h-full bg-brand transition-[width] duration-75 ease-linear"
+                style={{ width: `${progress * 100}%` }}
+              />
+            </div>
           </div>
 
-          <div className="relative pl-8">
-            {/* Vertical line */}
-            <div className="absolute left-[5px] top-2 bottom-2 w-px bg-neutral-200" />
+          {/* Right — timeline + nav arrows */}
+          <div className="bg-white p-6 md:p-10 flex flex-col">
+            <div className="mb-6">
+              <h3 className="font-serif text-xl md:text-2xl font-semibold text-neutral-black tracking-[-0.04em]">
+                {story.name}
+              </h3>
+              <p className="font-sans text-[13px] text-brand font-semibold mt-1">
+                {story.currentRole}
+              </p>
+            </div>
 
-            <div className="flex flex-col gap-6">
-              {story.timeline.map((step, i) => {
-                const isLast = i === story.timeline.length - 1;
-                return (
-                  <div key={step.date} className="relative flex gap-6">
-                    {/* Dot */}
-                    <div
-                      className={`absolute -left-8 top-1.5 w-[11px] h-[11px] rounded-full border-2 flex-shrink-0 ${
-                        isLast
-                          ? "bg-brand border-brand"
-                          : "bg-white border-neutral-300"
-                      }`}
-                    />
-                    <div>
-                      <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-neutral-400 block mb-1">
-                        {step.date}
-                      </span>
-                      <p
-                        className={`font-serif text-[15px] md:text-[17px] tracking-[-0.01em] ${
+            <div className="relative pl-6 flex-1">
+              <div className="absolute left-[4px] top-2 bottom-2 w-px bg-neutral-200" />
+              <div className="flex flex-col gap-5">
+                {story.timeline.map((step, i) => {
+                  const isLast = i === story.timeline.length - 1;
+                  return (
+                    <div key={step.date} className="relative flex gap-5">
+                      <div
+                        className={`absolute -left-6 top-1.5 w-[9px] h-[9px] rounded-full border-2 flex-shrink-0 ${
                           isLast
-                            ? "font-semibold text-brand"
-                            : "font-medium text-neutral-700"
+                            ? "bg-brand border-brand"
+                            : "bg-white border-neutral-300"
                         }`}
-                      >
-                        {step.role}
-                      </p>
+                      />
+                      <div>
+                        <span className="text-[10px] font-semibold tracking-[0.1em] uppercase text-neutral-400 block mb-0.5">
+                          {step.date}
+                        </span>
+                        <p
+                          className={`font-serif text-[14px] md:text-[16px] tracking-[-0.01em] ${
+                            isLast
+                              ? "font-semibold text-brand"
+                              : "font-medium text-neutral-700"
+                          }`}
+                        >
+                          {step.role}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Navigation arrows bottom-right */}
+            <div className="flex items-center justify-end gap-2 mt-6 pt-4 border-t border-neutral-100">
+              <span className="text-[12px] text-neutral-400 font-sans mr-auto">
+                {activeStory + 1} / {SUCCESS_STORIES.length}
+              </span>
+              <button
+                onClick={goPrev}
+                className="w-9 h-9 flex items-center justify-center border border-neutral-200 hover:border-neutral-400 transition-colors"
+                aria-label="Previous story"
+              >
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                  <path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                onClick={goNext}
+                className="w-9 h-9 flex items-center justify-center border border-neutral-200 hover:border-neutral-400 transition-colors"
+                aria-label="Next story"
+              >
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                  <path d="M8 4l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -655,22 +784,53 @@ function TextCard({
   );
 }
 
+const CAREERS_BIG_CARD_IMAGES = [
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
+];
+
 function BigCard({
   desc,
   person,
   role,
+  imgSrc,
 }: {
   desc?: string;
   person: string;
   role: string;
+  imgSrc: string;
 }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div
-      className="flex h-full p-2"
-      style={{ backgroundColor: "#F0F0F0", minHeight: 320 }}
+      className="flex h-full p-2 cursor-pointer"
+      style={{ backgroundColor: "#F1F2EE", minHeight: 320 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <div className="relative w-[40%] flex-shrink-0 overflow-hidden">
-        <Image src="/bg1.png" alt={person} fill className="object-cover" />
+        <Image
+          src={imgSrc}
+          alt={person}
+          fill
+          className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+          sizes="20vw"
+        />
+        <div className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}>
+          <DitherShader
+            src={imgSrc}
+            gridSize={2}
+            ditherMode="bayer"
+            colorMode="duotone"
+            invert={false}
+            animated={false}
+            primaryColor="#1a1a1a"
+            secondaryColor="#f0e0d4"
+            threshold={0.5}
+            className="absolute inset-0"
+          />
+        </div>
       </div>
       <div className="flex flex-col justify-between flex-1 pl-5 pr-3 py-3">
         <p className="font-sans tracking-tight text-[18px] font-semibold text-neutral-800 leading-relaxed">
@@ -727,7 +887,10 @@ function PeopleSection() {
             </div>
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"}
+                imgSrc={CAREERS_BIG_CARD_IMAGES[0]}
+                desc={
+                  "\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"
+                }
                 person="Bhavya"
                 role="GM, Sales"
               />
@@ -737,7 +900,10 @@ function PeopleSection() {
           <div className="flex flex-col md:flex-row gap-5">
             <div className="md:flex-1">
               <BigCard
-                desc={"\u201CWhat sets this apart is how branding, marketing, and sales actually function as one system.\u201D"}
+                imgSrc={CAREERS_BIG_CARD_IMAGES[1]}
+                desc={
+                  "\u201CWhat sets this apart is how branding, marketing, and sales actually function as one system.\u201D"
+                }
                 person="Neeti A"
                 role="AGM, Marketing"
               />
@@ -818,7 +984,10 @@ function OpenRolesSection() {
   const activeGroup = OPEN_ROLES.find((g) => g.category === expandedCategory);
 
   return (
-    <section id="open-roles" className="bg-white border-t border-dashed border-neutral-200">
+    <section
+      id="open-roles"
+      className="bg-white border-t border-dashed border-neutral-200"
+    >
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div>

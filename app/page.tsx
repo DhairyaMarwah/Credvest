@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { DitherShader } from "@/components/dither-shader";
 
 const STAGES = [
   { number: "01", title: "Branding", sectionId: "stage-branding" },
@@ -147,9 +148,7 @@ function HeroSection() {
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold text-neutral-black leading-[1.08] tracking-[-0.07em]">
               Real estate&apos;s{" "}
               <span className="font-semibold text-stroke-brand">most</span>{" "}
-              <span className="font-semibold text-stroke-brand">
-                trusted
-              </span>{" "}
+              <span className="font-semibold text-stroke-brand">trusted</span>{" "}
               strategy partner
             </h1>
           </div>
@@ -198,8 +197,14 @@ function HeroSection() {
             {/* Headline */}
             <div className="pb-3 md:pb-5">
               <h2 className="font-sans text-[2.5rem] md:text-[clamp(1.5rem,3.5vw,2.8rem)] font-medium text-white leading-[0.95] md:leading-[1.15] tracking-[-0.06em] md:tracking-[-0.05em]">
-                <span className="md:hidden">One system.<br />Four stages.</span>
-                <span className="hidden md:inline">One system. Four stages.</span>
+                <span className="md:hidden">
+                  One system.
+                  <br />
+                  Four stages.
+                </span>
+                <span className="hidden md:inline">
+                  One system. Four stages.
+                </span>
               </h2>
             </div>
 
@@ -212,7 +217,8 @@ function HeroSection() {
                   key={stage.title}
                   onClick={() => {
                     const el = document.getElementById(stage.sectionId);
-                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    if (el)
+                      el.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                   className="bg-white px-3 py-3 md:px-5 md:py-5 flex flex-col justify-between min-h-[90px] md:min-h-[120px] group cursor-pointer hover:bg-neutral-50 transition-colors text-left"
                 >
@@ -272,11 +278,14 @@ function GrowthSystemSection() {
               Why developers choose Credvest.
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-8">
-              Built by people who have spent a decade inside real estate.
-              Every project runs through the same framework. Four stages,
-              one team, full ownership.
+              Built by people who have spent a decade inside real estate. Every
+              project runs through the same framework. Four stages, one team,
+              full ownership.
             </p>
-            <Link href="/how-we-work" className="flex items-center gap-3 group w-fit">
+            <Link
+              href="/how-we-work"
+              className="flex items-center gap-3 group w-fit"
+            >
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
                 <ArrowRight />
               </span>
@@ -645,25 +654,57 @@ function TextCard({
   );
 }
 
+const BIG_CARD_IMAGES = [
+  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+];
+
 function BigCard({
   desc,
   person,
   role,
+  imgSrc,
 }: {
   desc?: string;
   person: string;
   role: string;
+  imgSrc: string;
 }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div
-      className="flex h-full p-2"
-      style={{ backgroundColor: "#F0F0F0", minHeight: 320 }}
+      className="flex h-full p-2 cursor-pointer"
+      style={{ backgroundColor: "#F1F2EE", minHeight: 320 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <div className="relative w-[40%] flex-shrink-0 overflow-hidden">
-        <Image src="/bg1.png" alt={person} fill className="object-cover" />
+        <Image
+          src={imgSrc}
+          alt={person}
+          fill
+          className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+          sizes="20vw"
+        />
+        <div className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}>
+          <DitherShader
+            src={imgSrc}
+            gridSize={2}
+            ditherMode="bayer"
+            colorMode="duotone"
+            invert={false}
+            animated={false}
+            primaryColor="#1a1a1a"
+            secondaryColor="#f0e0d4"
+            threshold={0.5}
+            className="absolute inset-0"
+          />
+        </div>
       </div>
       <div className="flex flex-col justify-between flex-1 pl-5 pr-3 py-3">
-        <p className="font-sans tracking-tight text-[18px]  font-semibold text-neutral-800 leading-relaxed">
+        <p className="font-sans tracking-tight text-[18px] font-semibold text-neutral-800 leading-relaxed">
           {desc}
         </p>
         <div className="flex items-center justify-between mt-4">
@@ -683,7 +724,7 @@ function BigCard({
 function InsideCredvestSection() {
   return (
     <section className="bg-white">
-      <div className="max-w-[1400px] mx-auto px-8 lg:px-12 py-20 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-8 lg:px-12 py-20 md:py-32">
         <div className="text-center mb-14">
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
             Our People
@@ -734,6 +775,7 @@ function InsideCredvestSection() {
             </div>
             <div className="md:flex-1">
               <BigCard
+                imgSrc={BIG_CARD_IMAGES[0]}
                 desc={
                   "\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"
                 }
@@ -747,6 +789,7 @@ function InsideCredvestSection() {
           <div className="flex flex-col md:flex-row gap-5">
             <div className="md:flex-1">
               <BigCard
+                imgSrc={BIG_CARD_IMAGES[1]}
                 desc={
                   "\u201CWhat sets this apart is how branding, marketing, and sales actually function as one system.\u201D"
                 }
@@ -800,6 +843,7 @@ function InsideCredvestSection() {
             </div>
             <div className="md:flex-1">
               <BigCard
+                imgSrc={BIG_CARD_IMAGES[2]}
                 desc={
                   "\u201CPipeline visibility isn\u2019t a reporting feature. It\u2019s how better decisions get made.\u201D"
                 }

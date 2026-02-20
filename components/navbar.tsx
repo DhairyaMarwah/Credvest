@@ -9,6 +9,7 @@ import Logo from "@/assets/logo.svg";
 const NAV_LINKS = [
   { label: "People", href: "/people" },
   { label: "Company", href: "/company" },
+  { label: "Group", href: "/group" },
   { label: "How We Work", href: "/how-we-work" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
@@ -31,7 +32,9 @@ export function Navbar() {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   useEffect(() => {
@@ -70,7 +73,12 @@ export function Navbar() {
       >
         <div className="w-full pl-7 lg:pl-11 pr-0 flex items-center justify-between h-14">
           <Link href="/" className="flex items-center flex-shrink-0">
-            <Image src={Logo} alt="Credvest" height={28} className="h-7 w-auto" />
+            <Image
+              src={Logo}
+              alt="Credvest"
+              height={28}
+              className="h-7 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}

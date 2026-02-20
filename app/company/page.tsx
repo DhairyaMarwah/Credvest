@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { DitherShader } from "@/components/dither-shader";
 
 function ArrowRight({ className }: { className?: string }) {
   return (
@@ -104,6 +106,7 @@ const ECOSYSTEM = [
   {
     label: "CREDVEST CORE",
     tagline: "Velocity to Value",
+    image: "/velocitytovalue.png",
     description:
       "Structured sales execution across the project lifecycle. Dedicated teams, pipeline management, channel discipline, performance tracking, and margin protection \u2014 from first lead to final closure.",
     points: [
@@ -116,6 +119,7 @@ const ECOSYSTEM = [
   {
     label: "CREDVEST EDGE",
     tagline: "Land to Launch",
+    image: "/landtolaunch.png",
     description:
       "Strategic positioning and market entry. Before sales begins, we define the narrative, build the brand presence, and create the conditions for velocity \u2014 so the project enters the market with clarity.",
     points: [
@@ -287,10 +291,64 @@ function StorySection() {
 /* ── Leadership ── */
 
 const LEADERSHIP = [
-  { name: "Coming Soon", role: "Founder & CEO", image: null },
-  { name: "Coming Soon", role: "Co-Founder & COO", image: null },
-  { name: "Coming Soon", role: "Chief Business Officer", image: null },
+  {
+    name: "Arjun Mehta",
+    role: "Founder & CEO",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+  },
+  {
+    name: "Priya Sharma",
+    role: "Co-Founder & COO",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+  },
+  {
+    name: "Sameer Bhayani",
+    role: "Chief Business Officer",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+  },
 ];
+
+function LeaderCard({ person }: { person: (typeof LEADERSHIP)[number] }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      className="bg-white flex flex-col cursor-pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="relative w-full aspect-[3/4] overflow-hidden bg-white">
+        <DitherShader
+          src={person.image}
+          gridSize={2}
+          ditherMode="bayer"
+          colorMode="duotone"
+          invert={false}
+          animated={false}
+          primaryColor="#1a1a1a"
+          secondaryColor="#f0e0d4"
+          threshold={0.5}
+          className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
+        />
+        <img
+          src={person.image}
+          alt={person.name}
+          className={`absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+        />
+      </div>
+      <div className="pt-4">
+        <span className="font-serif text-lg font-semibold text-neutral-black">
+          {person.name}
+        </span>
+        <span className="font-sans text-[13px] text-neutral-400">
+          , {person.role}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 function LeadershipSection() {
   return (
@@ -310,24 +368,9 @@ function LeadershipSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-neutral-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {LEADERSHIP.map((person) => (
-              <div
-                key={person.role}
-                className="bg-white p-8 flex flex-col items-center text-center"
-              >
-                <div className="w-28 h-28 bg-neutral-100 mb-6 flex items-center justify-center">
-                  <span className="text-neutral-300 text-[11px] font-sans tracking-wider uppercase">
-                    Photo
-                  </span>
-                </div>
-                <h3 className="font-serif text-lg font-semibold text-neutral-black mb-1">
-                  {person.name}
-                </h3>
-                <span className="font-sans text-[12px] text-neutral-400">
-                  {person.role}
-                </span>
-              </div>
+              <LeaderCard key={person.role} person={person} />
             ))}
           </div>
         </div>
@@ -396,31 +439,36 @@ function EcosystemSection() {
           {ECOSYSTEM.map((eco) => (
             <div
               key={eco.label}
-              className="border border-neutral-200 p-8 md:p-10 flex flex-col"
+              className="border border-neutral-200 flex flex-col overflow-hidden"
             >
-              <div className="mb-6">
-                <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-brand block mb-2">
-                  {eco.label}
-                </span>
-                <h3 className="font-serif text-2xl md:text-3xl font-semibold text-neutral-black tracking-[-0.04em] leading-[1.1]">
-                  {eco.tagline}
-                </h3>
+              <div className="relative     ">
+                <Image src={eco.image} alt={eco.tagline} width={250} height={250} />
               </div>
+              <div className="p-8 md:p-10 flex flex-col flex-1">
+                <div className="mb-6">
+                  <span className="text-[11px] font-bold tracking-[0.15em] uppercase text-brand block mb-2">
+                    {eco.label}
+                  </span>
+                  <h3 className="font-serif text-2xl md:text-3xl font-semibold text-neutral-black tracking-[-0.04em] leading-[1.1]">
+                    {eco.tagline}
+                  </h3>
+                </div>
 
-              <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-8">
-                {eco.description}
-              </p>
+                <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-8">
+                  {eco.description}
+                </p>
 
-              <div className="mt-auto flex flex-col gap-3">
-                {eco.points.map((point) => (
-                  <div
-                    key={point}
-                    className="flex items-center gap-3 text-[13px] text-neutral-600"
-                  >
-                    <span className="w-1.5 h-1.5 bg-brand rounded-full flex-shrink-0" />
-                    {point}
-                  </div>
-                ))}
+                <div className="mt-auto flex flex-col gap-3">
+                  {eco.points.map((point) => (
+                    <div
+                      key={point}
+                      className="flex items-center gap-3 text-[13px] text-neutral-600"
+                    >
+                      <span className="w-1.5 h-1.5 bg-brand rounded-full flex-shrink-0" />
+                      {point}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
