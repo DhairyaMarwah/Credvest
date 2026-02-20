@@ -7,9 +7,10 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
     heading: "Company",
     links: [
       { label: "About Us", href: "/company" },
+      { label: "The Group", href: "/group" },
       { label: "Our People", href: "/people" },
       { label: "Careers", href: "/careers" },
-      { label: "Contact", href: "/contact" },
+      { label: "Brand", href: "/brand" },
     ],
   },
   {
@@ -28,6 +29,7 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
       { label: "LinkedIn", href: "https://www.linkedin.com/company/credvest", external: true },
       { label: "Instagram", href: "https://www.instagram.com/credvest", external: true },
       { label: "Twitter / X", href: "https://x.com/credvest", external: true },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {

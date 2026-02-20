@@ -688,7 +688,9 @@ function BigCard({
           className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
           sizes="20vw"
         />
-        <div className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}>
+        <div
+          className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
+        >
           <DitherShader
             src={imgSrc}
             gridSize={2}

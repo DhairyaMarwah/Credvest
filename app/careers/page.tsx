@@ -94,7 +94,8 @@ const SUCCESS_STORIES = [
   {
     name: "Sameer Feroz Bhayani",
     currentRole: "Chief Business Officer",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
     timeline: [
       { date: "Nov 2021", role: "Joined as Senior Project Manager" },
       { date: "Apr 2022", role: "Promoted to Project Lead" },
@@ -106,7 +107,8 @@ const SUCCESS_STORIES = [
   {
     name: "Deekshitha B C",
     currentRole: "CRM Lead",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
     timeline: [
       { date: "Nov 2023", role: "Joined as Project Manager" },
       { date: "Feb 2025", role: "Promoted to Project Lead" },
@@ -116,7 +118,8 @@ const SUCCESS_STORIES = [
   {
     name: "Niranjan Murthi K R",
     currentRole: "Design Lead",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&q=80",
     timeline: [
       { date: "Aug 2023", role: "Joined as Sr. Graphic Designer" },
       { date: "Apr 2024", role: "Promoted to Design Lead" },
@@ -527,7 +530,10 @@ function CultureSection() {
           <div className="flex flex-col justify-center">
             <div className="flex flex-col gap-0">
               {CULTURE_POINTS.map((point, i) => (
-                <div key={point} className="flex items-center gap-5 py-5 border-b border-neutral-100">
+                <div
+                  key={point}
+                  className="flex items-center gap-5 py-5 border-b border-neutral-100"
+                >
                   <span className="font-serif text-4xl md:text-5xl font-semibold text-neutral-200 leading-none tracking-[-0.04em] select-none w-12 flex-shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -545,8 +551,8 @@ function CultureSection() {
                 assigning blame.
               </p>
               <p className="font-serif text-[16px] font-semibold text-neutral-black mt-3 tracking-[-0.02em]">
-                If you want colleagues who care more about outcomes than
-                optics, you&apos;ll fit right in.
+                If you want colleagues who care more about outcomes than optics,
+                you&apos;ll fit right in.
               </p>
             </div>
           </div>
@@ -576,7 +582,9 @@ function StoryImage({ src }: { src: string }) {
         sizes="(max-width: 768px) 100vw, 40vw"
       />
       {/* Dither on top, hidden on hover */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}>
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
+      >
         <DitherShader
           src={src}
           gridSize={2}
@@ -619,7 +627,9 @@ function SuccessStoriesSection() {
 
   useEffect(() => {
     startInterval();
-    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, [startInterval]);
 
   const goTo = (idx: number) => {
@@ -627,7 +637,8 @@ function SuccessStoriesSection() {
     setProgress(0);
     startInterval();
   };
-  const goPrev = () => goTo((activeStory - 1 + SUCCESS_STORIES.length) % SUCCESS_STORIES.length);
+  const goPrev = () =>
+    goTo((activeStory - 1 + SUCCESS_STORIES.length) % SUCCESS_STORIES.length);
   const goNext = () => goTo((activeStory + 1) % SUCCESS_STORIES.length);
 
   return (
@@ -716,7 +727,13 @@ function SuccessStoriesSection() {
                 aria-label="Previous story"
               >
                 <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
-                  <path d="M12 4l-6 6 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M12 4l-6 6 6 6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
               <button
@@ -725,7 +742,13 @@ function SuccessStoriesSection() {
                 aria-label="Next story"
               >
                 <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
-                  <path d="M8 4l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M8 4l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
             </div>
@@ -817,7 +840,9 @@ function BigCard({
           className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
           sizes="20vw"
         />
-        <div className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}>
+        <div
+          className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
+        >
           <DitherShader
             src={imgSrc}
             gridSize={2}

@@ -442,7 +442,12 @@ function EcosystemSection() {
               className="border border-neutral-200 flex flex-col overflow-hidden"
             >
               <div className="relative     ">
-                <Image src={eco.image} alt={eco.tagline} width={250} height={250} />
+                <Image
+                  src={eco.image}
+                  alt={eco.tagline}
+                  width={250}
+                  height={250}
+                />
               </div>
               <div className="p-8 md:p-10 flex flex-col flex-1">
                 <div className="mb-6">
