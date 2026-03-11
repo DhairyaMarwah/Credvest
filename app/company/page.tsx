@@ -59,27 +59,27 @@ const STATS = [
 const PRINCIPLES = [
   {
     number: "01",
-    title: "One team, not five vendors",
+    title: "Transparency & Trust",
     description:
-      "Most developers coordinate branding, marketing, sales, and post-sales across separate agencies. Each runs its own process. We consolidate all of it into one mandate, one team, one reporting line.",
+      "We act with radical clarity \u2014 in our advisory, our pricing, and our execution. Clients, partners, and homebuyers always know where they stand with us. Trust is not a value we aspire to; it is the prerequisite for everything else we do.",
   },
   {
     number: "02",
-    title: "Systems, not stars",
+    title: "Ownership Mindset",
     description:
-      "Results come from the process, not from hoping the right person is in the room. Every stage of the sales cycle has a defined framework. Performance is tracked, reviewed, improved.",
+      "We take complete accountability for outcomes, not just outputs. We anticipate problems before they become crises. We stay until the work is done right \u2014 not just done. Every team member operates like a stakeholder, because that is exactly what we are.",
   },
   {
     number: "03",
-    title: "Direct accountability",
+    title: "Expertise with Integrity",
     description:
-      "We don\u2019t layer vendors between the developer and the outcome. One team owns the entire lifecycle. When something needs to change, it changes the same week.",
+      "We combine hard-won real estate knowledge with ethical conduct, always. Our counsel is driven by insight and experience \u2014 never by commission, convenience, or conflict of interest. We say the difficult thing when it needs to be said.",
   },
   {
     number: "04",
-    title: "Partnerships, not transactions",
+    title: "Collaborative Growth",
     description:
-      "We commit to full project lifecycles. Our incentives are aligned with the developer\u2019s success \u2014 not with closing the next deal and moving on.",
+      "The best outcomes are built together. We work as one team internally, and as genuine partners externally \u2014 aligning goals, sharing accountability, and celebrating wins collectively. We grow when our clients grow, and that alignment is structural.",
   },
 ];
 
@@ -172,18 +172,19 @@ function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 items-end pt-32 md:pt-44 pb-20 md:pb-28">
           <div>
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold text-neutral-black leading-[1.08] tracking-[-0.07em]">
-              Built over a{" "}
-              <span className="font-semibold text-stroke-brand">decade.</span>
+              Credibility{" "}
+              <span className="font-semibold text-stroke-brand">vested</span> in
+              every project
               <br />
-              Refined every day.
+              we touch.
             </h1>
           </div>
 
           <div className="flex flex-col gap-6 pb-2">
             <p className="text-[13px] text-neutral-500 leading-relaxed max-w-[280px]">
-              Credvest is an operating platform for real estate sales. We manage
-              the full lifecycle for developers &mdash; positioning, marketing,
-              sales, execution &mdash; as a single, accountable team.
+              Credvest exists at the intersection of credibility and investment.
+              We don&apos;t just consult — we vest ourselves in the outcome.
+              Our reputation is on the line every time a project launches.
             </p>
             <Link
               href="/contact"
@@ -257,9 +258,10 @@ function StorySection() {
               One thesis. A decade of proof.
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mt-5 max-w-sm">
-              Real estate sales could be run as a structured operating system.
-              Not a broker network. Not a collection of vendors. One team, one
-              system, full accountability.
+              The thesis was simple: real estate sales could be run with the
+              discipline and accountability of a true partnership — not a broker
+              network, not a collection of vendors. One team, fully vested in
+              the outcome.
             </p>
           </div>
 
@@ -387,12 +389,12 @@ function PrinciplesSection() {
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-32">
         <div className="text-center mb-14">
           <span className="text-[11px] font-semibold tracking-[0.15em] uppercase bg-brand text-white px-2 py-1 mb-5 inline-block font-sans">
-            How We Think
+            What We Stand For
           </span>
           <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em]">
-            Not values on a wall.
+            The standards that guide
             <br />
-            How we actually operate.
+            every decision we make.
           </h2>
         </div>
 
@@ -477,6 +479,45 @@ function EcosystemSection() {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Vision ── */
+
+function VisionSection() {
+  return (
+    <section className="bg-neutral-black">
+      <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-12 lg:gap-28">
+          <div>
+            <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
+              Our Vision
+            </span>
+            <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-white leading-[1.12] tracking-[-0.07em]">
+              Redefining how real estate is built, sold, and experienced in
+              India.
+            </h2>
+          </div>
+
+          <div className="flex flex-col justify-center gap-6">
+            <p className="font-sans text-[14px] text-neutral-400 leading-relaxed">
+              We envision a future where the top developers seek us out not
+              because we are the largest, but because we are the most trusted.
+              Where the Credvest model &mdash; end-to-end ownership, boutique
+              precision, and intelligence-led execution &mdash; is recognized as
+              the benchmark against which all consulting partnerships are
+              measured.
+            </p>
+            <div className="border-l-2 border-brand pl-6 mt-2">
+              <p className="font-serif text-lg md:text-xl text-white leading-snug tracking-[-0.02em]">
+                &ldquo;We don&rsquo;t just show up at the strategy table. We
+                stay until the job is done.&rdquo;
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -645,6 +686,7 @@ export default function CompanyPage() {
       <LeadershipSection />
       <PrinciplesSection />
       <EcosystemSection />
+      <VisionSection />
       <CitiesSection />
       <FaqSection />
       <CtaSection />

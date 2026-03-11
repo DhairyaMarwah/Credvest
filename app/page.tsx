@@ -155,17 +155,18 @@ function HeroSection() {
 
           <div className="flex flex-col gap-6 pb-2">
             <p className="text-[13px] text-neutral-500 leading-relaxed max-w-[280px]">
-              We build and run the systems that move projects from launch to
-              sell-out — with discipline, structure, and direct accountability.
+              We don&apos;t just consult — we put our credibility on the line.
+              One team owns your project&apos;s entire lifecycle: positioning,
+              marketing, sales, and closure.
             </p>
-            <a href="#" className="flex items-center gap-3 group w-fit">
+            <Link href="/contact" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
                 <ArrowRight />
               </span>
               <span className="text-[13px] font-semibold text-neutral-black">
                 Work With Us
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -241,24 +242,48 @@ function HeroSection() {
   );
 }
 
-function DescriptionSection() {
+function PurposeSection() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-20 md:py-32">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12">
-        <p className="font-sans text-[15px] md:text-base text-neutral-600 leading-relaxed max-w-xl">
-          Taking a project from readiness to sell-out requires sustained
-          coordination across branding, marketing, sales, and post-sales.
-          Credvest consolidates that into a single mandate. One team. One
-          system. Full accountability.
-        </p>
-        <a href="#" className="flex items-center gap-3 group w-fit mt-8">
-          <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
-            <ArrowRight />
-          </span>
-          <span className="text-[13px] font-semibold text-neutral-black">
-            Learn More
-          </span>
-        </a>
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24">
+          <div>
+            <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
+              Why We Exist
+            </span>
+            <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em]">
+              An industry built on chaos deserves a partner built on
+              discipline.
+            </h2>
+          </div>
+
+          <div className="flex flex-col justify-center gap-6">
+            <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
+              Real estate in India is one of the largest wealth-creation
+              vehicles for families and developers alike — yet it remains
+              chronically fragmented. Developers lose value to misaligned
+              vendors. Homebuyers lose trust to broken promises.
+            </p>
+            <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
+              Credvest exists to fix this — not by adding another layer to the
+              chaos, but by becoming the single, accountable thread that runs
+              through the entire lifecycle of a project. When execution is
+              disciplined and transparency is non-negotiable, real estate stops
+              being a risk to manage and becomes a legacy to build.
+            </p>
+            <Link
+              href="/company"
+              className="flex items-center gap-3 group w-fit mt-2"
+            >
+              <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
+                <ArrowRight />
+              </span>
+              <span className="text-[13px] font-semibold text-neutral-black">
+                Our Story
+              </span>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -458,6 +483,54 @@ function VelocitySection() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BrandPromiseSection() {
+  return (
+    <section className="bg-white border-t border-dashed border-neutral-200">
+      <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-32">
+        <div className="text-center mb-16">
+          <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
+            Our Promise
+          </span>
+          <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] max-w-2xl mx-auto">
+            We don&apos;t just show up at the strategy table. We stay until the
+            job is done.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-neutral-200">
+          <div className="bg-white p-8 md:p-12">
+            <span className="text-[11px] font-bold tracking-widest text-brand mb-4 block">
+              For Developers
+            </span>
+            <h3 className="font-serif text-xl md:text-2xl font-semibold text-neutral-black mb-4 tracking-[-0.04em] leading-[1.15]">
+              Your project, treated as our own.
+            </h3>
+            <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
+              We treat every mandate with the urgency, pride, and accountability
+              of a true partner — not a vendor on a timesheet. Our credibility is
+              on the line every time a project launches and every time a developer
+              trusts us with their vision.
+            </p>
+          </div>
+          <div className="bg-white p-8 md:p-12">
+            <span className="text-[11px] font-bold tracking-widest text-brand mb-4 block">
+              For Homebuyers
+            </span>
+            <h3 className="font-serif text-xl md:text-2xl font-semibold text-neutral-black mb-4 tracking-[-0.04em] leading-[1.15]">
+              Transparency at every touchpoint.
+            </h3>
+            <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
+              Every interaction — from first inquiry to final handover — is
+              handled with consistency and genuine care. We believe trust, once
+              built, is the most valuable asset in real estate.
+            </p>
           </div>
         </div>
       </div>
@@ -1032,24 +1105,25 @@ function PhilosophySection() {
           {/* Left */}
           <div>
             <span className="text-[11px] font-semibold tracking-[0.15em] uppercase bg-brand text-white px-2 py-1 mb-5 inline-block font-sans">
-              Operating Philosophy
+              Where We&apos;re Headed
             </span>
             <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em]">
-              One partner for the entire journey.
+              Making accountable partnerships the industry standard.
             </h2>
           </div>
 
           {/* Right */}
           <div className="flex flex-col justify-center gap-6">
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
-              Taking a project from readiness to sell-out requires sustained
-              coordination across branding, marketing, sales, and post-sales.
-              Most developers manage this across multiple vendors, each working
-              independently.
+              We envision a future where the top developers seek us out not
+              because we are the largest, but because we are the most trusted. A
+              future where end-to-end ownership, boutique precision, and
+              intelligence-led execution is the benchmark — not the exception.
             </p>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
-              Credvest consolidates that into a single mandate. One team. One
-              system. Full accountability.
+              Our credibility is vested in every project we touch. That
+              alignment isn&apos;t incidental — it&apos;s structural. We grow
+              when our clients grow.
             </p>
           </div>
         </div>
@@ -1200,10 +1274,11 @@ export default function Page() {
     <main className="min-h-screen bg-white text-neutral-black font-sans">
       <Navbar />
       <HeroSection />
-      <DescriptionSection />
+      <PurposeSection />
       <GrowthSystemSection />
       <StatsMarquee />
       <VelocitySection />
+      <BrandPromiseSection />
       <WhyChooseSection />
       <InsideCredvestSection />
       <MandatesSection />
