@@ -212,6 +212,127 @@ const PROCESS_TABS = [
   },
 ];
 
+/* ── Deep-Dive Stage Sections Data ── */
+
+const STAGE_SECTIONS = [
+  {
+    id: "branding-strategy",
+    number: "01",
+    label: "Branding & Strategy",
+    headline: "Every project begins with positioning, not promotion.",
+    lead: "Before the first hoarding goes up or a single rupee is spent on marketing, we sit with the developer and define the foundation. What does this project stand for? Who is it for? How is it different from everything else in the micro-market?",
+    paragraphs: [
+      "Most projects enter the market without a clear identity. They compete on price because they never established value. We reverse that. Our team benchmarks the micro-market, studies absorption patterns, maps buyer profiles, and builds a pricing strategy that balances velocity with margin protection.",
+      "We then build the entire brand narrative — naming, visual identity, sales collateral, experience centre design, and launch planning. Our people carry the developer's identity, not ours. Every interaction a buyer has feels like the developer's organisation.",
+    ],
+    capabilities: [
+      {
+        title: "Micro-Market Benchmarking",
+        text: "Pricing bands, absorption rates, competitive landscape, and buyer demand mapping before any positioning decision is made.",
+      },
+      {
+        title: "Brand Narrative & Identity",
+        text: "From project naming to visual language, we build an identity that creates perceived value — not just awareness.",
+      },
+      {
+        title: "Pricing Discipline",
+        text: "We align pricing to velocity goals while protecting long-term brand and margin integrity. No reactive discounting.",
+      },
+      {
+        title: "Experience Centre Design",
+        text: "The physical experience is designed to reinforce the brand — layout, materials, customer flow, and staff training.",
+      },
+    ],
+  },
+  {
+    id: "marketing-system",
+    number: "02",
+    label: "Marketing",
+    headline: "Demand generation managed by the team that built the brand.",
+    lead: "The same team that defines your positioning runs your marketing. There is no briefing document passed to a separate agency. No dilution. No lost context. The story stays consistent because nobody has to translate it secondhand.",
+    paragraphs: [
+      "Every rupee spent is tracked against qualified walk-ins, site visits, and conversions — not impressions, not reach, not vanity metrics. We build channel architecture that combines digital performance marketing with structured broker networks, each managed with clear incentives, training, and accountability.",
+      "The result is a demand engine that doesn't just generate leads — it generates the right leads. Buyers who arrive already understanding the project's value proposition, pricing logic, and differentiation.",
+    ],
+    capabilities: [
+      {
+        title: "Performance Marketing",
+        text: "Every campaign is tracked to conversions. We measure cost per qualified walk-in — not cost per click.",
+      },
+      {
+        title: "Channel Architecture",
+        text: "Structured broker networks with tiered incentives, regular training, and real-time performance tracking.",
+      },
+      {
+        title: "Digital Presence",
+        text: "SEO, paid search, social media, and content marketing unified under one narrative. No fragmented messaging.",
+      },
+      {
+        title: "Lead Qualification",
+        text: "Structured scoring and routing ensures sales teams receive buyers who match the project's target profile.",
+      },
+    ],
+  },
+  {
+    id: "sales-velocity",
+    number: "03",
+    label: "Sales",
+    headline: "Dedicated teams. Structured pipeline. Predictable velocity.",
+    lead: "Sales at Credvest is not a department — it's a system. Dedicated teams are trained on your product, deployed to your project, and measured against velocity targets. Not shared across ten projects. Not dependent on who happens to be on shift.",
+    paragraphs: [
+      "Every lead enters a structured pipeline with defined stages, follow-up protocols, and conversion targets. Site visits are orchestrated, not improvised. Negotiations follow an approval hierarchy that protects margin without stalling deals. The customer journey — from first enquiry to booking — is designed with the same precision as the marketing that preceded it.",
+      "We guarantee higher velocity — the number of units sold each month. That's not a promise made lightly. It's the result of a system where branding, marketing, and sales are run by the same team, sharing the same data, towards the same goal.",
+    ],
+    capabilities: [
+      {
+        title: "Dedicated Project Teams",
+        text: "Sales staff assigned exclusively to your project. Trained on your product, your pricing, your buyer profile.",
+      },
+      {
+        title: "Pipeline Management",
+        text: "Every lead tracked through a structured funnel with defined stages, follow-up protocols, and conversion targets.",
+      },
+      {
+        title: "Customer Journey Design",
+        text: "From first touchpoint to site visit to booking, the buyer experience is mapped, measured, and optimised.",
+      },
+      {
+        title: "Approval Hierarchy",
+        text: "Structured negotiation discipline with defined authority levels. Protects margin without losing deal momentum.",
+      },
+    ],
+  },
+  {
+    id: "post-sales-trust",
+    number: "04",
+    label: "Post Sales",
+    headline: "The relationship doesn't end at closure. It compounds.",
+    lead: "Most consulting firms disappear after the last unit is booked. We don't — because post-sales is where trust is either validated or broken. Structured handover, documentation, CRM management, and buyer follow-up ensure the promise made during sales is the experience delivered after.",
+    paragraphs: [
+      "Every buyer receives a structured lifecycle from agreement to possession. Milestone communications are automated and personal. Documentation is meticulous. When issues arise — and they do in any project — they are addressed through a defined escalation process, not ad hoc firefighting.",
+      "The result is measurable: lower cancellation rates, higher satisfaction scores, and a referral pipeline that compounds with every project. When buyers trust the process, they become advocates. That advocacy feeds directly back into the next project's demand engine.",
+    ],
+    capabilities: [
+      {
+        title: "Buyer Lifecycle Management",
+        text: "Complete journey from agreement to possession, with structured touchpoints at every milestone.",
+      },
+      {
+        title: "CRM & Documentation",
+        text: "Meticulous record-keeping and communication protocols that keep buyers informed and engaged.",
+      },
+      {
+        title: "Satisfaction Programmes",
+        text: "Systematic buyer engagement that converts closures into repeat business and organic referrals.",
+      },
+      {
+        title: "Cancellation Prevention",
+        text: "Proactive intervention protocols that identify at-risk buyers early and address concerns before they escalate.",
+      },
+    ],
+  },
+];
+
 /* ── Credvest Edge Lifecycle Data ── */
 
 const LIFECYCLE_STAGES = [
@@ -389,6 +510,83 @@ function ProcessSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ── Deep-Dive Stage Sections ── */
+
+function StageSections() {
+  return (
+    <>
+      {STAGE_SECTIONS.map((stage, idx) => (
+        <section
+          key={stage.id}
+          id={stage.id}
+          className="bg-white scroll-mt-20"
+        >
+          <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-28">
+            {/* Divider line between sections */}
+            {idx > 0 && (
+              <div className="border-t border-neutral-200 mb-20 md:mb-28" />
+            )}
+
+            {/* Section header */}
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-24 mb-16 md:mb-20">
+              <div>
+                <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand mb-4 block font-sans">
+                  Stage {stage.number} — {stage.label}
+                </span>
+                <h2 className="font-serif text-3xl md:text-[2.8rem] font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em]">
+                  {stage.headline}
+                </h2>
+              </div>
+
+              <div className="flex flex-col justify-center gap-5">
+                <p className="font-sans text-[15px] text-neutral-600 leading-relaxed">
+                  {stage.lead}
+                </p>
+                {stage.paragraphs.map((p, i) => (
+                  <p
+                    key={i}
+                    className="font-sans text-[14px] text-neutral-500 leading-relaxed"
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Capabilities grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-neutral-200">
+              {stage.capabilities.map((cap, i) => (
+                <div
+                  key={cap.title}
+                  className={`p-8 md:p-10 ${
+                    i % 2 === 0 ? "md:border-r border-neutral-200" : ""
+                  } ${i < 2 ? "border-b border-neutral-200" : ""} ${
+                    i === 0 || i === 1 ? "" : ""
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <span className="font-serif text-2xl text-brand font-semibold leading-none mt-0.5">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h4 className="font-serif text-lg font-semibold text-neutral-black mb-2 tracking-[-0.02em]">
+                        {cap.title}
+                      </h4>
+                      <p className="font-sans text-[14px] text-neutral-500 leading-relaxed">
+                        {cap.text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+    </>
   );
 }
 
@@ -902,7 +1100,7 @@ export default function HowWeWorkPage() {
     <main className="min-h-screen bg-white text-neutral-black font-sans">
       <Navbar />
       <HeroSection />
-      <ProcessSection />
+      <StageSections />
       <CredvestEdgeSection />
       <CtaSection />
       <Footer />

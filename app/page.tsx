@@ -21,6 +21,13 @@ const GROWTH_CARDS = [
     subtitle: "Branding",
     description:
       "Before anything goes to market, we define what the project stands for. Who it\u2019s for, how it\u2019s different, where it sits. Our people carry the developer\u2019s identity, not ours. Every interaction a buyer has feels like the developer\u2019s organisation.",
+    points: [
+      "Market positioning & pricing strategy",
+      "Brand narrative & visual identity",
+      "Launch planning & experience design",
+    ],
+    cta: "How We Position Projects",
+    href: "/how-we-work#branding-strategy",
     bg: "var(--color-pastel-blue)",
     image: "/bg1.png",
   },
@@ -30,6 +37,13 @@ const GROWTH_CARDS = [
     subtitle: "Marketing",
     description:
       "Brand, narrative, demand generation \u2014 managed by the same team that set the positioning. Every rupee spent is tracked against qualified walk-ins, site visits, and conversions. The story stays consistent because nobody has to translate it secondhand.",
+    points: [
+      "Performance marketing tracked to conversions",
+      "Channel architecture & broker network design",
+      "Digital presence & demand generation",
+    ],
+    cta: "How We Drive Demand",
+    href: "/how-we-work#marketing-system",
     bg: "var(--color-pastel-yellow)",
     image: "/bg1.png",
   },
@@ -39,6 +53,13 @@ const GROWTH_CARDS = [
     subtitle: "Sales",
     description:
       "Dedicated teams, trained on your product, deployed to your project. We guarantee higher velocity \u2014 the number of units sold each month. Sales is a system here. Structured, tracked, reviewed. Not dependent on channel partners.",
+    points: [
+      "Dedicated project teams, not shared resources",
+      "Structured pipeline with real-time tracking",
+      "Customer journey designed, not improvised",
+    ],
+    cta: "How We Drive Velocity",
+    href: "/how-we-work#sales-velocity",
     bg: "var(--color-pastel-green)",
     image: "/bg1.png",
   },
@@ -48,6 +69,13 @@ const GROWTH_CARDS = [
     subtitle: "Post Sales",
     description:
       "Structured handover, documentation, CRM management, and follow-up ensure buyer satisfaction and referral generation. The relationship doesn\u2019t end at closure \u2014 it compounds into advocacy.",
+    points: [
+      "Buyer lifecycle from agreement to possession",
+      "Structured touchpoints at every milestone",
+      "Satisfaction programmes driving referrals",
+    ],
+    cta: "How We Retain Trust",
+    href: "/how-we-work#post-sales-trust",
     bg: "var(--color-pastel-pink)",
     image: "/bg1.png",
   },
@@ -199,12 +227,12 @@ function HeroSection() {
             <div className="pb-3 md:pb-5">
               <h2 className="font-sans text-[2.5rem] md:text-[clamp(1.5rem,3.5vw,2.8rem)] font-medium text-white leading-[0.95] md:leading-[1.15] tracking-[-0.06em] md:tracking-[-0.05em]">
                 <span className="md:hidden">
-                  One system.
+                  One system. Four stages.
                   <br />
-                  Four stages.
+                  Vested in your success.
                 </span>
                 <span className="hidden md:inline">
-                  One system. Four stages.
+                  One system. Four stages. Vested in your success.
                 </span>
               </h2>
             </div>
@@ -305,7 +333,8 @@ function GrowthSystemSection() {
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-8">
               Built by people who have spent a decade inside real estate. Every
               project runs through the same framework. Four stages, one team,
-              full ownership.
+              full ownership. Every project launches with clarity, sells with
+              momentum, and closes with trust.
             </p>
             <Link
               href="/how-we-work"
@@ -329,7 +358,7 @@ function GrowthSystemSection() {
                 className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-0 overflow-hidden scroll-mt-24"
               >
                 {/* Card image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[3/4] md:aspect-auto md:min-h-[420px] overflow-hidden">
                   <Image
                     src={card.image}
                     alt={card.title}
@@ -352,12 +381,29 @@ function GrowthSystemSection() {
                     </h3>
                   </div>
                   <div>
-                    <p className="font-sans text-[13px] text-neutral-600 leading-relaxed mb-5">
+                    <p className="font-sans text-[13px] text-neutral-600 leading-relaxed mb-4">
                       {card.description}
                     </p>
-                    <span className="text-[11px] font-semibold tracking-[0.1em] uppercase text-neutral-black underline underline-offset-4 cursor-pointer hover:text-brand transition-colors">
-                      Learn More
-                    </span>
+                    <ul className="flex flex-col gap-1.5 mb-5">
+                      {card.points.map((point) => (
+                        <li
+                          key={point}
+                          className="font-sans text-[12px] text-neutral-500 flex items-start gap-2"
+                        >
+                          <span className="text-brand mt-[3px] flex-shrink-0">
+                            &bull;
+                          </span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={card.href}
+                      className="inline-flex items-center gap-2.5 bg-brand hover:bg-brand-600 text-white font-serif text-[13px] font-semibold tracking-[-0.01em] px-5 py-3 transition-colors group"
+                    >
+                      {card.cta}
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -502,6 +548,10 @@ function BrandPromiseSection() {
             We don&apos;t just show up at the strategy table. We stay until the
             job is done.
           </h2>
+          <p className="font-sans text-[13px] text-neutral-400 mt-4 tracking-wide">
+            Vested in your success — that&apos;s not a tagline. It&apos;s how we
+            operate.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-neutral-200">
@@ -562,7 +612,7 @@ const WHY_CHOOSE_ITEMS = [
   {
     title: "Partnerships built on outcomes",
     description:
-      "We don\u2019t chase transactions. We commit to full project lifecycles \u2014 aligning incentives with the developer\u2019s success.",
+      "We don\u2019t chase transactions. We commit to full project lifecycles \u2014 aligning incentives with the developer\u2019s success. We grow when our clients grow, and that alignment is structural, not incidental.",
   },
 ];
 
@@ -618,8 +668,9 @@ function WhyChooseSection() {
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mb-10 max-w-md">
               Most developers coordinate four or five vendors to take a project
-              to market. We replace that with one team. When something needs to
-              change, it changes the same week.
+              to market. We replace that with one team — because when your
+              credibility is vested in the outcome, fragmented accountability
+              isn&apos;t an option.
             </p>
 
             {/* Accordion */}
@@ -649,9 +700,13 @@ function WhyChooseSection() {
                             <p className="font-sans text-[13px] text-neutral-500 leading-relaxed mb-3">
                               {item.description}
                             </p>
-                            <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-brand cursor-pointer hover:text-brand-600 transition-colors">
-                              Learn More
-                            </span>
+                            <Link
+                              href="/how-we-work"
+                              className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase text-brand hover:text-brand-600 transition-colors"
+                            >
+                              See How It Works
+                              <ArrowRight className="w-3 h-3" />
+                            </Link>
                           </div>
                         )}
                       </div>
@@ -1125,6 +1180,10 @@ function PhilosophySection() {
               alignment isn&apos;t incidental — it&apos;s structural. We grow
               when our clients grow.
             </p>
+            <p className="font-serif text-xl md:text-2xl font-semibold text-neutral-black leading-[1.2] tracking-[-0.04em] mt-8 border-l-2 border-brand pl-5">
+              Vested in your success. From the first land parcel to the last
+              unit sold.
+            </p>
           </div>
         </div>
       </div>
@@ -1161,6 +1220,11 @@ const FAQ_ITEMS = [
     question: "What kinds of projects do you take on?",
     answer:
       "Residential and commercial, at varying scales. We configure team size and systems to match the mandate.",
+  },
+  {
+    question: "What does \u2018Credvest\u2019 mean?",
+    answer:
+      "The name is a combination of credibility and investment. It captures our core belief: we don\u2019t just advise \u2014 we vest our credibility in every project we work on. Our success is structurally tied to our clients\u2019 success.",
   },
 ];
 
