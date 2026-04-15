@@ -449,9 +449,9 @@ function EcosystemSection() {
                         <div className="h-3 bg-neutral-100 rounded-sm w-[60%] animate-pulse" style={{ animationDelay: "150ms" }} />
                         <div className="h-3 bg-neutral-100 rounded-sm w-[50%] animate-pulse" style={{ animationDelay: "300ms" }} />
                       </div>
-                      <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-400 mt-2">
+                      <button className="mt-2 px-5 py-2.5 border border-neutral-200 text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-400 hover:border-brand hover:text-brand transition-colors w-fit cursor-default">
                         Coming Soon
-                      </span>
+                      </button>
                     </>
                   ) : (
                     eco.points.map((point) => (

@@ -25,8 +25,7 @@ function ArrowRight({ className }: { className?: string }) {
 const CASE_STUDIES = [
   {
     id: "01",
-    developer: "Regency Group",
-    project: "Regency Anantam",
+    headline: "A 340-unit premium high-rise in North Bangalore",
     location: "North Bangalore",
     type: "Premium Residential",
     units: "340 units",
@@ -44,8 +43,7 @@ const CASE_STUDIES = [
   },
   {
     id: "02",
-    developer: "Arvind SmartSpaces",
-    project: "Arvind Oasis",
+    headline: "A mid-segment residential community on Hennur Road",
     location: "Hennur Road, Bangalore",
     type: "Mid-Segment Residential",
     units: "560 units",
@@ -63,8 +61,7 @@ const CASE_STUDIES = [
   },
   {
     id: "03",
-    developer: "Sterling Developers",
-    project: "Sterling Infinia",
+    headline: "An ultra-luxury residential tower in Koramangala",
     location: "Koramangala, Bangalore",
     type: "Luxury Residential",
     units: "86 units",
@@ -82,8 +79,7 @@ const CASE_STUDIES = [
   },
   {
     id: "04",
-    developer: "Confident Group",
-    project: "Confident Jeevana",
+    headline: "A 20-acre plotted development in Whitefield",
     location: "Whitefield, Bangalore",
     type: "Plotted Development",
     units: "210 plots",
@@ -170,11 +166,8 @@ function CaseStudyCard({
         {/* Left / info side */}
         <div className={`p-6 md:p-10 flex flex-col ${isEven ? "" : "lg:order-2"}`}>
           <div className="mb-8">
-            <span className="text-[12px] text-neutral-400 block mb-1">
-              {study.developer}
-            </span>
             <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-black tracking-[-0.04em] leading-[1.1]">
-              {study.project}
+              {study.headline}
             </h3>
           </div>
 
