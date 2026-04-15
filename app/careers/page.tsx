@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { DitherShader } from "@/components/dither-shader";
+
 
 function ArrowRight({ className }: { className?: string }) {
   return (
@@ -565,39 +565,15 @@ function CultureSection() {
 /* ── Success Stories ── */
 
 function StoryImage({ src }: { src: string }) {
-  const [hovered, setHovered] = useState(false);
-
   return (
-    <div
-      className="relative w-full h-full overflow-hidden cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Real image underneath, shown on hover */}
+    <div className="relative w-full h-full overflow-hidden cursor-pointer group">
       <Image
         src={src}
         alt="Team member"
         fill
-        className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+        className="object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-out"
         sizes="(max-width: 768px) 100vw, 40vw"
       />
-      {/* Dither on top, hidden on hover */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
-      >
-        <DitherShader
-          src={src}
-          gridSize={2}
-          ditherMode="bayer"
-          colorMode="duotone"
-          invert={false}
-          animated={false}
-          primaryColor="#1a1a1a"
-          secondaryColor="#f0e0d4"
-          threshold={0.5}
-          className="absolute inset-0"
-        />
-      </div>
     </div>
   );
 }
@@ -823,39 +799,19 @@ function BigCard({
   role: string;
   imgSrc: string;
 }) {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <div
-      className="flex h-full p-2 cursor-pointer"
+      className="flex h-full p-2 cursor-pointer group"
       style={{ backgroundColor: "#F1F2EE", minHeight: 320 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <div className="relative w-[40%] flex-shrink-0 overflow-hidden">
         <Image
           src={imgSrc}
           alt={person}
           fill
-          className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+          className="object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-out"
           sizes="20vw"
         />
-        <div
-          className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
-        >
-          <DitherShader
-            src={imgSrc}
-            gridSize={2}
-            ditherMode="bayer"
-            colorMode="duotone"
-            invert={false}
-            animated={false}
-            primaryColor="#1a1a1a"
-            secondaryColor="#f0e0d4"
-            threshold={0.5}
-            className="absolute inset-0"
-          />
-        </div>
       </div>
       <div className="flex flex-col justify-between flex-1 pl-5 pr-3 py-3">
         <p className="font-sans tracking-tight text-[18px] font-semibold text-neutral-800 leading-relaxed">

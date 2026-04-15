@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { DitherShader } from "@/components/dither-shader";
+
 
 function ArrowRight({ className }: { className?: string }) {
   return (
@@ -290,50 +290,30 @@ function StorySection() {
 
 const LEADERSHIP = [
   {
-    name: "Arjun Mehta",
-    role: "Founder & CEO",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+    name: "Siddharth Renganathan",
+    role: "CEO",
+    image: "/SiddharthRenganathanCEO.png",
   },
   {
-    name: "Priya Sharma",
-    role: "Co-Founder & COO",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+    name: "Suman Naidu",
+    role: "Managing Director",
+    image: "/SumanNaiduMD.png",
   },
   {
-    name: "Sameer Bhayani",
-    role: "Chief Business Officer",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    name: "Mayank Sharma",
+    role: "CBO",
+    image: "/MayankSharmaCBO.png",
   },
 ];
 
 function LeaderCard({ person }: { person: (typeof LEADERSHIP)[number] }) {
-  const [hovered, setHovered] = useState(false);
   return (
-    <div
-      className="bg-white flex flex-col cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div className="relative w-full aspect-[3/4] overflow-hidden bg-white">
-        <DitherShader
-          src={person.image}
-          gridSize={2}
-          ditherMode="bayer"
-          colorMode="duotone"
-          invert={false}
-          animated={false}
-          primaryColor="#1a1a1a"
-          secondaryColor="#f0e0d4"
-          threshold={0.5}
-          className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
-        />
+    <div className="bg-white flex flex-col group cursor-pointer">
+      <div className="relative w-full aspect-[3/4] overflow-hidden bg-neutral-100">
         <img
           src={person.image}
           alt={person.name}
-          className={`absolute inset-0 w-full h-full object-cover grayscale transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+          className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-out"
         />
       </div>
       <div className="pt-4">

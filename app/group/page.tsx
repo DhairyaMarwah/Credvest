@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { DitherShader } from "@/components/dither-shader";
 
 function ArrowRight({ className }: { className?: string }) {
   return (
@@ -47,11 +45,8 @@ function CornerBrackets() {
 
 /* ── Ventures Data ── */
 
-/* ── Dithered logo cell for the logo row ── */
+/* ── Logo cell for the logo row ── */
 function DitherLogo({ src, alt, scrollTo }: { src: string; alt: string; scrollTo?: string }) {
-  const [hovered, setHovered] = useState(false);
-  const isSvg = src.endsWith(".svg");
-
   const handleClick = () => {
     if (scrollTo) {
       const el = document.getElementById(scrollTo);
@@ -61,70 +56,30 @@ function DitherLogo({ src, alt, scrollTo }: { src: string; alt: string; scrollTo
 
   return (
     <div
-      className="relative h-[35px] md:h-[50px] w-[120px] md:w-[160px] cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="relative h-[35px] md:h-[50px] w-[120px] md:w-[160px] cursor-pointer group"
       onClick={handleClick}
     >
       <Image
         src={src}
         alt={alt}
         fill
-        className={`object-contain transition-opacity duration-400 ${!isSvg && hovered ? "opacity-0" : "opacity-100"}`}
+        className="object-contain grayscale group-hover:grayscale-0 transition-[filter] duration-400 ease-out"
       />
-      {!isSvg && (
-        <div className={`absolute inset-0 transition-opacity duration-400 ${hovered ? "opacity-100" : "opacity-0"}`}>
-          <DitherShader
-            src={src}
-            gridSize={2}
-            ditherMode="bayer"
-            colorMode="duotone"
-            primaryColor="#FA412A"
-            secondaryColor="#1a1a1a"
-            threshold={0.5}
-            objectFit="contain"
-            className="absolute inset-0"
-          />
-        </div>
-      )}
     </div>
   );
 }
 
-/* ── Logo box with dither hover for venture cards ── */
+/* ── Logo box for venture cards ── */
 function VentureLogoBox({ src, alt }: { src: string; alt: string }) {
-  const [hovered, setHovered] = useState(false);
-  const isSvg = src.endsWith(".svg");
-
   return (
-    <div
-      className="relative w-full aspect-[16/9] bg-neutral-100/50 overflow-hidden flex items-center justify-center cursor-pointer flex-shrink-0"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Tight wrapper keeps both Image and DitherShader at the same size */}
+    <div className="relative w-full aspect-[16/9] bg-neutral-100/50 overflow-hidden flex items-center justify-center cursor-pointer flex-shrink-0 group">
       <div className="relative h-[40px] md:h-[50px] w-[160px] md:w-[200px]">
         <Image
           src={src}
           alt={alt}
           fill
-          className={`object-contain transition-opacity duration-400 ${!isSvg && hovered ? "opacity-0" : "opacity-100"}`}
+          className="object-contain grayscale group-hover:grayscale-0 transition-[filter] duration-400 ease-out"
         />
-        {!isSvg && (
-          <div className={`absolute inset-0 transition-opacity duration-400 ${hovered ? "opacity-100" : "opacity-0"}`}>
-            <DitherShader
-              src={src}
-              gridSize={2}
-              ditherMode="bayer"
-              colorMode="duotone"
-              primaryColor="#FA412A"
-            secondaryColor="#1a1a1a"
-            threshold={0.5}
-            objectFit="contain"
-            className="absolute inset-0"
-          />
-        </div>
-      )}
       </div>
     </div>
   );

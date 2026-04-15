@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { DitherShader } from "@/components/dither-shader";
+
 
 const STAGES = [
   { number: "01", title: "Branding", sectionId: "stage-branding" },
@@ -783,9 +783,9 @@ function TextCard({
 }
 
 const BIG_CARD_IMAGES = [
-  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+  "/SiddharthRenganathanCEO.png",
+  "/SumanNaiduMD.png",
+  "/MayankSharmaCBO.png",
 ];
 
 function BigCard({
@@ -799,39 +799,19 @@ function BigCard({
   role: string;
   imgSrc: string;
 }) {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <div
-      className="flex h-full p-2 cursor-pointer"
+      className="flex h-full p-2 cursor-pointer group"
       style={{ backgroundColor: "#F1F2EE", minHeight: 320 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <div className="relative w-[40%] flex-shrink-0 overflow-hidden">
         <Image
           src={imgSrc}
           alt={person}
           fill
-          className={`object-cover transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-0"}`}
+          className="object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-out"
           sizes="20vw"
         />
-        <div
-          className={`absolute inset-0 transition-opacity duration-500 ${hovered ? "opacity-0" : "opacity-100"}`}
-        >
-          <DitherShader
-            src={imgSrc}
-            gridSize={2}
-            ditherMode="bayer"
-            colorMode="duotone"
-            invert={false}
-            animated={false}
-            primaryColor="#1a1a1a"
-            secondaryColor="#f0e0d4"
-            threshold={0.5}
-            className="absolute inset-0"
-          />
-        </div>
       </div>
       <div className="flex flex-col justify-between flex-1 pl-5 pr-3 py-3">
         <p className="font-sans tracking-tight text-[18px] font-semibold text-neutral-800 leading-relaxed">
@@ -877,6 +857,29 @@ function InsideCredvestSection() {
               Explore Careers
             </span>
           </a>
+        </div>
+
+        {/* Leadership photos */}
+        <div className="grid grid-cols-3 gap-4 md:gap-6 mb-12 max-w-2xl mx-auto">
+          {[
+            { src: "/SiddharthRenganathanCEO.png", name: "Siddharth Renganathan", role: "CEO" },
+            { src: "/SumanNaiduMD.png", name: "Suman Naidu", role: "Managing Director" },
+            { src: "/MayankSharmaCBO.png", name: "Mayank Sharma", role: "CBO" },
+          ].map((leader) => (
+            <div key={leader.name} className="group cursor-pointer">
+              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 mb-3">
+                <Image
+                  src={leader.src}
+                  alt={leader.name}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-out"
+                  sizes="(max-width: 768px) 33vw, 200px"
+                />
+              </div>
+              <p className="font-serif text-sm font-semibold text-neutral-black text-center">{leader.name}</p>
+              <p className="font-sans text-[11px] text-neutral-400 text-center">{leader.role}</p>
+            </div>
+          ))}
         </div>
 
         {/* 3 rows with alternating 50/50 layout */}
