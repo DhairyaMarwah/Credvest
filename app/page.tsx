@@ -183,9 +183,9 @@ function HeroSection() {
 
           <div className="flex flex-col gap-6 pb-2">
             <p className="text-[13px] text-neutral-500 leading-relaxed max-w-[280px]">
-              We don&apos;t just consult — we put our credibility on the line.
-              One team owns your project&apos;s entire lifecycle: positioning,
-              marketing, sales, and closure.
+              One team. Full ownership. From positioning to closure,
+              we run your project&apos;s sales like it&apos;s our own —
+              because our reputation depends on it.
             </p>
             <Link href="/contact" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">

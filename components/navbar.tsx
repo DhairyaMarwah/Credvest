@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Logo from "@/assets/logo.svg";
 
 const NAV_LINKS = [
-  { label: "People", href: "/people" },
+  { label: "Projects", href: "/people" },
   { label: "Company", href: "/company" },
   { label: "Group", href: "/group" },
   { label: "How We Work", href: "/how-we-work" },
@@ -76,8 +76,8 @@ export function Navbar() {
             <Image
               src={Logo}
               alt="Credvest"
-              height={28}
-              className="h-7 w-auto"
+              height={34}
+              className="h-9 w-auto"
             />
           </Link>
 

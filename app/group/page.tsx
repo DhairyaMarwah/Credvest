@@ -48,15 +48,23 @@ function CornerBrackets() {
 /* ── Ventures Data ── */
 
 /* ── Dithered logo cell for the logo row ── */
-function DitherLogo({ src, alt }: { src: string; alt: string }) {
+function DitherLogo({ src, alt, scrollTo }: { src: string; alt: string; scrollTo?: string }) {
   const [hovered, setHovered] = useState(false);
   const isSvg = src.endsWith(".svg");
 
+  const handleClick = () => {
+    if (scrollTo) {
+      const el = document.getElementById(scrollTo);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   return (
     <div
-      className="relative h-[35px] md:h-[50px] w-[120px] md:w-[160px]"
+      className="relative h-[35px] md:h-[50px] w-[120px] md:w-[160px] cursor-pointer"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onClick={handleClick}
     >
       <Image
         src={src}
@@ -214,7 +222,13 @@ function BorderedContent() {
           {/* Mobile: Credvest full-width top, then 2x2. Desktop: single row of 5 */}
 
           {/* Credvest — full-width on mobile, part of 5-col row on desktop */}
-          <div className="md:hidden flex items-center justify-center p-8 border-b border-dotted border-neutral-300 min-h-[120px] relative bg-brand/[0.03]">
+          <div
+            className="md:hidden flex items-center justify-center p-8 border-b border-dotted border-neutral-300 min-h-[120px] relative bg-brand/[0.03] cursor-pointer"
+            onClick={() => {
+              const el = document.getElementById("venture-Credvest");
+              if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+            }}
+          >
             <CornerBrackets />
             <Image
               src="/logo.svg"
@@ -228,15 +242,21 @@ function BorderedContent() {
           {/* Other logos: 2x2 on mobile, 5-col on desktop (with Credvest center) */}
           <div className="grid grid-cols-2 md:grid-cols-5">
             <div className="flex items-center justify-center p-6 md:p-10 border-r border-b md:border-b-0 border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/ParkingCapital.png" alt="Parking Capital" />
+              <DitherLogo src="/ParkingCapital.png" alt="Parking Capital" scrollTo="venture-Parking Capital" />
             </div>
 
             <div className="flex items-center justify-center p-6 md:p-10 border-b md:border-b-0 md:border-r border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/interieurs.png" alt="Äiti Intérieurs" />
+              <DitherLogo src="/interieurs.png" alt="Äiti Intérieurs" scrollTo="venture-Äiti Intérieurs" />
             </div>
 
             {/* Credvest — desktop only, center */}
-            <div className="hidden md:flex items-center justify-center p-6 md:p-10 border-r border-dotted border-neutral-300 min-h-[160px] relative bg-brand/[0.03]">
+            <div
+              className="hidden md:flex items-center justify-center p-6 md:p-10 border-r border-dotted border-neutral-300 min-h-[160px] relative bg-brand/[0.03] cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("venture-Credvest");
+                if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+              }}
+            >
               <CornerBrackets />
               <Image
                 src="/logo.svg"
@@ -248,11 +268,11 @@ function BorderedContent() {
             </div>
 
             <div className="flex items-center justify-center p-6 md:p-10 border-r border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/suvaii.png" alt="Suvaii" />
+              <DitherLogo src="/suvaii.png" alt="Suvaii" scrollTo="venture-Suvaii" />
             </div>
 
             <div className="flex items-center justify-center p-6 md:p-10 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/vanamo.png" alt="Vanamo" />
+              <DitherLogo src="/vanamo.png" alt="Vanamo" scrollTo="venture-Vanamo" />
             </div>
           </div>
 
@@ -300,6 +320,7 @@ function BorderedContent() {
               ].map((venture) => (
                 <div
                   key={venture.name}
+                  id={`venture-${venture.name}`}
                   className="border-b border-dotted border-neutral-300 last:border-b-0"
                 >
                   <div className="p-8 md:p-12 flex flex-col md:flex-row gap-6 md:gap-10">

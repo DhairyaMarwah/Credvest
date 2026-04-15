@@ -122,12 +122,8 @@ const ECOSYSTEM = [
     image: "/landtolaunch.png",
     description:
       "Strategic positioning and market entry. Before sales begins, we define the narrative, build the brand presence, and create the conditions for velocity \u2014 so the project enters the market with clarity.",
-    points: [
-      "Market positioning & pricing strategy",
-      "Brand narrative & storytelling",
-      "Digital presence & demand generation",
-      "Launch planning & experience design",
-    ],
+    points: [] as string[],
+    comingSoon: true,
   },
 ];
 
@@ -466,15 +462,28 @@ function EcosystemSection() {
                 </p>
 
                 <div className="mt-auto flex flex-col gap-3">
-                  {eco.points.map((point) => (
-                    <div
-                      key={point}
-                      className="flex items-center gap-3 text-[13px] text-neutral-600"
-                    >
-                      <span className="w-1.5 h-1.5 bg-brand rounded-full flex-shrink-0" />
-                      {point}
-                    </div>
-                  ))}
+                  {"comingSoon" in eco && eco.comingSoon ? (
+                    <>
+                      <div className="flex flex-col gap-3">
+                        <div className="h-3 bg-neutral-100 rounded-sm w-[75%] animate-pulse" />
+                        <div className="h-3 bg-neutral-100 rounded-sm w-[60%] animate-pulse" style={{ animationDelay: "150ms" }} />
+                        <div className="h-3 bg-neutral-100 rounded-sm w-[50%] animate-pulse" style={{ animationDelay: "300ms" }} />
+                      </div>
+                      <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-400 mt-2">
+                        Coming Soon
+                      </span>
+                    </>
+                  ) : (
+                    eco.points.map((point) => (
+                      <div
+                        key={point}
+                        className="flex items-center gap-3 text-[13px] text-neutral-600"
+                      >
+                        <span className="w-1.5 h-1.5 bg-brand rounded-full flex-shrink-0" />
+                        {point}
+                      </div>
+                    ))
+                  )}
                 </div>
               </div>
             </div>

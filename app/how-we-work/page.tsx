@@ -687,7 +687,7 @@ function CredvestEdgeSection() {
             Credvest Lifecycle
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-semibold text-neutral-black leading-[1.12] tracking-[-0.07em] mb-4">
-            The Credvest Edge
+            The Credvest Advantage
           </h2>
           <p className="font-sans text-[14px] text-neutral-500 leading-relaxed max-w-xl mx-auto">
             For projects that require deeper strategic alignment before launch,
