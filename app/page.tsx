@@ -859,29 +859,6 @@ function InsideCredvestSection() {
           </a>
         </div>
 
-        {/* Leadership photos */}
-        <div className="grid grid-cols-3 gap-4 md:gap-6 mb-12 max-w-2xl mx-auto">
-          {[
-            { src: "/SiddharthRenganathanCEO.png", name: "Siddharth Renganathan", role: "CEO" },
-            { src: "/SumanNaiduMD.png", name: "Suman Naidu", role: "Managing Director" },
-            { src: "/MayankSharmaCBO.png", name: "Mayank Sharma", role: "CBO" },
-          ].map((leader) => (
-            <div key={leader.name} className="group cursor-pointer">
-              <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100 mb-3">
-                <Image
-                  src={leader.src}
-                  alt={leader.name}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500 ease-out"
-                  sizes="(max-width: 768px) 33vw, 200px"
-                />
-              </div>
-              <p className="font-serif text-sm font-semibold text-neutral-black text-center">{leader.name}</p>
-              <p className="font-sans text-[11px] text-neutral-400 text-center">{leader.role}</p>
-            </div>
-          ))}
-        </div>
-
         {/* 3 rows with alternating 50/50 layout */}
         <div className="flex flex-col gap-5">
           {/* Row 1: [small + small] | [BIG] */}
@@ -912,8 +889,8 @@ function InsideCredvestSection() {
                 desc={
                   "\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"
                 }
-                person="Bhavya"
-                role="GM, Sales"
+                person="Siddharth Renganathan"
+                role="CEO"
               />
             </div>
           </div>
@@ -926,8 +903,8 @@ function InsideCredvestSection() {
                 desc={
                   "\u201CWhat sets this apart is how branding, marketing, and sales actually function as one system.\u201D"
                 }
-                person="Neeti A"
-                role="AGM, Marketing"
+                person="Suman Naidu"
+                role="Managing Director"
               />
             </div>
             <div className="md:flex-1 flex flex-col md:flex-row gap-5">
@@ -980,8 +957,8 @@ function InsideCredvestSection() {
                 desc={
                   "\u201CPipeline visibility isn\u2019t a reporting feature. It\u2019s how better decisions get made.\u201D"
                 }
-                person="Roopesh"
-                role="Direct Sales"
+                person="Mayank Sharma"
+                role="CBO"
               />
             </div>
           </div>
