@@ -319,7 +319,7 @@ function CredvestEdgeSection() {
             The Credvest Edge
           </h2>
           <p className="text-base md:text-lg text-neutral-500 max-w-xl leading-relaxed">
-            Lifecycle control that drives margin protection and predictable velocity.
+            Lifecycle control that drives margin protection and predictable sales momentum.
           </p>
         </div>
 

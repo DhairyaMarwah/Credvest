@@ -5,60 +5,61 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { CredvestEdgeSection } from "@/components/credvest-edge-section";
 
 
 const STAGES = [
-  { number: "01", title: "Branding", sectionId: "stage-branding" },
-  { number: "02", title: "Marketing", sectionId: "stage-marketing" },
-  { number: "03", title: "Sales", sectionId: "stage-sales" },
+  { number: "01", title: "Consulting", sectionId: "stage-consulting" },
+  { number: "02", title: "Branding + Marketing", sectionId: "stage-branding-marketing" },
+  { number: "03", title: "Sales Momentum", sectionId: "stage-sales-momentum" },
   { number: "04", title: "Post Sales", sectionId: "stage-post-sales" },
 ];
 
 const GROWTH_CARDS = [
   {
-    id: "stage-branding",
-    title: "Your Brand, Our Team",
-    subtitle: "Branding",
+    id: "stage-consulting",
+    title: "Strategy from land to launch",
+    subtitle: "Consulting / Strategy",
     description:
-      "Before anything goes to market, we define what the project stands for. Who it\u2019s for, how it\u2019s different, where it sits. Our people carry the developer\u2019s identity, not ours. Every interaction a buyer has feels like the developer\u2019s organisation.",
+      "We partner with developers from land acquisition and floor-plan stage \u2014 bringing data from 4,000+ homes sold to shape the right product mix, pricing, and positioning. The right calls get made before a single rupee of marketing is spent.",
     points: [
-      "Market positioning & pricing strategy",
-      "Brand narrative & visual identity",
-      "Launch planning & experience design",
+      "Land-stage advisory & product-mix guidance",
+      "Floor-plan consultation backed by buyer data",
+      "Pricing & positioning from 4,000+ homes sold",
     ],
-    cta: "How We Position Projects",
+    cta: "How We Advise Developers",
     href: "/how-we-work#branding-strategy",
     bg: "var(--color-pastel-blue)",
     image: "/bg1.png",
   },
   {
-    id: "stage-marketing",
-    title: "Marketing",
-    subtitle: "Marketing",
+    id: "stage-branding-marketing",
+    title: "One team. One narrative. One accountable outcome.",
+    subtitle: "Branding + Marketing",
     description:
-      "Brand, narrative, demand generation \u2014 managed by the same team that set the positioning. Every rupee spent is tracked against qualified walk-ins, site visits, and conversions. The story stays consistent because nobody has to translate it secondhand.",
+      "Brand identity, experience design, and demand generation \u2014 run by the same team that set the positioning. No hand-offs, no translation loss. Every rupee tracked to qualified walk-ins and site visits.",
     points: [
+      "Brand narrative, identity & launch planning",
+      "ATL & BTL campaigns at key buyer touchpoints",
       "Performance marketing tracked to conversions",
-      "Channel architecture & broker network design",
-      "Digital presence & demand generation",
     ],
-    cta: "How We Drive Demand",
+    cta: "How We Build Demand",
     href: "/how-we-work#marketing-system",
     bg: "var(--color-pastel-yellow)",
     image: "/bg1.png",
   },
   {
-    id: "stage-sales",
-    title: "Sales / Velocity",
+    id: "stage-sales-momentum",
+    title: "Sales Momentum",
     subtitle: "Sales",
     description:
-      "Dedicated teams, trained on your product, deployed to your project. We guarantee higher velocity \u2014 the number of units sold each month. Sales is a system here. Structured, tracked, reviewed. Not dependent on channel partners.",
+      "Dedicated teams, trained on your product, deployed to your project. We guarantee higher sales momentum \u2014 the number of units closed each month. Sales is a system here. Structured, tracked, reviewed. Not dependent on channel partners.",
     points: [
       "Dedicated project teams, not shared resources",
       "Structured pipeline with real-time tracking",
       "Customer journey designed, not improvised",
     ],
-    cta: "How We Drive Velocity",
+    cta: "How We Drive Momentum",
     href: "/how-we-work#sales-velocity",
     bg: "var(--color-pastel-green)",
     image: "/bg1.png",
@@ -183,9 +184,9 @@ function HeroSection() {
 
           <div className="flex flex-col gap-6 pb-2">
             <p className="text-[13px] text-neutral-500 leading-relaxed max-w-[280px]">
-              One team. Full ownership. From positioning to closure,
-              we run your project&apos;s sales like it&apos;s our own —
-              because our reputation depends on it.
+              One team. End-to-end execution. Full accountability —
+              from positioning to closure, we run your project&apos;s sales
+              like it&apos;s our own.
             </p>
             <Link href="/contact" className="flex items-center gap-3 group w-fit">
               <span className="flex items-center justify-center w-9 h-9 bg-brand text-white transition-colors group-hover:bg-brand-600">
@@ -496,7 +497,7 @@ function VelocitySection() {
           {/* Left — sticky */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <h2 className="font-serif text-4xl md:text-5xl font-semibold text-neutral-black leading-[1.1] tracking-[-0.07em]">
-              Why projects lose velocity.
+              Why projects lose momentum.
             </h2>
             <p className="font-sans text-[14px] text-neutral-500 leading-relaxed mt-5 max-w-sm">
               Most projects don&apos;t underperform because of the product. They
@@ -979,7 +980,7 @@ const CITY_DATA: Record<
   Bangalore: {
     stats: [
       { value: "100+", label: "Projects Served" },
-      { value: "3.2x", label: "Sales Velocity Improvement" },
+      { value: "3.2x", label: "Sales Momentum Improvement" },
       { value: "\u20B94,200+ Cr", label: "in Transactions" },
     ],
     descriptions: [
@@ -991,7 +992,7 @@ const CITY_DATA: Record<
   Hyderabad: {
     stats: [
       { value: "60+", label: "Projects Served" },
-      { value: "2.8x", label: "Sales Velocity Improvement" },
+      { value: "2.8x", label: "Sales Momentum Improvement" },
       { value: "\u20B92,800+ Cr", label: "in Transactions" },
     ],
     descriptions: [
@@ -1323,8 +1324,9 @@ export default function Page() {
       <StatsMarquee />
       <VelocitySection />
       <BrandPromiseSection />
+      <CredvestEdgeSection />
       <WhyChooseSection />
-      <InsideCredvestSection />
+      {/* <InsideCredvestSection /> — hidden per client: leadership coverage moved to careers / credvest tribe */}
       <MandatesSection />
       <PhilosophySection />
       <FaqSection />

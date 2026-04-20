@@ -91,7 +91,7 @@ const CASE_STUDIES = [
     approach:
       "Created an urgency-driven launch strategy with phase-wise pricing. Deployed a rapid-response digital + ground team. Converted skeptics with transparent ROI comparisons against competing villas.",
     result:
-      "88% sold within 4 months. The fastest-selling plotted project in East Bangalore that year. Phase 2 pricing was raised 15% and still maintained velocity.",
+      "88% sold within 4 months. The fastest-selling plotted project in East Bangalore that year. Phase 2 pricing was raised 15% and still maintained sales momentum.",
     stat: { value: "4mo", label: "To 88% Sold" },
     accent: "bg-neutral-black",
   },

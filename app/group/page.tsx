@@ -101,17 +101,24 @@ const SIDE_VENTURES = [
     href: "#",
   },
   {
-    name: "Suvaii",
+    name: "Fulcro",
     description:
-      "A Pandiyan legacy — authentic South Indian cuisine rooted in heritage and tradition.",
-    logo: "/suvaii.png",
+      "Description coming soon.",
+    logo: "/fulcro.png",
     href: "#",
   },
   {
-    name: "Vanamo",
+    name: "Search Zero",
     description:
-      "Global eats and caffeinary — a modern culinary experience bridging cultures and flavors.",
-    logo: "/vanamo.png",
+      "Search Zero is a forensic real estate discovery platform that scores, verifies, and guides homebuyers to the right property through expert-backed 9-pillar audits, AI-powered smart matching, and a hybrid model for visits and verification.",
+    logo: "/searchzero.png",
+    href: "#",
+  },
+  {
+    name: "Cred Foods",
+    description:
+      "Description coming soon.",
+    logo: "/credfoods.png",
     href: "#",
   },
 ];
@@ -194,15 +201,16 @@ function BorderedContent() {
             />
           </div>
 
-          {/* Other logos: 2x2 on mobile, 5-col on desktop (with Credvest center) */}
-          <div className="grid grid-cols-2 md:grid-cols-5">
-            <div className="flex items-center justify-center p-6 md:p-10 border-r border-b md:border-b-0 border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/ParkingCapital.png" alt="Parking Capital" scrollTo="venture-Parking Capital" />
-            </div>
-
-            <div className="flex items-center justify-center p-6 md:p-10 border-b md:border-b-0 md:border-r border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/interieurs.png" alt="Äiti Intérieurs" scrollTo="venture-Äiti Intérieurs" />
-            </div>
+          {/* Other logos: 2x3 on mobile, 6-col on desktop (2 + Credvest + 3) */}
+          <div className="grid grid-cols-2 md:grid-cols-6">
+            {SIDE_VENTURES.slice(0, 2).map((v) => (
+              <div
+                key={v.name}
+                className="flex items-center justify-center p-6 md:p-10 border-r border-b md:border-b-0 border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]"
+              >
+                <DitherLogo src={v.logo} alt={v.name} scrollTo={`venture-${v.name}`} />
+              </div>
+            ))}
 
             {/* Credvest — desktop only, center */}
             <div
@@ -222,13 +230,16 @@ function BorderedContent() {
               />
             </div>
 
-            <div className="flex items-center justify-center p-6 md:p-10 border-r border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/suvaii.png" alt="Suvaii" scrollTo="venture-Suvaii" />
-            </div>
-
-            <div className="flex items-center justify-center p-6 md:p-10 min-h-[100px] md:min-h-[160px]">
-              <DitherLogo src="/vanamo.png" alt="Vanamo" scrollTo="venture-Vanamo" />
-            </div>
+            {SIDE_VENTURES.slice(2).map((v, i, arr) => (
+              <div
+                key={v.name}
+                className={`flex items-center justify-center p-6 md:p-10 min-h-[100px] md:min-h-[160px] border-dotted border-neutral-300 ${
+                  i < arr.length - 1 ? "border-r" : ""
+                } ${i === 0 ? "border-b md:border-b-0" : ""}`}
+              >
+                <DitherLogo src={v.logo} alt={v.name} scrollTo={`venture-${v.name}`} />
+              </div>
+            ))}
           </div>
 
           {/* ── About + Ventures: sticky left, scrolling right ── */}

@@ -113,7 +113,7 @@ const ECOSYSTEM = [
       "Dedicated project sales teams",
       "Structured pipeline management",
       "Real-time performance tracking",
-      "Channel architecture & discipline",
+      "ATL & BTL campaign execution",
     ],
   },
   {
@@ -121,7 +121,7 @@ const ECOSYSTEM = [
     tagline: "Land to Launch",
     image: "/landtolaunch.png",
     description:
-      "Strategic positioning and market entry. Before sales begins, we define the narrative, build the brand presence, and create the conditions for velocity \u2014 so the project enters the market with clarity.",
+      "Strategic positioning and market entry. Before sales begins, we define the narrative, build the brand presence, and create the conditions for sales momentum \u2014 so the project enters the market with clarity.",
     points: [] as string[],
     comingSoon: true,
   },
