@@ -46,13 +46,34 @@ function CornerBrackets() {
 /* ── Ventures Data ── */
 
 /* ── Logo cell for the logo row ── */
-function DitherLogo({ src, alt, scrollTo }: { src: string; alt: string; scrollTo?: string }) {
+function DitherLogo({
+  src,
+  alt,
+  scrollTo,
+}: {
+  src?: string;
+  alt: string;
+  scrollTo?: string;
+}) {
   const handleClick = () => {
     if (scrollTo) {
       const el = document.getElementById(scrollTo);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
+
+  if (!src) {
+    return (
+      <div
+        className="flex items-center justify-center h-[35px] md:h-[50px] cursor-pointer group"
+        onClick={handleClick}
+      >
+        <span className="font-serif text-xl md:text-2xl tracking-[-0.02em] text-neutral-400 group-hover:text-neutral-black transition-colors">
+          {alt}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -70,22 +91,33 @@ function DitherLogo({ src, alt, scrollTo }: { src: string; alt: string; scrollTo
 }
 
 /* ── Logo box for venture cards ── */
-function VentureLogoBox({ src, alt }: { src: string; alt: string }) {
+function VentureLogoBox({ src, alt }: { src?: string; alt: string }) {
   return (
     <div className="relative w-full aspect-[16/9] bg-neutral-100/50 overflow-hidden flex items-center justify-center cursor-pointer flex-shrink-0 group">
-      <div className="relative h-[40px] md:h-[50px] w-[160px] md:w-[200px]">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-contain grayscale group-hover:grayscale-0 transition-[filter] duration-400 ease-out"
-        />
-      </div>
+      {src ? (
+        <div className="relative h-[40px] md:h-[50px] w-[160px] md:w-[200px]">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            className="object-contain grayscale group-hover:grayscale-0 transition-[filter] duration-400 ease-out"
+          />
+        </div>
+      ) : (
+        <span className="font-serif text-2xl md:text-3xl tracking-[-0.03em] text-neutral-500 group-hover:text-neutral-black transition-colors px-6 text-center">
+          {alt}
+        </span>
+      )}
     </div>
   );
 }
 
-const SIDE_VENTURES = [
+const SIDE_VENTURES: {
+  name: string;
+  description: string;
+  logo?: string;
+  href: string;
+}[] = [
   {
     name: "Parking Capital",
     description:
@@ -102,23 +134,18 @@ const SIDE_VENTURES = [
   },
   {
     name: "Fulcro",
-    description:
-      "Description coming soon.",
-    logo: "/fulcro.png",
+    description: "Description coming soon.",
     href: "#",
   },
   {
     name: "Search Zero",
     description:
       "Search Zero is a forensic real estate discovery platform that scores, verifies, and guides homebuyers to the right property through expert-backed 9-pillar audits, AI-powered smart matching, and a hybrid model for visits and verification.",
-    logo: "/searchzero.png",
     href: "#",
   },
   {
     name: "Cred Foods",
-    description:
-      "Description coming soon.",
-    logo: "/credfoods.png",
+    description: "Description coming soon.",
     href: "#",
   },
 ];
