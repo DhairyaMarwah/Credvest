@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Logo from "@/assets/logo.svg";
 
 const NAV_LINKS = [
-  { label: "Projects", href: "/people" },
+  { label: "Projects", href: "/projects" },
   { label: "Company", href: "/company" },
   { label: "Group", href: "/group" },
   { label: "How We Work", href: "/how-we-work" },

@@ -304,8 +304,8 @@ function HeroSection() {
       >
         <div className="relative w-full h-[50vh] md:h-auto md:aspect-[16/4.5] overflow-hidden">
           <Image
-            src="/careers.png"
-            alt="Team at Credvest"
+            src="/CredvestOffice.webp"
+            alt="Inside the Credvest office"
             fill
             className="object-cover transition-transform duration-100 ease-out"
             style={{ transform: `scale(${imageScale})` }}

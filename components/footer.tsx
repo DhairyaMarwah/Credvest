@@ -8,7 +8,7 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
     links: [
       { label: "About Us", href: "/company" },
       { label: "The Group", href: "/group" },
-      { label: "Our People", href: "/people" },
+      { label: "Projects", href: "/projects" },
       { label: "Careers", href: "/careers" },
       { label: "Brand", href: "/brand" },
     ],

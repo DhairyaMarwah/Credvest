@@ -34,9 +34,9 @@ const PAGES = [
     description: "One system. Four stages.",
   },
   {
-    label: "People",
-    href: "/people",
-    description: "The team behind the system.",
+    label: "Projects",
+    href: "/projects",
+    description: "Case studies that prove the model.",
   },
   {
     label: "Company",

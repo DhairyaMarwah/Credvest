@@ -200,7 +200,7 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Full-bleed image — shrinks on scroll (desktop: width, mobile: height) */}
+      {/* Full-bleed video — shrinks on scroll (desktop: width, mobile: height) */}
       <div
         ref={imageWrapperRef}
         className="relative z-10 mx-auto"
@@ -210,13 +210,21 @@ function HeroSection() {
           className="relative w-full overflow-hidden"
           style={isMobile ? { height: "110vh" } : { aspectRatio: "16/9" }}
         >
-          <Image
-            src="/bg1.png"
-            alt="Aerial view of a modern city intersection"
-            fill
-            className="object-cover transition-transform duration-100 ease-out"
+          <video
+            src="/bg.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
+            disableRemotePlayback
+            controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
+            aria-hidden="true"
+            tabIndex={-1}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-100 ease-out pointer-events-none select-none"
             style={{ transform: `scale(${imageScale})` }}
-            priority
           />
 
           {/* Gradient overlay for readability */}
