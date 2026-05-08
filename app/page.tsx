@@ -653,14 +653,12 @@ function WhyChooseSection() {
         ref={sectionRef}
         className="relative max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-32"
       >
-        {/* Active highlight band — extends to the right edge from container */}
+        {/* Active highlight band — aligned with the section content area */}
         <div
-          className="absolute transition-all duration-300 ease-out pointer-events-none"
+          className="absolute left-8 right-8 lg:left-12 lg:right-12 transition-all duration-300 ease-out pointer-events-none"
           style={{
             top: highlightStyle.top,
             height: highlightStyle.height,
-            left: 0,
-            right: "-100vw",
             backgroundColor:
               "color-mix(in srgb, var(--color-brand) 6%, transparent)",
           }}
