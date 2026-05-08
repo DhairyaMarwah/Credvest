@@ -499,22 +499,41 @@ function StageSections() {
           id={stage.id}
           className="bg-white scroll-mt-20"
         >
-          {/* Stage hero image with white-fade gradient on bottom half */}
-          <div className="relative w-full h-[40vh] md:h-[55vh] overflow-hidden">
-            <Image
-              src={stage.image}
-              alt={stage.label}
-              fill
-              className="object-cover"
-              priority={stage.number === "01"}
-            />
-            <div
-              className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
-              }}
-            />
+          {/* Stage hero image — full-bleed on mobile, contained on desktop */}
+          <div className="md:max-w-[1600px] md:mx-auto md:px-8 lg:px-12">
+            <div className="relative w-full h-[40vh] md:h-[55vh] overflow-hidden">
+              <Image
+                src={stage.image}
+                alt={stage.label}
+                fill
+                className="object-cover"
+                priority={stage.number === "01"}
+              />
+              {/* Bottom-half white fade */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+                }}
+              />
+              {/* Left-edge white fade */}
+              <div
+                className="absolute inset-y-0 left-0 w-1/4 md:w-1/5 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+                }}
+              />
+              {/* Right-edge white fade */}
+              <div
+                className="absolute inset-y-0 right-0 w-1/4 md:w-1/5 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+                }}
+              />
+            </div>
           </div>
 
           <div className="max-w-[1600px] mx-auto px-8 lg:px-12 pt-12 md:pt-16 pb-20 md:pb-28">
