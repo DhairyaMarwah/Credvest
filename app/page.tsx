@@ -602,26 +602,31 @@ const WHY_CHOOSE_ITEMS = [
     title: "Single-Point Accountability",
     description:
       "Most developers coordinate four or five vendors to take a project to market. Each runs its own process. Each reports on its own terms. We replace that with one team. Branding, marketing, sales, post-sales. One reporting line, one set of standards.",
+    image: "/singePoint1.png",
   },
   {
     title: "Sales treated as a discipline",
     description:
       "Sales here is built as a structured system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
+    image: "/singePoint2.png",
   },
   {
     title: "Dedicated teams on every project",
     description:
       "Each mandate gets its own people. Aligned to the project, embedded in the product, accountable to the numbers. Not rotated. Not shared.",
+    image: "/singePoint3.png",
   },
   {
     title: "Real-time performance tracking",
     description:
       "Live pipeline data, weekly reviews, structured reporting. Developers see what's happening in real time, not in a monthly summary.",
+    image: "/singePoint4.png",
   },
   {
     title: "Partnerships built on outcomes",
     description:
       "We don't chase transactions. We commit to full project lifecycles \u2014 aligning incentives with the developer's success. We grow when our clients grow, and that alignment is structural, not incidental.",
+    image: "/singePoint1.png",
   },
 ];
 
@@ -728,10 +733,11 @@ function WhyChooseSection() {
           <div className="relative hidden lg:block">
             <div className="relative w-full aspect-[4/3] overflow-hidden">
               <Image
-                src="/bg1.png"
-                alt="Team collaboration"
+                key={WHY_CHOOSE_ITEMS[activeIndex].image}
+                src={WHY_CHOOSE_ITEMS[activeIndex].image}
+                alt={WHY_CHOOSE_ITEMS[activeIndex].title}
                 fill
-                className="object-cover"
+                className="object-cover transition-opacity duration-300"
               />
             </div>
           </div>
