@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Noto_Serif_SC, Playfair_Display } from "next/font/google";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 import "./globals.css";
 
 const inter = Inter({
@@ -101,7 +100,6 @@ export default function RootLayout({
         <ThemeProvider>
           <ScrollToTop />
           {children}
-          <ThemeSwitcher />
         </ThemeProvider>
       </body>
     </html>

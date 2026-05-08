@@ -10,7 +10,6 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
       { label: "The Group", href: "/group" },
       { label: "Projects", href: "/projects" },
       { label: "Careers", href: "/careers" },
-      { label: "Brand", href: "/brand" },
     ],
   },
   {
@@ -27,16 +26,7 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
     heading: "Connect",
     links: [
       { label: "LinkedIn", href: "https://www.linkedin.com/company/credvest", external: true },
-      { label: "Instagram", href: "https://www.instagram.com/credvest", external: true },
-      { label: "Twitter / X", href: "https://x.com/credvest", external: true },
       { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "/coming-soon" },
-      { label: "Terms of Service", href: "/coming-soon" },
     ],
   },
 ];
@@ -52,7 +42,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {FOOTER_LINKS.map((col) => (
               <div key={col.heading}>
                 <h5 className="font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-neutral-400 mb-4">
