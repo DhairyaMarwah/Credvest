@@ -49,7 +49,7 @@ const OFFICES = [
   {
     city: "Bangalore",
     address:
-      "Credvest, 12, HAL Old Airport Rd, ಐಒಸಿ - ಶ್ರೀ ಸರ್ವಿಸ್ ಸ್ಟೇಷನ್, Domlur I Stage, 1st Stage, Domlur, Bengaluru, Karnataka 560071",
+      "Credvest, 12, HAL Old Airport Rd, Domlur I Stage, 1st Stage, Domlur, Bengaluru, Karnataka 560071",
     phone: "+91 80 4567 8900",
     email: "bangalore@credvest.com",
   },
