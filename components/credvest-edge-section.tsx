@@ -161,7 +161,8 @@ export function CredvestEdgeSection() {
           </p>
         </div>
 
-        <div className="relative bg-white rounded-sm overflow-hidden  ">
+        <div className="relative bg-white rounded-sm overflow-x-auto md:overflow-hidden -mx-8 px-8 md:mx-0 md:px-0">
+          <div className="min-w-[760px] md:min-w-0 relative">
           {/* Column highlight */}
           <div
             className="absolute top-0 bottom-0 pointer-events-none z-10"
@@ -514,6 +515,7 @@ export function CredvestEdgeSection() {
                 </p>
               </div>
             ))}
+          </div>
           </div>
         </div>
 
