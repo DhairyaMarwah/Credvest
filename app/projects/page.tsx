@@ -427,10 +427,10 @@ export default function ProjectsPage() {
               className="m-0"
             >
               <span className="font-serif text-2xl md:text-4xl lg:text-[2.8rem] font-semibold text-neutral-black leading-[1.2] tracking-[-0.04em] block mb-6">
-                &ldquo;We don&apos;t pitch decks.
+                &quot;We don&apos;t pitch decks.
                 <br />
                 We pitch{" "}
-                <span className="text-stroke-brand">track records.</span>&rdquo;
+                <span className="text-stroke-brand">track records.</span>&quot;
               </span>
               <span className="text-[13px] text-neutral-400 block">
                 — The Credvest philosophy
