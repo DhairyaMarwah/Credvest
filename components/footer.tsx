@@ -17,9 +17,9 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
     links: [
       { label: "How We Work", href: "/how-we-work" },
       { label: "Branding & Strategy", href: "/how-we-work#branding-strategy" },
-      { label: "Marketing", href: "/how-we-work#marketing" },
-      { label: "Sales", href: "/how-we-work#sales" },
-      { label: "Post Sales", href: "/how-we-work#post-sales" },
+      { label: "Marketing", href: "/how-we-work#marketing-system" },
+      { label: "Sales", href: "/how-we-work#sales-velocity" },
+      { label: "Post Sales", href: "/how-we-work#post-sales-trust" },
     ],
   },
   {
