@@ -648,9 +648,9 @@ function CredvestEdgeSection() {
             className="text-xl md:text-2xl text-neutral-800 max-w-lg mx-auto leading-snug"
             style={{ fontFamily: SERIF_FONT, letterSpacing: "-0.02em" }}
           >
-            &ldquo;With Credvest, performance does not dip mid-cycle.
+            &quot;With Credvest, performance does not dip mid-cycle.
             <br />
-            <span className="text-[#FA412A] font-semibold">It compounds.</span>&rdquo;
+            <span className="text-[#FA412A] font-semibold">It compounds.</span>&quot;
           </p>
         </div>
       </div>

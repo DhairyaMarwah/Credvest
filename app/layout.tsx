@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: "Credvest",
-    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Strategy Partner",
+    title: "Credvest \u2014 Real Estate's Most Trusted Strategy Partner",
     description:
       "One team. One system. Full accountability. From branding to post-sales.",
     images: [
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Credvest \u2014 Real Estate\u2019s Most Trusted Strategy Partner",
+    title: "Credvest \u2014 Real Estate's Most Trusted Strategy Partner",
     description:
       "One team. One system. Full accountability. From branding to post-sales.",
     images: ["/og.webp"],

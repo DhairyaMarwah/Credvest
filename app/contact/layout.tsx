@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Let\u2019s talk about your next project. Schedule a consultation with Credvest to discuss mandates, partnerships, or opportunities.",
+    "Let's talk about your next project. Schedule a consultation with Credvest to discuss mandates, partnerships, or opportunities.",
   openGraph: {
     title: "Contact | Credvest",
     description:
-      "Let\u2019s talk about your next project. Schedule a consultation with Credvest.",
+      "Let's talk about your next project. Schedule a consultation with Credvest.",
   },
 };
 

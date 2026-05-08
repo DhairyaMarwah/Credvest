@@ -69,7 +69,7 @@ const GROWTH_CARDS = [
     title: "Post Sales",
     subtitle: "Post Sales",
     description:
-      "Structured handover, documentation, CRM management, and follow-up ensure buyer satisfaction and referral generation. The relationship doesn\u2019t end at closure \u2014 it compounds into advocacy.",
+      "Structured handover, documentation, CRM management, and follow-up ensure buyer satisfaction and referral generation. The relationship doesn't end at closure \u2014 it compounds into advocacy.",
     points: [
       "Buyer lifecycle from agreement to possession",
       "Structured touchpoints at every milestone",
@@ -493,7 +493,7 @@ const VELOCITY_PROBLEMS = [
     number: "03",
     title: "Experience Gaps",
     description:
-      "What the collateral promises and what the buyer encounters on the ground don\u2019t match. That gap is where trust is lost. Deals follow.",
+      "What the collateral promises and what the buyer encounters on the ground don't match. That gap is where trust is lost. Deals follow.",
   },
 ];
 
@@ -616,12 +616,12 @@ const WHY_CHOOSE_ITEMS = [
   {
     title: "Real-time performance tracking",
     description:
-      "Live pipeline data, weekly reviews, structured reporting. Developers see what\u2019s happening in real time, not in a monthly summary.",
+      "Live pipeline data, weekly reviews, structured reporting. Developers see what's happening in real time, not in a monthly summary.",
   },
   {
     title: "Partnerships built on outcomes",
     description:
-      "We don\u2019t chase transactions. We commit to full project lifecycles \u2014 aligning incentives with the developer\u2019s success. We grow when our clients grow, and that alignment is structural, not incidental.",
+      "We don't chase transactions. We commit to full project lifecycles \u2014 aligning incentives with the developer's success. We grow when our clients grow, and that alignment is structural, not incidental.",
   },
 ];
 
@@ -896,7 +896,7 @@ function InsideCredvestSection() {
               <BigCard
                 imgSrc={BIG_CARD_IMAGES[0]}
                 desc={
-                  "\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"
+                  "\"Our focus isn't just on selling. It's on guiding clients through their decision as consultants, not salespeople.\""
                 }
                 person="Siddharth Renganathan"
                 role="CEO"
@@ -910,7 +910,7 @@ function InsideCredvestSection() {
               <BigCard
                 imgSrc={BIG_CARD_IMAGES[1]}
                 desc={
-                  "\u201CWhat sets this apart is how branding, marketing, and sales actually function as one system.\u201D"
+                  "\"What sets this apart is how branding, marketing, and sales actually function as one system.\""
                 }
                 person="Suman Naidu"
                 role="Managing Director"
@@ -964,7 +964,7 @@ function InsideCredvestSection() {
               <BigCard
                 imgSrc={BIG_CARD_IMAGES[2]}
                 desc={
-                  "\u201CPipeline visibility isn\u2019t a reporting feature. It\u2019s how better decisions get made.\u201D"
+                  "\"Pipeline visibility isn't a reporting feature. It's how better decisions get made.\""
                 }
                 person="Mayank Sharma"
                 role="CBO"
@@ -1184,7 +1184,7 @@ const FAQ_ITEMS = [
   {
     question: "How does Credvest work with developers?",
     answer:
-      "As an extension of the developer\u2019s own team. We manage the sales lifecycle from branding through to post-sales, replacing what would otherwise be three or four separate vendors.",
+      "As an extension of the developer's own team. We manage the sales lifecycle from branding through to post-sales, replacing what would otherwise be three or four separate vendors.",
   },
   {
     question: "Is Credvest a brokerage?",
@@ -1192,9 +1192,9 @@ const FAQ_ITEMS = [
       "No. Sales here is built as a structured system. Dedicated teams, defined processes, real-time accountability. A different model entirely.",
   },
   {
-    question: "Do your teams represent the developer\u2019s brand?",
+    question: "Do your teams represent the developer's brand?",
     answer:
-      "Yes. The buyer\u2019s experience is entirely within the developer\u2019s brand. Our involvement is behind the scenes.",
+      "Yes. The buyer's experience is entirely within the developer's brand. Our involvement is behind the scenes.",
   },
   {
     question: "What cities are you in?",
@@ -1203,7 +1203,7 @@ const FAQ_ITEMS = [
   {
     question: "How do you track performance?",
     answer:
-      "Live pipeline data, weekly reviews, structured reporting. Developers see what\u2019s happening in real time, not in a monthly summary.",
+      "Live pipeline data, weekly reviews, structured reporting. Developers see what's happening in real time, not in a monthly summary.",
   },
   {
     question: "What kinds of projects do you take on?",
@@ -1211,9 +1211,9 @@ const FAQ_ITEMS = [
       "Residential and commercial, at varying scales. We configure team size and systems to match the mandate.",
   },
   {
-    question: "What does \u2018Credvest\u2019 mean?",
+    question: "What does 'Credvest' mean?",
     answer:
-      "The name is a combination of credibility and investment. It captures our core belief: we don\u2019t just advise \u2014 we vest our credibility in every project we work on. Our success is structurally tied to our clients\u2019 success.",
+      "The name is a combination of credibility and investment. It captures our core belief: we don't just advise \u2014 we vest our credibility in every project we work on. Our success is structurally tied to our clients' success.",
   },
 ];
 

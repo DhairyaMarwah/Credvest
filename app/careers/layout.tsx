@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "This isn\u2019t a brokerage. It\u2019s an operating platform. Structured systems, dedicated teams, real ownership. Explore careers at Credvest.",
+    "This isn't a brokerage. It's an operating platform. Structured systems, dedicated teams, real ownership. Explore careers at Credvest.",
   openGraph: {
     title: "Careers | Credvest",
     description:

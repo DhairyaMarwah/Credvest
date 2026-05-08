@@ -98,7 +98,7 @@ const MILESTONES = [
   },
   {
     marker: "Today",
-    text: "100+ projects. \u20B98,000 Cr in transactions. 5,000+ customers served. Two cities deep, more on the horizon. The platform is built. Now we\u2019re scaling it.",
+    text: "100+ projects. \u20B98,000 Cr in transactions. 5,000+ customers served. Two cities deep, more on the horizon. The platform is built. Now we're scaling it.",
   },
 ];
 
@@ -134,14 +134,14 @@ const COMPANY_FAQS = [
       "Credvest has been in the real estate space for over a decade, starting with a single mandate in Bangalore and growing into a full-stack strategy platform.",
   },
   {
-    question: "What does \u201Cfull-stack\u201D mean in your context?",
+    question: "What does \"full-stack\" mean in your context?",
     answer:
       "It means we handle the entire sales lifecycle \u2014 branding, marketing, sales, and post-sales \u2014 as a single team. Not separate vendors for each piece.",
   },
   {
     question: "How is Credvest different from a real estate agency?",
     answer:
-      "Agencies typically broker deals. We operate as an extension of the developer\u2019s team with dedicated people, structured systems, and full accountability for outcomes.",
+      "Agencies typically broker deals. We operate as an extension of the developer's team with dedicated people, structured systems, and full accountability for outcomes.",
   },
   {
     question: "What types of developers do you work with?",
@@ -502,8 +502,8 @@ function VisionSection() {
             </p>
             <div className="border-l-2 border-brand pl-6 mt-2">
               <p className="font-serif text-lg md:text-xl text-white leading-snug tracking-[-0.02em]">
-                &ldquo;We don&rsquo;t just show up at the strategy table. We
-                stay until the job is done.&rdquo;
+                &quot;We don&apos;t just show up at the strategy table. We
+                stay until the job is done.&quot;
               </p>
             </div>
           </div>

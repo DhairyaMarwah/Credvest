@@ -84,7 +84,7 @@ const PROCESS_TABS = [
     ),
     headline: "Your brand, built with intent",
     description:
-      "Before anything goes to market, we define what the project stands for. Who it\u2019s for, how it\u2019s different, where it sits against everything else. We sit with developers and tell them how to build, what to build, when to build.",
+      "Before anything goes to market, we define what the project stands for. Who it's for, how it's different, where it sits against everything else. We sit with developers and tell them how to build, what to build, when to build.",
     points: [
       {
         title: "Market Positioning",

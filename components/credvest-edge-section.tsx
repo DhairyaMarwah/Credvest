@@ -520,10 +520,10 @@ export function CredvestEdgeSection() {
         {/* Closing statement */}
         <div className="mt-16 text-center">
           <p className="font-serif text-xl md:text-2xl text-neutral-800 max-w-lg mx-auto leading-snug tracking-[-0.04em]">
-            &ldquo;With Credvest, performance does not dip mid-cycle.
+            &quot;With Credvest, performance does not dip mid-cycle.
             <br />
             <span className="text-brand font-semibold">It compounds.</span>
-            &rdquo;
+            &quot;
           </p>
         </div>
       </div>

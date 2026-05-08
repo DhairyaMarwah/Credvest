@@ -74,12 +74,12 @@ const ONBOARDING = [
   {
     week: "Week 2",
     title: "Real Project, Real Deadline",
-    desc: "You\u2019re assigned to a live mandate. Real developer, real numbers, real support from your team.",
+    desc: "You're assigned to a live mandate. Real developer, real numbers, real support from your team.",
   },
   {
     week: "Week 3+",
-    title: "You\u2019re in the arena",
-    desc: "You\u2019re running. You\u2019ll make mistakes \u2014 everyone does \u2014 but you\u2019ll make them while doing, not simulating.",
+    title: "You're in the arena",
+    desc: "You're running. You'll make mistakes \u2014 everyone does \u2014 but you'll make them while doing, not simulating.",
   },
 ];
 
@@ -131,7 +131,7 @@ const SUCCESS_STORIES = [
 const THRIVES_HERE = [
   {
     title: "How cities grow",
-    desc: "You\u2019re curious about urbanisation, micro-markets, and what drives demand in real estate.",
+    desc: "You're curious about urbanisation, micro-markets, and what drives demand in real estate.",
   },
   {
     title: "Why people choose homes",
@@ -143,7 +143,7 @@ const THRIVES_HERE = [
   },
   {
     title: "Solving problems with data and grit",
-    desc: "You\u2019d rather find the answer than wait for someone to give it to you.",
+    desc: "You'd rather find the answer than wait for someone to give it to you.",
   },
 ];
 
@@ -209,7 +209,7 @@ const CANDIDATE_FAQS = [
   {
     question: "Do I need a real estate background?",
     answer:
-      "No. We look for clear thinking, ownership, and the willingness to learn quickly. Most of our team didn\u2019t come from real estate. The industry knowledge is built here.",
+      "No. We look for clear thinking, ownership, and the willingness to learn quickly. Most of our team didn't come from real estate. The industry knowledge is built here.",
   },
   {
     question: "What does the interview process look like?",
@@ -217,19 +217,19 @@ const CANDIDATE_FAQS = [
       "Typically a short call, followed by a case discussion or task relevant to the role, then a final conversation with leadership. Usually wraps up within two weeks.",
   },
   {
-    question: "What\u2019s the team size?",
+    question: "What's the team size?",
     answer:
-      "Growing across Bangalore and Hyderabad. Small enough that your work is visible, large enough that you\u2019re working on real-scale mandates from day one.",
+      "Growing across Bangalore and Hyderabad. Small enough that your work is visible, large enough that you're working on real-scale mandates from day one.",
   },
   {
     question: "Is this remote?",
     answer:
-      "Most roles are on-ground since our work is tied to live projects and developer relationships. Some corporate functions have flexibility \u2014 it\u2019s mentioned in each listing.",
+      "Most roles are on-ground since our work is tied to live projects and developer relationships. Some corporate functions have flexibility \u2014 it's mentioned in each listing.",
   },
   {
     question: "How fast can I grow here?",
     answer:
-      "Depends entirely on you. We\u2019ve had people go from trainee to senior roles in under a year. There\u2019s no waiting period \u2014 impact drives progression.",
+      "Depends entirely on you. We've had people go from trainee to senior roles in under a year. There's no waiting period \u2014 impact drives progression.",
   },
 ];
 
@@ -366,17 +366,17 @@ function BuildSection() {
               {
                 number: "01",
                 title: "Real projects from week one",
-                desc: "No training wheels. You\u2019re on a live mandate with a real developer, real buyers, and real numbers. The accountability is immediate.",
+                desc: "No training wheels. You're on a live mandate with a real developer, real buyers, and real numbers. The accountability is immediate.",
               },
               {
                 number: "02",
                 title: "You see the full picture",
-                desc: "Positioning, marketing, sales, execution \u2014 you don\u2019t get siloed into one function. You understand how a project goes from launch to sell-out.",
+                desc: "Positioning, marketing, sales, execution \u2014 you don't get siloed into one function. You understand how a project goes from launch to sell-out.",
               },
               {
                 number: "03",
                 title: "Outcomes, not activity",
-                desc: "Clear metrics. Weekly reviews. Structured feedback. You\u2019ll always know where you stand, what\u2019s working, and what to fix.",
+                desc: "Clear metrics. Weekly reviews. Structured feedback. You'll always know where you stand, what's working, and what to fix.",
               },
             ].map((item, i) => (
               <div
@@ -870,7 +870,7 @@ function PeopleSection() {
               <BigCard
                 imgSrc={CAREERS_BIG_CARD_IMAGES[0]}
                 desc={
-                  "\u201COur focus isn\u2019t just on selling. It\u2019s on guiding clients through their decision as consultants, not salespeople.\u201D"
+                  "\"Our focus isn't just on selling. It's on guiding clients through their decision as consultants, not salespeople.\""
                 }
                 person="Bhavya"
                 role="GM, Sales"
@@ -883,7 +883,7 @@ function PeopleSection() {
               <BigCard
                 imgSrc={CAREERS_BIG_CARD_IMAGES[1]}
                 desc={
-                  "\u201CWhat sets this apart is how branding, marketing, and sales actually function as one system.\u201D"
+                  "\"What sets this apart is how branding, marketing, and sales actually function as one system.\""
                 }
                 person="Neeti A"
                 role="AGM, Marketing"
