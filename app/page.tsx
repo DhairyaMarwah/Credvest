@@ -30,7 +30,7 @@ const GROWTH_CARDS = [
     cta: "How We Advise Developers",
     href: "/how-we-work#branding-strategy",
     bg: "var(--color-pastel-blue)",
-    image: "/bg1.png",
+    image: "/why1.png",
   },
   {
     id: "stage-branding-marketing",
@@ -46,7 +46,7 @@ const GROWTH_CARDS = [
     cta: "How We Build Demand",
     href: "/how-we-work#marketing-system",
     bg: "var(--color-pastel-yellow)",
-    image: "/bg1.png",
+    image: "/why2.png",
   },
   {
     id: "stage-sales-momentum",
@@ -62,7 +62,7 @@ const GROWTH_CARDS = [
     cta: "How We Drive Momentum",
     href: "/how-we-work#sales-velocity",
     bg: "var(--color-pastel-green)",
-    image: "/bg1.png",
+    image: "/why3.png",
   },
   {
     id: "stage-post-sales",
@@ -78,7 +78,7 @@ const GROWTH_CARDS = [
     cta: "How We Retain Trust",
     href: "/how-we-work#post-sales-trust",
     bg: "var(--color-pastel-pink)",
-    image: "/bg1.png",
+    image: "/why4.png",
   },
 ];
 
