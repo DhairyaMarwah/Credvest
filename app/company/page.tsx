@@ -170,9 +170,7 @@ function HeroSection() {
             <h1 className="font-serif text-[clamp(2.8rem,5.8vw,5.5rem)] font-semibold text-neutral-black leading-[1.08] tracking-[-0.07em]">
               Credibility{" "}
               <span className="font-semibold text-stroke-brand">vested</span> in
-              every project
-              <br />
-              we touch.
+              every project we touch.
             </h1>
           </div>
 

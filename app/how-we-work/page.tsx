@@ -536,7 +536,7 @@ function StageSections() {
             </div>
           </div>
 
-          <div className="max-w-[1600px] mx-auto px-8 lg:px-12 pt-12 md:pt-16 pb-20 md:pb-28">
+          <div className="max-w-[1600px] mx-auto px-8 lg:px-12 pb-20 md:pb-28">
 
             {/* Section header */}
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-24 mb-16 md:mb-20">
