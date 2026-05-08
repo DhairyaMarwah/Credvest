@@ -48,21 +48,10 @@ function ArrowRight({ className }: { className?: string }) {
 const OFFICES = [
   {
     city: "Bangalore",
-    address: "12th Floor, Prestige Tower, MG Road, Bangalore 560001",
+    address:
+      "Credvest, 12, HAL Old Airport Rd, ಐಒಸಿ - ಶ್ರೀ ಸರ್ವಿಸ್ ಸ್ಟೇಷನ್, Domlur I Stage, 1st Stage, Domlur, Bengaluru, Karnataka 560071",
     phone: "+91 80 4567 8900",
     email: "bangalore@credvest.com",
-  },
-  {
-    city: "Hyderabad",
-    address: "7th Floor, Cyber Gateway, HITEC City, Hyderabad 500081",
-    phone: "+91 40 6789 0123",
-    email: "hyderabad@credvest.com",
-  },
-  {
-    city: "Mumbai",
-    address: "15th Floor, One BKC, Bandra Kurla Complex, Mumbai 400051",
-    phone: "+91 22 4567 8900",
-    email: "mumbai@credvest.com",
   },
 ];
 

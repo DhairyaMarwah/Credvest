@@ -8,7 +8,7 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
     links: [
       { label: "About Us", href: "/company" },
       { label: "The Group", href: "/group" },
-      { label: "Projects", href: "/projects" },
+      { label: "Case Studies", href: "/projects" },
       { label: "Careers", href: "/careers" },
     ],
   },
@@ -16,10 +16,10 @@ const FOOTER_LINKS: { heading: string; links: { label: string; href: string; ext
     heading: "Services",
     links: [
       { label: "How We Work", href: "/how-we-work" },
-      { label: "Branding & Strategy", href: "/how-we-work" },
-      { label: "Marketing", href: "/how-we-work" },
-      { label: "Sales", href: "/how-we-work" },
-      { label: "Post Sales", href: "/how-we-work" },
+      { label: "Branding & Strategy", href: "/how-we-work#branding-strategy" },
+      { label: "Marketing", href: "/how-we-work#marketing" },
+      { label: "Sales", href: "/how-we-work#sales" },
+      { label: "Post Sales", href: "/how-we-work#post-sales" },
     ],
   },
   {

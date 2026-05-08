@@ -94,36 +94,13 @@ const SUCCESS_STORIES = [
   {
     name: "Sameer Feroz Bhayani",
     currentRole: "Chief Business Officer",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+    image: "/sameer.jpeg",
     timeline: [
       { date: "Nov 2021", role: "Joined as Senior Project Manager" },
       { date: "Apr 2022", role: "Promoted to Project Lead" },
       { date: "Dec 2022", role: "Promoted to Regional Head" },
       { date: "Nov 2023", role: "Associate Director of Sales" },
       { date: "Apr 2025", role: "Chief Business Officer" },
-    ],
-  },
-  {
-    name: "Deekshitha B C",
-    currentRole: "CRM Lead",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-    timeline: [
-      { date: "Nov 2023", role: "Joined as Project Manager" },
-      { date: "Feb 2025", role: "Promoted to Project Lead" },
-      { date: "Sep 2025", role: "Moved to CRM as CRM Lead" },
-    ],
-  },
-  {
-    name: "Niranjan Murthi K R",
-    currentRole: "Design Lead",
-    image:
-      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&q=80",
-    timeline: [
-      { date: "Aug 2023", role: "Joined as Sr. Graphic Designer" },
-      { date: "Apr 2024", role: "Promoted to Design Lead" },
-      { date: "Nov 2024", role: "Moved to AITI Interieurs" },
     ],
   },
 ];
@@ -629,7 +606,7 @@ function SuccessStoriesSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0 border border-neutral-200 min-h-[480px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-0 border border-neutral-200 min-h-[480px]">
           {/* Left — image with dither */}
           <div className="relative h-[300px] lg:h-auto">
             <StoryImage key={activeStory} src={story.image} />
@@ -639,12 +616,14 @@ function SuccessStoriesSection() {
               </span>
             </div>
             {/* Progress bar below image */}
-            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-neutral-200 z-20">
-              <div
-                className="h-full bg-brand transition-[width] duration-75 ease-linear"
-                style={{ width: `${progress * 100}%` }}
-              />
-            </div>
+            {SUCCESS_STORIES.length > 1 && (
+              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-neutral-200 z-20">
+                <div
+                  className="h-full bg-brand transition-[width] duration-75 ease-linear"
+                  style={{ width: `${progress * 100}%` }}
+                />
+              </div>
+            )}
           </div>
 
           {/* Right — timeline + nav arrows */}
@@ -693,6 +672,7 @@ function SuccessStoriesSection() {
             </div>
 
             {/* Navigation arrows bottom-right */}
+            {SUCCESS_STORIES.length > 1 && (
             <div className="flex items-center justify-end gap-2 mt-6 pt-4 border-t border-neutral-100">
               <span className="text-[12px] text-neutral-400 font-sans mr-auto">
                 {activeStory + 1} / {SUCCESS_STORIES.length}
@@ -728,6 +708,7 @@ function SuccessStoriesSection() {
                 </svg>
               </button>
             </div>
+            )}
           </div>
         </div>
       </div>

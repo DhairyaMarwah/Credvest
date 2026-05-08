@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
@@ -46,28 +47,10 @@ function CornerBrackets() {
 /* ── Ventures Data ── */
 
 /* ── Logo cell for the logo row ── */
-function DitherLogo({
-  src,
-  alt,
-  scrollTo,
-}: {
-  src?: string;
-  alt: string;
-  scrollTo?: string;
-}) {
-  const handleClick = () => {
-    if (scrollTo) {
-      const el = document.getElementById(scrollTo);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  };
-
+function DitherLogo({ src, alt }: { src?: string; alt: string }) {
   if (!src) {
     return (
-      <div
-        className="flex items-center justify-center h-[35px] md:h-[50px] cursor-pointer group"
-        onClick={handleClick}
-      >
+      <div className="flex items-center justify-center h-[35px] md:h-[50px] group">
         <span className="font-serif text-xl md:text-2xl tracking-[-0.02em] text-neutral-400 group-hover:text-neutral-black transition-colors">
           {alt}
         </span>
@@ -76,10 +59,7 @@ function DitherLogo({
   }
 
   return (
-    <div
-      className="relative h-[35px] md:h-[50px] w-[120px] md:w-[160px] cursor-pointer group"
-      onClick={handleClick}
-    >
+    <div className="relative h-[35px] md:h-[50px] w-[120px] md:w-[160px] group">
       <Image
         src={src}
         alt={alt}
@@ -203,6 +183,19 @@ function HeroSection() {
 /* ── Unified bordered content ── */
 
 function BorderedContent() {
+  const [activeName, setActiveName] = useState<string>("Credvest");
+  const scrollToVenture = (name: string) => {
+    const el = document.getElementById(`venture-${name}`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  const cellInteractions = (name: string) => ({
+    onMouseEnter: () => setActiveName(name),
+    onClick: () => {
+      setActiveName(name);
+      scrollToVenture(name);
+    },
+  });
+
   return (
     <section className="bg-white">
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12">
@@ -212,13 +205,10 @@ function BorderedContent() {
 
           {/* Credvest — full-width on mobile, part of 5-col row on desktop */}
           <div
-            className="md:hidden flex items-center justify-center p-8 border-b border-dotted border-neutral-300 min-h-[120px] relative bg-brand/[0.03] cursor-pointer"
-            onClick={() => {
-              const el = document.getElementById("venture-Credvest");
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-            }}
+            className={`md:hidden flex items-center justify-center p-8 border-b border-dotted border-neutral-300 min-h-[120px] relative cursor-pointer transition-colors ${activeName === "Credvest" ? "bg-brand/[0.03]" : ""}`}
+            {...cellInteractions("Credvest")}
           >
-            <CornerBrackets />
+            {activeName === "Credvest" && <CornerBrackets />}
             <Image
               src="/logo.svg"
               alt="Credvest"
@@ -233,21 +223,20 @@ function BorderedContent() {
             {SIDE_VENTURES.slice(0, 2).map((v) => (
               <div
                 key={v.name}
-                className="flex items-center justify-center p-6 md:p-10 border-r border-b md:border-b-0 border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px]"
+                className={`relative flex items-center justify-center p-6 md:p-10 border-r border-b md:border-b-0 border-dotted border-neutral-300 min-h-[100px] md:min-h-[160px] cursor-pointer transition-colors ${activeName === v.name ? "bg-brand/[0.03]" : ""}`}
+                {...cellInteractions(v.name)}
               >
-                <DitherLogo src={v.logo} alt={v.name} scrollTo={`venture-${v.name}`} />
+                {activeName === v.name && <CornerBrackets />}
+                <DitherLogo src={v.logo} alt={v.name} />
               </div>
             ))}
 
             {/* Credvest — desktop only, center */}
             <div
-              className="hidden md:flex items-center justify-center p-6 md:p-10 border-r border-dotted border-neutral-300 min-h-[160px] relative bg-brand/[0.03] cursor-pointer"
-              onClick={() => {
-                const el = document.getElementById("venture-Credvest");
-                if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-              }}
+              className={`hidden md:flex items-center justify-center p-6 md:p-10 border-r border-dotted border-neutral-300 min-h-[160px] relative cursor-pointer transition-colors ${activeName === "Credvest" ? "bg-brand/[0.03]" : ""}`}
+              {...cellInteractions("Credvest")}
             >
-              <CornerBrackets />
+              {activeName === "Credvest" && <CornerBrackets />}
               <Image
                 src="/logo.svg"
                 alt="Credvest"
@@ -260,11 +249,13 @@ function BorderedContent() {
             {SIDE_VENTURES.slice(2).map((v, i, arr) => (
               <div
                 key={v.name}
-                className={`flex items-center justify-center p-6 md:p-10 min-h-[100px] md:min-h-[160px] border-dotted border-neutral-300 ${
+                className={`relative flex items-center justify-center p-6 md:p-10 min-h-[100px] md:min-h-[160px] border-dotted border-neutral-300 cursor-pointer transition-colors ${activeName === v.name ? "bg-brand/[0.03]" : ""} ${
                   i < arr.length - 1 ? "border-r" : ""
                 } ${i === 0 ? "border-b md:border-b-0" : ""}`}
+                {...cellInteractions(v.name)}
               >
-                <DitherLogo src={v.logo} alt={v.name} scrollTo={`venture-${v.name}`} />
+                {activeName === v.name && <CornerBrackets />}
+                <DitherLogo src={v.logo} alt={v.name} />
               </div>
             ))}
           </div>

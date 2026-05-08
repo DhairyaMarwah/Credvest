@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -385,12 +385,36 @@ function HeroSection() {
 
 /* ── Tabbed Process Section ── */
 
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/&/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+
 function ProcessSection() {
   const [activeTab, setActiveTab] = useState(0);
   const tab = PROCESS_TABS[activeTab];
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Sync active tab with URL hash, and scroll into view when hash matches one of our slugs
+  useEffect(() => {
+    const slugs = PROCESS_TABS.map((t) => slugify(t.label));
+    const applyHash = () => {
+      const hash = window.location.hash.replace(/^#/, "");
+      const idx = slugs.indexOf(hash);
+      if (idx >= 0) {
+        setActiveTab(idx);
+        sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
 
   return (
-    <section className="bg-white">
+    <section
+      ref={sectionRef}
+      id="process"
+      className="bg-white scroll-mt-20"
+    >
       <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-32">
         {/* Tabs */}
         <div className="grid grid-cols-2 md:grid-cols-4 border border-neutral-200">
