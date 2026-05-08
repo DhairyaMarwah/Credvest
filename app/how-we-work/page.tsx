@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -220,6 +221,7 @@ const STAGE_SECTIONS = [
     id: "branding-strategy",
     number: "01",
     label: "Branding & Strategy",
+    image: "/why1.png",
     headline: "Every project begins with positioning, not promotion.",
     lead: "Before the first hoarding goes up or a single rupee is spent on marketing, we sit with the developer and define the foundation. What does this project stand for? Who is it for? How is it different from everything else in the micro-market?",
     paragraphs: [
@@ -249,6 +251,7 @@ const STAGE_SECTIONS = [
     id: "marketing-system",
     number: "02",
     label: "Marketing",
+    image: "/why2.png",
     headline: "Demand generation managed by the team that built the brand.",
     lead: "The same team that defines your positioning runs your marketing. There is no briefing document passed to a separate agency. No dilution. No lost context. The story stays consistent because nobody has to translate it secondhand.",
     paragraphs: [
@@ -278,6 +281,7 @@ const STAGE_SECTIONS = [
     id: "sales-velocity",
     number: "03",
     label: "Sales",
+    image: "/why3.png",
     headline: "Dedicated teams. Structured pipeline. Predictable momentum.",
     lead: "Sales at Credvest is not a department — it's a system. Dedicated teams are trained on your product, deployed to your project, and measured against sales-momentum targets. Not shared across ten projects. Not dependent on who happens to be on shift.",
     paragraphs: [
@@ -307,6 +311,7 @@ const STAGE_SECTIONS = [
     id: "post-sales-trust",
     number: "04",
     label: "Post Sales",
+    image: "/why4.png",
     headline: "The relationship doesn't end at closure. It compounds.",
     lead: "Most consulting firms disappear after the last unit is booked. We don't — because post-sales is where trust is either validated or broken. Structured handover, documentation, CRM management, and buyer follow-up ensure the promise made during sales is the experience delivered after.",
     paragraphs: [
@@ -488,17 +493,31 @@ function ProcessSection() {
 function StageSections() {
   return (
     <>
-      {STAGE_SECTIONS.map((stage, idx) => (
+      {STAGE_SECTIONS.map((stage) => (
         <section
           key={stage.id}
           id={stage.id}
           className="bg-white scroll-mt-20"
         >
-          <div className="max-w-[1600px] mx-auto px-8 lg:px-12 py-20 md:py-28">
-            {/* Divider line between sections */}
-            {idx > 0 && (
-              <div className="border-t border-neutral-200 mb-20 md:mb-28" />
-            )}
+          {/* Stage hero image with white-fade gradient on bottom half */}
+          <div className="relative w-full h-[40vh] md:h-[55vh] overflow-hidden">
+            <Image
+              src={stage.image}
+              alt={stage.label}
+              fill
+              className="object-cover"
+              priority={stage.number === "01"}
+            />
+            <div
+              className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+              }}
+            />
+          </div>
+
+          <div className="max-w-[1600px] mx-auto px-8 lg:px-12 pt-12 md:pt-16 pb-20 md:pb-28">
 
             {/* Section header */}
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-24 mb-16 md:mb-20">
