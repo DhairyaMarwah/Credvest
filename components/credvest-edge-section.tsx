@@ -64,6 +64,30 @@ export function CredvestEdgeSection() {
   const progressRef = useRef<number>(0);
   const animFrameRef = useRef<number>(0);
   const lastTickRef = useRef<number>(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll the horizontal container so the active stage is centered (mobile only)
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    if (container.scrollWidth <= container.clientWidth + 1) return;
+    const tab = container.querySelector<HTMLButtonElement>(
+      `[data-stage-index="${activeStage}"]`,
+    );
+    if (!tab) return;
+    const containerRect = container.getBoundingClientRect();
+    const tabRect = tab.getBoundingClientRect();
+    const tabCenter =
+      tabRect.left - containerRect.left + container.scrollLeft + tabRect.width / 2;
+    const targetLeft = tabCenter - container.clientWidth / 2;
+    container.scrollTo({
+      left: Math.max(
+        0,
+        Math.min(targetLeft, container.scrollWidth - container.clientWidth),
+      ),
+      behavior: "smooth",
+    });
+  }, [activeStage]);
 
   useEffect(() => {
     if (isUserHovering) return;
@@ -161,8 +185,11 @@ export function CredvestEdgeSection() {
           </p>
         </div>
 
-        <div className="relative bg-white rounded-sm overflow-x-auto md:overflow-hidden -mx-8 px-8 md:mx-0 md:px-0">
-          <div className="min-w-[760px] md:min-w-0 relative">
+        <div
+          ref={scrollContainerRef}
+          className="relative bg-white rounded-sm overflow-x-auto md:overflow-hidden -mx-8 md:mx-0 scroll-smooth"
+        >
+          <div className="min-w-[1080px] md:min-w-0 relative px-8 md:px-0">
           {/* Column highlight */}
           <div
             className="absolute top-0 bottom-0 pointer-events-none z-10"
@@ -183,6 +210,7 @@ export function CredvestEdgeSection() {
             {LIFECYCLE_STAGES.map((stage, i) => (
               <button
                 key={stage.id}
+                data-stage-index={i}
                 onMouseEnter={() => handleStageHover(i)}
                 onMouseLeave={handleStageLeave}
                 className="relative py-5 px-4 text-left cursor-default transition-all"
