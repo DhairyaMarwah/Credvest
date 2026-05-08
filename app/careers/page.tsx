@@ -281,7 +281,7 @@ function HeroSection() {
       >
         <div className="relative w-full h-[50vh] md:h-auto md:aspect-[16/4.5] overflow-hidden">
           <Image
-            src="/CredvestOffice.webp"
+            src="/CredvestOffice.png"
             alt="Inside the Credvest office"
             fill
             className="object-cover transition-transform duration-100 ease-out"
