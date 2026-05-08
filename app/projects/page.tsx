@@ -37,7 +37,7 @@ const CASE_STUDIES = [
     approach:
       "Pivoted the product to a sub-₹1Cr UDS villa — engineered to convert 3BHK apartment seekers into villa buyers. Sales ran on VR walkthroughs and in-home meetings. No site office. No precedent.",
     result:
-      "127 units in 10 months. Steady 12–13 closures every month, with no sales office on the ground. Buyers who entered at ₹85L are seeing resale cross ₹1.4Cr — the appreciation that built the developer’s credibility for everything that came next.",
+      "127 units in 10 months. Steady 12–13 closures every month, with no sales office on the ground. Buyers who entered at ₹85L are seeing resale cross ₹1.4Cr — the appreciation that built the developer's credibility for everything that came next.",
     stat: { value: "₹85L → ₹1.4Cr+", label: "Buyer entry to resale" },
   },
   {
@@ -45,14 +45,14 @@ const CASE_STUDIES = [
     type: "Mixed-Use Residential",
     location: "Gunjur, East Bangalore",
     headline:
-      "A 20-acre apartment and villa development in one of Bangalore’s most contested corridors.",
+      "A 20-acre apartment and villa development in one of Bangalore's most contested corridors.",
     units: "1,293 units",
     timeline: "Multi-phase",
     revenue: "On request",
     challenge:
       "1,293 units to absorb in a corridor with new competing launches landing every quarter.",
     approach:
-      "A “Carnival Living” teaser campaign anchored the launch — built around lived-in moments and the micro-market story, not a feature list. Followed by a structured, channel-disciplined sales engine sustained across phases.",
+      "A 'Carnival Living' teaser campaign anchored the launch — built around lived-in moments and the micro-market story, not a feature list. Followed by a structured, channel-disciplined sales engine sustained across phases.",
     result:
       "909 units allocated across the early phases. 656 mixed-asset units cleared through 2024. Sustained absorption in a corridor where most projects stall the month after launch.",
     stat: { value: "100", label: "Bookings on launch day" },
@@ -84,7 +84,7 @@ const CASE_STUDIES = [
     timeline: "8 months",
     revenue: "On request",
     challenge:
-      "A ₹1.5–1.8Cr ticket size in a corridor largely priced for the mid-segment. The product didn’t have local comparables that justified the ask.",
+      "A ₹1.5–1.8Cr ticket size in a corridor largely priced for the mid-segment. The product didn't have local comparables that justified the ask.",
     approach:
       "Benchmarked pricing against legitimate luxury comparables — not the immediate neighbourhood. Built a narrative that earned the price.",
     result:
@@ -96,14 +96,14 @@ const CASE_STUDIES = [
     type: "Mid-Segment Residential",
     location: "Budigere Cross, East Bangalore",
     headline:
-      "An apartment community in one of East Bangalore’s most contested IT corridors.",
+      "An apartment community in one of East Bangalore's most contested IT corridors.",
     units: "218 units",
     timeline: "~12 months",
     revenue: "On request",
     challenge:
       "32 active competing projects in the same micro-market. All chasing the same IT buyer. Generic affordability messaging would have disappeared in the noise.",
     approach:
-      "Hyper-local targeting. A “value-for-money” narrative sharpened to the IT professional’s actual decision criteria — commute, builder credibility, configuration — not headline price.",
+      "Hyper-local targeting. A 'value-for-money' narrative sharpened to the IT professional's actual decision criteria — commute, builder credibility, configuration — not headline price.",
     result:
       "218 units sold. 20 units a month at peak. Pricing moved 46% from launch to closeout — without ever losing sales momentum.",
     stat: { value: "₹6,500 → ₹9,500", label: "Per sq.ft., launch to closeout" },
@@ -134,11 +134,11 @@ const CASE_STUDIES = [
     timeline: "6 months",
     revenue: "On request",
     challenge:
-      "The market had already labelled the project stale. Most of the inventory was unsold. Construction was nearly done, which meant the developer’s capital was sitting locked.",
+      "The market had already labelled the project stale. Most of the inventory was unsold. Construction was nearly done, which meant the developer's capital was sitting locked.",
     approach:
       "New positioning. End-user buyer, not investor. Affordability sharpened to the segment that actually wanted to live in the building. Six-month campaign window, no extensions.",
     result:
-      "The remaining 80% of inventory cleared in 6 months. Developer’s blocked capital unlocked. Project books closed.",
+      "The remaining 80% of inventory cleared in 6 months. Developer's blocked capital unlocked. Project books closed.",
     stat: { value: "80%", label: "Inventory cleared in 6 months" },
   },
   {
@@ -152,7 +152,7 @@ const CASE_STUDIES = [
     challenge:
       "A first-time developer entering a city already sitting on heavy unsold inventory. The developer was a Bangalore-based architect with 1,000+ projects delivered as a designer — and none as a builder.",
     approach:
-      "Started before the launch. Product fitment first — a mix from affordable to luxury, anchored by concierge services. Then a 16-month go-to-market built on the micro-market thesis: buy the future at today’s price.",
+      "Started before the launch. Product fitment first — a mix from affordable to luxury, anchored by concierge services. Then a 16-month go-to-market built on the micro-market thesis: buy the future at today's price.",
     result:
       "A first-time developer established as a credible Tier-1 player in Hyderabad — inside a single project cycle.",
     stat: { value: "80%", label: "Sold in 16 months" },
@@ -424,6 +424,7 @@ export default function ProjectsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="m-0"
             >
               <span className="font-serif text-2xl md:text-4xl lg:text-[2.8rem] font-semibold text-neutral-black leading-[1.2] tracking-[-0.04em] block mb-6">
                 &ldquo;We don&apos;t pitch decks.
