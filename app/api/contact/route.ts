@@ -15,11 +15,30 @@ export async function POST(req: Request) {
       );
     }
 
-    const inquiryLabels: Record<string, string> = {
-      developer: "Developer / Builder",
-      professional: "Job Seeker",
-      other: "Other",
+    const inquiryPhrases: Record<string, string> = {
+      developer: "a developer looking for a structured sales partner",
+      professional: "a professional interested in joining the team",
+      other: "reaching out to learn more about Credvest",
     };
+    const inquiryPhrase = inquiryPhrases[inquiryType] ?? "reaching out";
+
+    const esc = (s: string) =>
+      s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const bold = (s: string) =>
+      `<strong style="color: #1a1a1a; font-weight: 600;">${esc(s)}</strong>`;
+
+    const reachLine =
+      email && phone
+        ? `<p style="margin: 0 0 16px;">You can reach me at ${bold(email)} or ${bold(phone)}.</p>`
+        : email
+          ? `<p style="margin: 0 0 16px;">You can reach me at ${bold(email)}.</p>`
+          : phone
+            ? `<p style="margin: 0 0 16px;">You can reach me at ${bold(phone)}.</p>`
+            : "";
+
+    const fromLine = company
+      ? `My name is ${bold(name)} from ${bold(company)}. I am ${esc(inquiryPhrase)}.`
+      : `My name is ${bold(name)}. I am ${esc(inquiryPhrase)}.`;
 
     const { error } = await resend.emails.send({
       from: "Credvest Contact <contact@credvest.com>",
@@ -27,43 +46,13 @@ export async function POST(req: Request) {
       replyTo: email,
       subject: `New inquiry from ${name}${company ? ` — ${company}` : ""}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="border-bottom: 2px solid #FA412A; padding-bottom: 12px;">
-            New Contact Submission
-          </h2>
-          <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
-            <tr>
-              <td style="padding: 8px 0; color: #888; width: 120px;">Type</td>
-              <td style="padding: 8px 0;">${inquiryLabels[inquiryType] ?? inquiryType}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; color: #888;">Name</td>
-              <td style="padding: 8px 0;">${name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; color: #888;">Email</td>
-              <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
-            </tr>
-            ${
-              phone
-                ? `<tr>
-              <td style="padding: 8px 0; color: #888;">Phone</td>
-              <td style="padding: 8px 0;">${phone}</td>
-            </tr>`
-                : ""
-            }
-            ${
-              company
-                ? `<tr>
-              <td style="padding: 8px 0; color: #888;">Company</td>
-              <td style="padding: 8px 0;">${company}</td>
-            </tr>`
-                : ""
-            }
-          </table>
-          <div style="margin-top: 24px; padding: 16px; background: #f8f8f8; border-left: 3px solid #FA412A;">
-            <p style="margin: 0; color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;">Message</p>
-            <p style="margin: 8px 0 0; line-height: 1.6;">${message.replace(/\n/g, "<br />")}</p>
+        <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 600px; margin: 0 auto; padding: 40px 32px; background: #F8F8F8; color: #404040; font-size: 17px; line-height: 1.8; letter-spacing: -0.01em;">
+          <p style="margin: 0 0 16px;">Dear Credvest,</p>
+          <p style="margin: 0 0 16px;">${fromLine}</p>
+          ${reachLine}
+          <p style="margin: 0 0 16px; color: #2a2a2a; white-space: pre-wrap;">${esc(message)}</p>
+          <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #E0E0E0;">
+            <p style="margin: 0; color: #888;">Regards,<br /><span style="color: #2a2a2a; font-weight: 600;">${esc(name)}</span></p>
           </div>
         </div>
       `,
