@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     };
 
     const { error } = await resend.emails.send({
-      from: "Credvest Contact <onboarding@resend.dev>",
+      from: "Credvest Contact <contact@credvest.com>",
       to: [TO_EMAIL],
       replyTo: email,
       subject: `New inquiry from ${name}${company ? ` — ${company}` : ""}`,
